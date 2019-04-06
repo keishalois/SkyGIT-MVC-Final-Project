@@ -7,13 +7,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico|Pangolin" >
 <link rel="stylesheet" href="views/css/styles.css">
-<title>Shopping Cart</title>
+<title>FML Blog</title>
   </head>
   <body>
     <header class="w3-container w3-gray">
       <a href='/FinalProject'>Home</a>
-      <a href='?controller=product&action=readAll'>Products</a>
-      <a href='?controller=product&action=create'>Add Product</a>
+      <a href='?controller=blog&action=readAll'>Blog Posts</a>
+      <a href='?controller=blog&action=create'>Add New Blog Post</a>
     </header>
 <div class="w3-container w3-pink">
     <?php require_once('routes.php'); ?>

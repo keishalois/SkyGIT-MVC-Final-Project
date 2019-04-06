@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>MVC Skeleton</title>
+        <title>FML Blog</title>
     </head>
     <body>
         <?php
@@ -20,3 +20,4 @@
         ?>
     </body>
 </html>
+

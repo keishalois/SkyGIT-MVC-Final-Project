@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head> 
+       <?php session_start();   
+       if(!empty($_SESSION)){
+            $username = $_SESSION["username"];
+    }
+    else {header("Location:landingpage.php");} ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">

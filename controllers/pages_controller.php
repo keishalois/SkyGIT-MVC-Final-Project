@@ -3,9 +3,14 @@
 class PagesController {
    
     public function home() {
+       //this starts a session on the homepage and lets us display the username
+    session_start();
+    if(!empty($_SESSION)){
+            $username = $_SESSION["username"];
+    }
+    else {header("Location:landingpage.php");} 
+    
       //example data to use in the home page
-      $first_name = 'Lisa';
-      $last_name  = 'Simpson';
       require_once('views/pages/home.php');
     }
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
@@ -14,6 +14,7 @@
       <a href='/FinalProject'>Home</a>
       <a href='?controller=blog&action=readAll'>Blog Posts</a>
       <a href='?controller=blog&action=create'>Add New Blog Post</a>
+      <a href='landingpage.php'>Logout</a>
     </header>
 <div class="w3-container w3-pink">
     <?php require_once('routes.php'); ?>

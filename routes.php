@@ -41,4 +41,4 @@ $controllers = array('pages' => ['home', 'error'],
   } else {
     call('pages', 'error');
   }
-  ?>
+  

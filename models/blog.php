@@ -31,12 +31,14 @@
       $db = Db::getInstance();
       //use intval to make sure $id is an integer
       $blogid = intval($blogid);
-      $req = $db->prepare('SELECT * FROM blogposts WHERE BlogID = :blogid');
+      $req = $db->prepare('SELECT blogposts.BlogID, blogposts.BlogTitle, blogposts.BlogContent, users.Username, blogposts.DateAdded 
+                        FROM blogposts
+                        INNER JOIN users ON blogposts.UserID=users.UserID;');
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('blogid' => $blogid));
       $blogpost = $req->fetch();
 if($blogpost){
-      return new BlogPost($blogpost['BlogID'], $blogpost['BlogTitle'], $blogpost['BlogContent'], $blogpost['UserID'], $blogpost['DateAdded']);
+      return new BlogPost($blogpost['BlogID'], $blogpost['BlogTitle'], $blogpost['BlogContent'], $blogpost['Username'], $blogpost['DateAdded']);
     }
     else
     {

@@ -1,12 +1,13 @@
+<h3><?php echo $blogpost->title; ?></h3>
 <p>This is the requested blog:</p>
 
 <p>Blog ID: <?php echo $blogpost->blogid; ?></p>
-<p>Blog Name: <?php echo $blogpost->title; ?></p>
-<p>Blog: <?php echo $blogpost->content; ?></p>
+<p>Added By: <?php echo $blogpost->username; ?></p>
+<p>Content: <?php echo $blogpost->content; ?></p>
 
 
 
-//<?php 
+<?php 
 //$file = 'views/images/' . $blogpost->title . '.jpeg';
 //if(file_exists($file)){
 //    $img = "<img src='$file' width='150' />";

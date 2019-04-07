@@ -4,7 +4,6 @@ class PagesController {
    
     public function home() {
        //this starts a session on the homepage and lets us display the username
-    session_start();
     if(!empty($_SESSION)){
             $username = $_SESSION["username"];
     }

@@ -78,11 +78,17 @@ $req->execute();
     
     public static function add() {
     $db = Db::getInstance();
-    $req = $db->prepare("Insert into BlogPosts(BlogContent, BlogTitle) values (:title, :content)");
+    $req = $db->prepare("Insert into blogposts(UserID, BlogTitle, BlogContent, DateAdded) values ((SELECT UserID from users WHERE Username = :username), :title, :content, CURRENT_DATE)");
+    $req->bindParam(':username', $username);
     $req->bindParam(':title', $title);
     $req->bindParam(':content', $content);
 
 // set parameters and execute
+        if(!empty($_SESSION)){
+            $username = $_SESSION["username"];
+    }
+    else {header("Location:landingpage.php");}
+    
     if(isset($_POST['title'])&& $_POST['title']!=""){
         $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
     }

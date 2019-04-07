@@ -9,7 +9,8 @@ class User {
     protected $password;
     protected $usertype;
 	
-        public function __construct($username, $password) {
+        public function __construct($email, $username, $password) {
+                $this->email = $email;
 		$this->username = $username;
                 $this->password = $password;
 	}

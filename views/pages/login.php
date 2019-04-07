@@ -4,9 +4,10 @@
     session_start();
     include "/Applications/XAMPP/xamppfiles/htdocs/FinalProject/models/user.php"; 
     if (!empty($_POST)){
+        $email= filter_var($_POST['email'], FILTER_SANITIZE_STRING);
         $usn= filter_var($_POST['username'], FILTER_SANITIZE_STRING);
         $psw= $_POST["password"];
-        $login=new User($usn, $psw);
+        $login=new User($email, $usn, $psw);
         $login->loginUser();  
     }
 ?>
@@ -25,6 +26,7 @@
 		<div class="col col-lg-12"></div>
 			<div id="content">
 	<form action="" method="post" class="form">
+        Email: <input type="text" name="email" placeholder="Email" required/>
         Username: <input type="text" name="username" placeholder="Username" required/>
         Password: <input type="password" name="password" placeholder="Password" required/>
         <input type="submit" class="btn btn-default btn-lg" href='#'value="Login"/>

@@ -5,11 +5,11 @@
 </div>
     <p>
         <input class="w3-input" type="text" name="name" required autofocus>
-        <label>Name</label>
+        <label>Title</label>
     </p>
         <p>
         <input class="w3-input" type="text" name="price" required>
-        <label>Price</label>
+        <label>Content</label>
     </p>
             
   <input type="hidden" 
@@ -19,6 +19,6 @@
 
   <input type="file" name="myUploader" class="w3-btn w3-pink" required />
   <p>
-    <input class="w3-btn w3-pink" type="submit" value="Add Product">
+    <input class="w3-btn w3-pink" type="submit" value="Add Blog">
   </p>
 </form>

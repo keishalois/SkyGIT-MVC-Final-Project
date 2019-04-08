@@ -87,14 +87,16 @@ public static function update($blogid) {
     $req->bindParam(':blogid', $blogid);
     
 // set parameters and execute
+    //check user is logged in and use that username, if not redirects to make user log in
         if(!empty($_SESSION)){
             $username = $_SESSION["username"];
     }
     else {header("Location:landingpage.php");}
-    
+    //checks blog title is not empty and filters 
     if(isset($_POST['title'])&& $_POST['title']!=""){
         $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
     }
+    //checks blog content is not empty and filters 
     if(isset($_POST['content'])&& $_POST['content']!=""){
         $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_SPECIAL_CHARS);
     }

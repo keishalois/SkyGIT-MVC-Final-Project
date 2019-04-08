@@ -30,7 +30,7 @@
 
 <!-- the paragraph below only displays when the user is not logged in-->
                                  <p><?php if(empty($_SESSION)){
-                echo "Hello guest - please log in or sign up!" . '<br>';
+                echo "U ok hun? - please log in or sign up!" . '<br>';
                 } ?></p></div>
                                  <div class="land-nav">
                                 <a class="btn btn-default btn-lg" href='views/pages/login.php'>Login </a>

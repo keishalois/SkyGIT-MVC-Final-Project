@@ -14,12 +14,7 @@
         ?>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
-        <style>
-            body {
-                background: black;
-                color: yellow;
-            }
-        </style>
+
 
 </head>
 
@@ -27,17 +22,21 @@
 	<div class="row justify-content-md-center">
 		<div class="col col-lg-12"></div>
 			<div id="content">
-				<h1>#FML</h1>
-				<h3>Fork My Life</h3>
-                                <h4>for all those fml moments</h4>
+                           <div class="area">
+				<h2>#FML: Fork My Life</h2>
+                                <h4>For all those FML moments</h4>
+                                <p><i>FYI: A fork is a copy of a repository.</i>
 				<hr>
+                                
 <!-- the paragraph below only displays when the user is not logged in-->
-                                 <p><? if(empty($_SESSION)){
+                                 <p><?php if(empty($_SESSION)){
                 echo "Hello guest - please log in or sign up!" . '<br>';
-                } ?></p>
+                } ?></p></div>
+                                 <div class="land-nav">
                                 <a class="btn btn-default btn-lg" href='views/pages/login.php'>Login </a>
                                 <a class="btn btn-default btn-lg" href='views/pages/signup.php'>Sign up</a>
-			</div>
+                                 </div>
+                        </div>
 	</div>
 </div>
 

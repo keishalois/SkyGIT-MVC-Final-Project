@@ -1,4 +1,4 @@
-<p>Fill in the following form to create a new product:</p>
+<p>Fill in the following form to create a new Blog Post:</p>
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     
     <h2>Add New Blog</h2>

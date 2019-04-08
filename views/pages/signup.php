@@ -2,7 +2,7 @@
 
 <?php
     session_start();
-    include "C:/xampp/htdocs/FinalProject/models/user.php"; 
+    include "/Applications/XAMPP/xamppfiles/htdocs/FinalProject/models/user.php"; 
     if (!empty($_POST)){
         $email= filter_var($_POST['email'], FILTER_SANITIZE_STRING);
         $usn= filter_var($_POST['username'], FILTER_SANITIZE_STRING);
@@ -19,9 +19,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Sign Up - FML</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="../css/styles.css">
-        <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
-       
+	<link rel="stylesheet" type="text/css" href="css/playbeforeyoupay.css">
+  <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
 </head>
 
 <div class="container">

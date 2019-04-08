@@ -1,10 +1,9 @@
 <h3><?php echo $blogpost->title; ?></h3>
+
 <p>Blog ID: <?php echo $blogpost->blogid; ?></p>
 <p>Added By: <?php echo $blogpost->username; ?></p>
 <p>Date Added: <?php echo $blogpost->date; ?></p>
 <p>Content: <?php echo $blogpost->content; ?></p>
-
-
 
 <?php 
 $file = 'views/images/' . $blogpost->title . '.jpeg';
@@ -17,5 +16,5 @@ else
 echo "<img src='views/images/standard/_noproductimage.png' width='150' />";
 }
 
-?>
+
 	

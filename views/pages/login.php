@@ -2,11 +2,12 @@
 
 <?php
     session_start();
-    include "C:/xampp/htdocs/FinalProject/models/user.php"; 
+    include "/Applications/XAMPP/xamppfiles/htdocs/FinalProject/models/user.php"; 
     if (!empty($_POST)){
+        $email= filter_var($_POST['email'], FILTER_SANITIZE_STRING);
         $usn= filter_var($_POST['username'], FILTER_SANITIZE_STRING);
         $psw= $_POST["password"];
-        $login=new User($usn, $psw);
+        $login=new User($email, $usn, $psw);
         $login->loginUser();  
     }
 ?>
@@ -18,10 +19,6 @@
 	<title>Log In - FML</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
-        
-          <style>
-
-        </style>
 </head>
 
 <div class="container">
@@ -29,6 +26,7 @@
 		<div class="col col-lg-12"></div>
 			<div id="content">
 	<form action="" method="post" class="form">
+        Email: <input type="text" name="email" placeholder="Email" required/>
         Username: <input type="text" name="username" placeholder="Username" required/>
         Password: <input type="password" name="password" placeholder="Password" required/>
         <input type="submit" class="btn btn-default btn-lg" href='#'value="Login"/>

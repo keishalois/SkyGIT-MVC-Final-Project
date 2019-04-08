@@ -1,8 +1,8 @@
-<p>Fill in the following form to update an existing product:</p>
+<p>Fill in the following form to update an existing blog:</p>
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     <h2>Update Blog</h2>
     <p>
-        <input class="w3-input" type="text" name="name" value="<?= $blogpost->title; ?>">
+        <input class="w3-input" type="text" name="title" value="<?= $blogpost->title; ?>">
         <label>Title</label>
     </p>
     <p>

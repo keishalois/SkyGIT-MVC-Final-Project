@@ -80,3 +80,20 @@ body {
     position: absolute;
     bottom: 50%; 
 }
+
+.blogs-page {
+       position: relative;
+       top:20%;
+       background-color: coral;
+       opacity: 0.9;
+       filter: Alpha(opacity=50);
+       text-align: center;
+}
+
+.add-blog{
+   position: static;
+   background-color: coral;
+   opacity: 0.9;
+   filter: Alpha(opacity=50);
+   align-content: center;
+}

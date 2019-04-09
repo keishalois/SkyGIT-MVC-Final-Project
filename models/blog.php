@@ -153,4 +153,17 @@ public static function remove($blogid) {
       $req->execute(array('blogid' => $blog));
   }
   
-}
+
+
+
+public static function userCanChange($username, $blogid) {
+      $db = Db::getInstance();
+      $req = $db->prepare('SELECT blogposts.BlogID, users.Username
+                        FROM blogposts
+                        INNER JOIN users ON blogposts.UserID = users.UserID WHERE blogid = :blogid AND users.Username = :username;');
+      //the query was prepared, now replace :id with the actual $id value
+      $req->execute(array('username' => $_SESSION["username"], 'blogid' => $blogid));
+      $returnusername = $req->fetch();
+      return $returnusername;
+  }
+  }

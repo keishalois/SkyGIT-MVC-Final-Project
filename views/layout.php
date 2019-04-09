@@ -21,7 +21,7 @@
       <a href='?controller=blog&action=create'>Add New Blog Post</a>
       <a href='landingpage.php'>Logout</a>
     </header>
-<div class="w3-container w3-pink">
+<div class="w3-container">
     <?php require_once('routes.php'); ?>
 </<div>
 <div class="w3-container w3-gray">

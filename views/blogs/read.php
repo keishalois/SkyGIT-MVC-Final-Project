@@ -10,6 +10,7 @@
 <p>Added By: <?php echo $blogpost->username; ?></p>
 <p>Date Added: <?php echo $blogpost->date; ?></p>
 <p>Content: <?php echo $blogpost->content; ?></p>
+        <button class="w3-gray" onclick="deleteBlog(<?php echo $blogpost->blogid; ?>)">Delete Blog Post</button> 
 
 <?php 
 $file = 'views/images/' . $blogpost->title . '.jpeg';

@@ -59,18 +59,11 @@ class BlogController {
       }
     }
     
-}
-    
+    public function delete() {
+      BlogPost::remove($_GET['blogid']);
 
-//      
-//    }
-//    public function delete() {
-//            Product::remove($_GET['id']);
-//            
-//            $products = Product::all();
-//            require_once('views/products/readAll.php');
-//      }
-//      
-//    }
-//  
-//?>
+      $blogposts = BlogPost::all();
+      require_once('views/blogs/readAll.php');
+  }
+}
+?>

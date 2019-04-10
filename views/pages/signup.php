@@ -3,7 +3,7 @@
 <?php
 // I do think this php section should in theory be put somewhere else but will try later cos it works
     session_start();
-    include "/Applications/XAMPP/xamppfiles/htdocs/FinalProject/models/user.php"; 
+    include "C:/xampp/htdocs/FinalProject/models/user.php"; 
     if (!empty($_POST)){
 //        $email= filter_var($_POST['email'], FILTER_SANITIZE_STRING);
         $usn= filter_var($_POST['username'], FILTER_SANITIZE_STRING);
@@ -18,12 +18,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Sign Up - FML</title>
+	<title>Sign Up - Fork My Life</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
 </head>
-
+<body class="container landingpage"> 
 <div class="container">
 	<div class="row justify-content-md-center">
 		<div class="col col-lg-12"></div>

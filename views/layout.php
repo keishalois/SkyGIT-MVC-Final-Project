@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico|Pangolin" >
 <link rel="stylesheet" href="views/css/styles.css">
-<title>FML Blog</title>
+<title>Fork My Life</title>
   </head>
   <body>
     <header class="w3-container w3-gray">
@@ -25,7 +25,7 @@
     <?php require_once('routes.php'); ?>
 </<div>
 <div class="w3-container w3-gray">
-    <footer >
+    <footer>
         Copyright &COPY; <?= date('Y'); ?>
     </footer>
 </div>

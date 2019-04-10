@@ -1,0 +1,117 @@
+html, body, h1, h2, h3, h4, h5, h6 {
+ font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+body.landingpage{
+    background:url(https://hostpapa.blog/blog/wp-content/uploads/2013/01/Blog-Promotion.jpg);
+    
+}
+
+body {
+	background-color: rgb(18,161,221);
+	background-size: cover;
+	font-family: Arial, sans-serif;
+        color: white;
+}
+.form{
+	position: absolute;
+        top:10%;
+        width: 100%;
+        text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				 0px 8px 13px rgba(0,0,0,0.1),
+				 0px 18px 23px rgba(0,0,0,0.1);
+
+}
+
+.form-sign{
+    	text-align: center;
+	position: absolute;
+        top:50%;
+        left:12%;
+        text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				 0px 8px 13px rgba(0,0,0,0.1),
+				 0px 18px 23px rgba(0,0,0,0.1);
+        background-color: orangered;
+        opacity: 0.8;
+        filter: Alpha(opacity=50);
+}
+
+.w3-tangerine {
+  font-family: 'Tangerine', serif;
+}
+.w3-pacifico {
+    font-family: 'Pacifico', cursive;
+}
+
+.land-nav {
+    position: absolute;
+    left: 2%;
+    top: 5%;
+            text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				 0px 8px 13px rgba(0,0,0,0.1),
+				 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.land-nav a:visited{
+    color: white; 
+            text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				 0px 8px 13px rgba(0,0,0,0.1),
+				 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.land-nav a:hover{
+  color: orange;  
+          text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				 0px 8px 13px rgba(0,0,0,0.1),
+				 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+a:vistied{
+    color: white;
+}
+
+.area{
+    position: absolute;
+    left: 70%;
+    top: 5%;
+            text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				 0px 8px 13px rgba(0,0,0,0.1),
+				 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.nav-bar{
+    display:hidden;
+}
+
+.foot{
+    position: absolute;
+    bottom: 50%; 
+}
+
+.blogs-page {
+       position: relative;
+       background-color: coral;
+       opacity: 0.9;
+       filter: Alpha(opacity=50);
+       text-align: center;
+}
+
+.add-blog{
+   position: static;
+   background-color: coral;
+   opacity: 0.9;
+   filter: Alpha(opacity=50);
+   align-content: center;
+}
+
+.reload{
+    text-align: center;
+}
+
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
+}

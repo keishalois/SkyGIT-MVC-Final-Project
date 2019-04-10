@@ -132,7 +132,7 @@ public static function uploadFile(string $title) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "/Applications/xampp/htdocs/FinalProject/views/images/";
+        $path = "C:/xampp/htdocs/FinalProject/views/images/";
 	$destinationFile = $path . $title . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
@@ -153,8 +153,6 @@ public static function remove($blogid) {
       $req->execute(array('blogid' => $blog));
   }
   
-
-
 
 public static function userCanChange($username, $blogid) {
       $db = Db::getInstance();

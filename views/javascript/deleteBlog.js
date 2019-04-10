@@ -5,9 +5,10 @@
         xmlhttp.send();
         goBackToReadAll();
     }
+    
     function goBackToReadAll() {
         window.refresh;
-        window.location.href = "http://localhost:8080/FinalProject/index.php?controller=blog&action=readAll";
+        window.location.href = "http://localhost/FinalProject/index.php?controller=blog&action=readAll";
 }
 
 

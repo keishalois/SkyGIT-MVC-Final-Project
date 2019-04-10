@@ -3,7 +3,7 @@
 <?php
 // I do think this php section should in theory be put somewhere else but will try later cos it works
     session_start();
-    include "/Applications/XAMPP/xamppfiles/htdocs/FinalProject/models/user.php"; 
+    include "C:/xampp/htdocs/FinalProject/models/user.php"; 
     if (!empty($_POST)){
         $usn= filter_var($_POST['username'], FILTER_SANITIZE_STRING);
         $psw= filter_var($_POST['password'], FILTER_SANITIZE_STRING);
@@ -16,22 +16,23 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Log In - FML</title>
+	<title>Log In - Fork My Life</title>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
-
+<body class="container landingpage"> 
 <div class="container">
-	<div class="row justify-content-md-center">
+<!--	<div class="row justify-content-md-center">-->
 		<div class="col col-lg-12"></div>
 			<div id="content">
 	<form action="" method="post" class="form">
-        Username: <input type="text" name="username" placeholder="Username" required/>
-        Password: <input type="password" name="password" placeholder="Password" required/>
-        <input type="submit" class="btn btn-default btn-lg" href='#'value="Login"/>
+            Username: <input type="text" name="username" placeholder="Username" required/><br>
+            Password: <input type="password" name="password" placeholder="Password" required/><br>
+            <br>
+            <input type="submit" class="btn btn-default btn-lg" href='#'value="Login"/>
         </form>
 			</div>
-	</div>
+	<!--</div>-->
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

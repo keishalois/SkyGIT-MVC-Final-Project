@@ -1,9 +1,9 @@
-<p>Here is a list of all blogs:</p>
+
 
 <?php  foreach($blogposts as $blogpost) { ?>
 <div class="blogs-page">
  <p>
-   <?php echo '<h3>' . $blogpost->title . '</h3>' . $blogpost->content . '<br><br>';
+   <a href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'><?php echo '<h3>' . $blogpost->title . '</h3></a>' . $blogpost->content . '<br><br>';
 
    $file = 'views/images/' . $blogpost->title . '.jpeg';
 
@@ -17,13 +17,7 @@
 
    echo '<br><br>';
    ?>
-    
-    <a href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'>See Blog</a> &nbsp; &nbsp;
-  <?php if(BlogPost::userCanChange($blogpost->username, $blogpost->blogid) || $_SESSION["username"] == 'admin') { ?>
-    <a href='?controller=blog&action=delete&blogid=<?php echo $blogpost->blogid; ?>'>Delete Blog</a>&nbsp; &nbsp;
-    <a href='?controller=blog&action=update&blogid=<?php echo $blogpost->blogid; ?>'>Amend Blog</a> &nbsp;
-  </p> 
-  </div>
+    </div>
 <hr>
-<?php } }
+<?php } 
 ?>

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>FML Blog</title>
+        <title>Fork My Life</title>
     </head>
     <body>
         <?php

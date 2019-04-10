@@ -17,7 +17,7 @@
 
 
 </head>
-
+<body class="container landingpage"> 
 <div class="container">
 	<div class="row justify-content-md-center">
 		<div class="col col-lg-12"></div>

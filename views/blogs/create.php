@@ -7,12 +7,12 @@
    <div class ="add-form">
    <p>
        <label>Title</label><br>
-       <textarea rows="1" cols="100%" name="title" form="addform"></textarea>
+       <textarea rows="1" cols="100" name="title" form="addform"></textarea>
    </p>
 
    <p>
        <label>Content</label><br>
-       <textarea rows="10" cols="100" name="content" form="addform"></textarea>
+   <textarea rows="10" cols="100" name="content" form="addform"></textarea>
    </p>
  <input type="hidden"
        name="MAX_FILE_SIZE"
@@ -23,7 +23,7 @@
  <p>
    <input class="w3-btn" type="submit" value="Add Blog Post">
  </p>
-   </div>
+ </div>
 </form>
 </div>
 <br>

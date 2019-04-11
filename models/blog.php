@@ -48,7 +48,7 @@ BlogPost::uploadFile($title);
     public static function all() {
       $list = [];
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM blogposts');
+      $req = $db->query('SELECT * FROM blogposts ORDER BY blogid desc;');
       // we create a list of Product objects from the database results
       foreach($req->fetchAll() as $blogpost) {
         $list[] = new BlogPost($blogpost['BlogID'], $blogpost['BlogTitle'], $blogpost['BlogContent'], $blogpost['UserID'], $blogpost['DateAdded']);
@@ -132,7 +132,7 @@ public static function uploadFile(string $title) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/FinalProject/views/images/";
+        $path = "/Applications/xampp/htdocs/FinalProject/views/images/";
 	$destinationFile = $path . $title . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
@@ -154,6 +154,8 @@ public static function remove($blogid) {
   }
   
 
+
+
 public static function userCanChange($username, $blogid) {
       $db = Db::getInstance();
       $req = $db->prepare('SELECT blogposts.BlogID, users.Username
@@ -161,7 +163,19 @@ public static function userCanChange($username, $blogid) {
                         INNER JOIN users ON blogposts.UserID = users.UserID WHERE blogid = :blogid AND users.Username = :username;');
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('username' => $_SESSION["username"], 'blogid' => $blogid));
-      $returnusername = $req->fetch();
-      return $returnusername;
+      $returnuser = $req->fetch();
+      return $returnuser;
   }
+  
+  
+  
+    public static function blogComments($blogid) {
+        $db = Db::getInstance();
+        $blogid = intval($blogid);
+        $req = $db->prepare('SELECT count(BlogID) as countcomments FROM comments WHERE BlogID = :id');
+        $req->execute(array('id' => $blogid));
+        $num = $req->fetch();
+        echo $num['countcomments'];
+    }
+    
   }

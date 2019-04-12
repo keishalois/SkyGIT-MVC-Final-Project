@@ -1,5 +1,7 @@
 <?php
 
+include __DIR__ . '/../models/comment.php';
+
 class BlogController {
     public function readAll() {
       // we store all the posts in a variable
@@ -17,7 +19,6 @@ class BlogController {
       // we use the given id to get the correct post
       $blogpost = BlogPost::find($_GET['blogid']);
       require_once('views/blogs/read.php');
-      require_once('models/comment.php');
       }
       catch (Exception $ex){
             return call('pages','error');
@@ -26,8 +27,12 @@ class BlogController {
             require_once('views/blogs/read.php');
             }       
         else {  $blogcomment = Comment::addComment($_GET['blogid']);
+              require_once('models/comment.php');
                     }
-        $blogcomments = Comment::allComments($_GET['blogid']);
+              $blogcomments = Comment::allComments($_GET['blogid']);
+                          require_once('views/blogs/read.php');
+
+
     }
 
     public function create() {
@@ -40,14 +45,12 @@ class BlogController {
       else { 
           BlogPost::add();
              
-            $blogposts = BlogPost::all(); //$products is used within the view
+            $blogposts = BlogPost::all(); //$blogposts is used within the view
             require_once('views/blogs/readAll.php');
       }
-      
     }
 
-    public function update() {
-        
+    public function update() {     
       if($_SERVER['REQUEST_METHOD'] == 'GET'){
           if (!isset($_GET['blogid'])) {
           return call('pages', 'error');}

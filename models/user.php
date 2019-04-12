@@ -1,7 +1,18 @@
 <?php
 
     require_once __DIR__ . "/../connection.php";
+ function userExists($username) {
+    $alertmsgexists = "$username already exists";
+'<script type="text/javascript">alert("$alertmsgexists")</script>';
+}
 
+function userAdded($username) {
+    $userForAlert = $_POST['username'];
+    $alertmsgadded = "$username - welcome to our blog";
+//    echo '<script type="text/javascript">alert("$alertmsgadded");document.location="index.php?controller=blog&action=readAll"</script>';
+    echo '<script type="text/javascript">alert("$alertmsgadded");document.location="index.php?controller=blog&action=readAll"</script>';
+
+}
 
 class User {
     protected $email;
@@ -14,6 +25,11 @@ class User {
 		$this->username = $username;
                 $this->password = $password;
 	}
+
+        public function getUsername(){
+            return $this->username;
+        }
+        
         
         public function loginUser() {
         $db = Db::getInstance();        
@@ -31,9 +47,24 @@ class User {
         }
         unset($stmt);
     }
+
+    public function checkUserExists() {
+        $db = Db::getInstance();
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $checkAccount = $db->query("SELECT * from users WHERE Email = ':email' OR Username = ':username'");
+                    $checkAccount->bindParam(':username', $username);
+                    $checkAccount->bindParam(':email', $email);
+        $rows = $checkAccount->fetchAll();
+        $num_rows = count($rows);
+        return $num_rows;
+    }
     
-            public function createUser() {
-        $db = Db::getInstance();        
+   public function createUser() {
+        $db = Db::getInstance();
+        $num_rows = User::checkUserExists();
+        echo $num_rows;
+        if ($num_rows == 0) {         
         $req = $db->prepare( "INSERT INTO users (Email, Username, Password, UserType) VALUES (:email, :username, :password, 'blogger')");
             $req->bindParam(':username', $username);
             $req->bindParam(':password', $password);
@@ -48,11 +79,16 @@ class User {
     if(isset($_POST['email'])&& $_POST['email']!=""){
        $email = $filteredEmail = filter_input(INPUT_POST,'email', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-$req->execute(); }
+        $req->execute(); 
+        return userAdded($username);
+    }
         catch (PDOException $e) {
             $error = $e->errorInfo();
             die("Sign up failed sorry ..." . $error . $e->getMessage()); }
         unset($req);
-    }
+    }     else {
+            return userExists($username);
+        }
        
         }
+}

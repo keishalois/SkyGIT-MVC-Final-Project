@@ -14,7 +14,6 @@
         ?>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
-
 </head>
 <body class="landingpage">
 <div class="container">
@@ -29,7 +28,7 @@
 
 <!-- the paragraph below only displays when the user is not logged in-->
                                  <p><?php if(empty($_SESSION)){
-                echo "U ok hun? - please log in or sign up!" . '<br>';
+                echo "Hello - please log in or sign up!" . '<br>';
                 } ?></p></div>
                                  <div class="land-nav">
                                 <a class="btn btn-default btn-lg" href='views/pages/login.php'>Login </a>

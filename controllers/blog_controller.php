@@ -17,10 +17,17 @@ class BlogController {
       // we use the given id to get the correct post
       $blogpost = BlogPost::find($_GET['blogid']);
       require_once('views/blogs/read.php');
+      require_once('models/comment.php');
       }
- catch (Exception $ex){
-     return call('pages','error');
- }
+      catch (Exception $ex){
+            return call('pages','error');
+        }         
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+            require_once('views/blogs/read.php');
+            }       
+        else {  $blogcomment = Comment::addComment($_GET['blogid']);
+                    }
+        $blogcomments = Comment::allComments($_GET['blogid']);
     }
 
     public function create() {

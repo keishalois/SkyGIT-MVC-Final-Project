@@ -3,9 +3,10 @@
 class CommentController {
     public function readAll() {
       // we store all the posts in a variable
-      $comments = Comment::all($_GET['blogid']);
+      $blogcomments = Comment::allComments($_GET['blogid']);
       require_once('views/blogs/read.php');
     }
+}
 
 //    public function read() {
 //      // we expect a url of form ?controller=posts&action=show&id=x
@@ -22,22 +23,20 @@ class CommentController {
 //     return call('pages','error');
 // }
 //    }
-
-    public function create() {
-      // we expect a url of form ?controller=products&action=create
-      // if it's a GET request display a blank form for creating a new product
-      // else it's a POST so add to the database and redirect to readAll action
-      if($_SERVER['REQUEST_METHOD'] == 'GET'){
-          require_once('views/blogs/read.php');
-      }
-      else { 
-          Comment::add();
-             
-//            $comments = Comment::all(); //$products is used within the view
-            require_once('views/blogs/readAll.php');
-      }
-      
-    }
+//    public function create() {
+//      // we expect a url of form ?controller=comment&action=create
+//      // if it's a GET request display a blank form for creating a new product
+//      // else it's a POST so add to the database and redirect to readAll action
+////      if($_SERVER['REQUEST_METHOD'] == 'GET'){
+//          require_once('models/comment.php');
+////      }
+////      else { 
+//         $blogcomment = Comment::addComment($_GET['blogid']);
+//             
+////            $comments = Comment::all(); //$products is used within the view
+//            require_once('views/blogs/read.php');
+//      }
+//    }
 
 //    public function update() {
 //        
@@ -59,4 +58,3 @@ class CommentController {
 //      }
 //    }
     
-}

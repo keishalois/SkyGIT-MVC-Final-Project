@@ -67,7 +67,7 @@ BlogPost::uploadFile($title);
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('blogid' => $blogid));
       $blogpost = $req->fetch();
-if($blogpost){
+      if($blogpost){
       return new BlogPost($blogpost['BlogID'], $blogpost['BlogTitle'], $blogpost['BlogContent'], $blogpost['Username'], $blogpost['DateAdded']);
     }
     else
@@ -132,7 +132,7 @@ public static function uploadFile(string $title) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/FinalProject/views/images/";
+        $path = "/Applications/xampp/htdocs/FinalProject/views/images/";
 	$destinationFile = $path . $title . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
@@ -172,8 +172,8 @@ public static function userCanChange($username, $blogid) {
     public static function blogComments($blogid) {
         $db = Db::getInstance();
         $blogid = intval($blogid);
-        $req = $db->prepare('SELECT count(BlogID) as countcomments FROM comments WHERE BlogID = :id');
-        $req->execute(array('id' => $blogid));
+        $req = $db->prepare('SELECT count(BlogID) as countcomments FROM comments WHERE BlogID = :blogid');
+        $req->execute(array('blogid' => $blogid));
         $num = $req->fetch();
         echo $num['countcomments'];
     }

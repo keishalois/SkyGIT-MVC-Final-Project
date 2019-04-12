@@ -3,7 +3,7 @@
 <?php
 // I do think this php section should in theory be put somewhere else but will try later cos it works
     session_start();
-    include "C:/xampp/htdocs/FinalProject/models/user.php"; 
+    include "/Applications/XAMPP/xamppfiles/htdocs/FinalProject/models/user.php"; 
     if (!empty($_POST)){
 //        $email= filter_var($_POST['email'], FILTER_SANITIZE_STRING);
         $usn= filter_var($_POST['username'], FILTER_SANITIZE_STRING);
@@ -25,10 +25,9 @@
 </head>
 <body class="container landingpage"> 
 <div class="container">
-	
 	<div class="col col-lg-12"></div>
             <div id="content">
-                            
+
          <div class="area">
 		<h2>#FML: Fork My Life</h2>
                 <h4>For all those FML moments</h4>
@@ -42,11 +41,9 @@
             Password: <input type="password" name="password" placeholder="Password" required/><br><br>
         <input type="submit" class="btn btn-default btn-lg" href='index.php'value="Register"/>
         </form>
-            <br>
+        <br>
         Already signed up?<a class="btn btn-default btn-lg" href='../pages/login.php'>Log in!</a>
-         </div>        
-            </div>
-	
+        </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

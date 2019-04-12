@@ -15,9 +15,8 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
 
-
 </head>
-
+<body class="landingpage">
 <div class="container">
 	<div class="row justify-content-md-center">
 		<div class="col col-lg-12"></div>
@@ -35,6 +34,7 @@
                                  <div class="land-nav">
                                 <a class="btn btn-default btn-lg" href='views/pages/login.php'>Login </a>
                                 <a class="btn btn-default btn-lg" href='views/pages/signup.php'>Sign up</a>
+                                <a class="btn btn-default btn-lg" href='views/pages/guestpage.php'>Guest?</a>
                                  </div>
                         </div>
 	</div>

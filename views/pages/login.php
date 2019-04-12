@@ -3,7 +3,7 @@
 <?php
 // I do think this php section should in theory be put somewhere else but will try later cos it works
     session_start();
-    include "/Applications/XAMPP/xamppfiles/htdocs/FinalProject/models/user.php"; 
+    include "C:/xampp/htdocs/FinalProject/models/user.php"; 
     if (!empty($_POST)){
         $usn= filter_var($_POST['username'], FILTER_SANITIZE_STRING);
         $psw= filter_var($_POST['password'], FILTER_SANITIZE_STRING);
@@ -25,14 +25,24 @@
 <!--	<div class="row justify-content-md-center">-->
 		<div class="col col-lg-12"></div>
 			<div id="content">
+                     <div class="area">
+				<h2>#FML: Fork My Life</h2>
+                                <h4>For all those FML moments</h4>
+                                <p><i>FYI: A fork is a copy of a repository.</i>
+				<hr>
+                    </div>       
+                    
+                            
+         <div class="formLog">                   
 	<form action="" method="post" class="form">
-        Username: <input type="text" name="username" placeholder="Username" required/>
+        Username: <input type="text" name="username" placeholder="Username" required/><br>
         Password: <input type="password" name="password" placeholder="Password" required/>
         <br> <br>
         <input type="submit" class="btn btn-default btn-lg" href='#'value="Login"/>
+        <br> <br>
         </form>
-			</div>
-<!--	</div>-->
+        <a class="btn btn-default btn-lg" href='../pages/signup.php'>Sign up?</a>
+         </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

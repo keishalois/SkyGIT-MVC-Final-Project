@@ -40,6 +40,7 @@ if(file_exists($file)){
     <p>
         <input class="w3-btn" onclick="addComment(<?php echo $blogpost->blogid; ?>)" type="submit" value="Tell Us...">
     </p>
+<!--        <input type="reset" name="Reset" value="CANCEL" />-->
         </form> <?php } ?>
 </div>
 <hr>

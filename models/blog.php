@@ -17,30 +17,27 @@
     }
     
     public static function add() {
-    $db = Db::getInstance();
-    $req = $db->prepare("Insert into blogposts(UserID, BlogTitle, BlogContent, DateAdded) values ((SELECT UserID from users WHERE Username = :username), :title, :content, CURRENT_DATE)");
-    $req->bindParam(':username', $username);
-    $req->bindParam(':title', $title);
-    $req->bindParam(':content', $content);
-
+            $db = Db::getInstance();
+            $req = $db->prepare("Insert into blogposts(UserID, BlogTitle, BlogContent, DateAdded) values ((SELECT UserID from users WHERE Username = :username), :title, :content, CURRENT_DATE)");
+                $req->bindParam(':username', $username);
+                $req->bindParam(':title', $title);
+                $req->bindParam(':content', $content);
 // set parameters and execute
         if(!empty($_SESSION)){
             $username = $_SESSION["username"];
     }
-    else {header("Location:landingpage.php");}
-    
     if(isset($_POST['title'])&& $_POST['title']!=""){
         $filteredTitle = filter_input(INPUT_POST,'title', FILTER_SANITIZE_SPECIAL_CHARS);
     }
     if(isset($_POST['content'])&& $_POST['content']!=""){
         $filteredContent = filter_input(INPUT_POST,'content', FILTER_SANITIZE_SPECIAL_CHARS);
     }
-$title = $filteredTitle;
-$content = $filteredContent;
-$req->execute();
+            $title = $filteredTitle;
+            $content = $filteredContent;
+            $req->execute();
 
-//upload product image
-BlogPost::uploadFile($title);
+        //upload product image
+        BlogPost::uploadFile($title);
     }
     
     //function to bring up all blogposts
@@ -55,7 +52,22 @@ BlogPost::uploadFile($title);
       }
       return $list;
     }
+//function to show all blog post by user
+    public static function allUserBlogs($username) {
+      $list = [];
+      $db = Db::getInstance();
+      $req = $db->prepare('SELECT blogposts.BlogID, blogposts.BlogTitle, blogposts.BlogContent, blogposts.DateAdded, users.Username
+                        FROM blogposts
+                        INNER JOIN users ON blogposts.UserID = users.UserID WHERE users.Username = :username ORDER BY blogid asc;');
 
+    $req->execute(array('username' =>  $_SESSION["username"]));
+    $blogposts = $req->fetchAll();
+      // we create a list of Product objects from the database results
+      foreach($blogposts as $blogpost) {
+        $list[] = new BlogPost($blogpost['BlogID'], $blogpost['BlogTitle'], $blogpost['BlogContent'], $blogpost['Username'], $blogpost['DateAdded']);
+      }
+      return $list;
+    }
     // function to bring up a specific blog
     public static function find($blogid) {
       $db = Db::getInstance();
@@ -73,7 +85,7 @@ BlogPost::uploadFile($title);
     else
     {
         //replace with a more meaningful exception
-        throw new Exception('A real exception should go here');
+        throw new Exception('finding blog failed...');
     }
     }
     

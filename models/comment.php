@@ -14,6 +14,17 @@ class Comment {
       $this->username = $username;
       $this->date = $date;
     }
+    
+    public function getUsername(){
+        return $this->username;
+    }
+    public function getDate(){
+        return $this->date;
+    }
+    
+    public function getContent() {
+        return $this->content;
+    }
 
 public static function addComment($blogid) {
     $db = Db::getInstance();
@@ -37,6 +48,12 @@ public static function addComment($blogid) {
       $list = [];
       $db = Db::getInstance();
       $blogid = intval($blogid);
+//      
+//      $req = $db->prepare('SELECT comments.BlogID, comments.Comment, comments.DateAdded, users.Username FROM comments'
+//               . 'INNER JOIN users ON comments.UserID = users.UserID WHERE users.Username = :username'
+//            . 'INNER JOIN blogposts ON comments.BlogID = blogposts.BlogID' 
+//              . ' WHERE (SELECT BlogID from blogposts WHERE BlogID = :blogid)');      
+//      
       $req = $db->prepare('SELECT * FROM comments WHERE (SELECT BlogID from blogposts WHERE BlogID = :blogid)');
       $req->execute(['blogid'=> $blogid]);
       $blogcomments = $req->fetchAll();

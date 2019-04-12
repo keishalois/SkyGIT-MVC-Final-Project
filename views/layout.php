@@ -17,14 +17,18 @@
 <title>Fork My Life</title>
   </head>
   <body>
-    
-        <div class="nav-bar">
-      <a href='/FinalProject'><i class="fas fa-home fa-3x"></i></a>
-      <a href='?controller=blog&action=readAll'><i class="fas fa-blog fa-3x"></i></a>
-      <a href='?controller=blog&action=create'><i class="fas fa-plus fa-3x"></i></a>
-      <a href='landingpage.php'><i class="fas fa-sign-out-alt fa-3x"></i></a>
-        </div>
-   
+      <div class="nav-bar">
+        <a href='/FinalProject'><i class="fas fa-home fa-3x"></i></a>
+        <a href='?controller=blog&action=readAll'><i class="fas fa-blog fa-3x"></i></a>
+        <?php if(!($_SESSION["username"] == 'guest'))  {?>    
+        <a href='?controller=blog&action=create'><i class="fas fa-plus fa-3x"></i></a>
+        <a href='landingpage.php'><i class="fas fa-sign-out-alt fa-3x"></i></a> 
+    <?php } 
+     else {?>     
+        <a href='views/pages/signup.php'><i class="fas fa-user-plus"></i>Sign Up</a>
+        <a href='views/pages/login.php'><i class="fas fa-portrait"></i></i>Log In</a> 
+    <?php } ?>
+      </div>
 <div class="w3-container">
     <?php require_once('routes.php'); ?>
 </<div>

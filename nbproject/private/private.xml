@@ -3,9 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/FinalProject/controllers/blog_controller.php</file>
-            <file>file:/C:/xampp/htdocs/FinalProject/models/blog.php</file>
-            <file>file:/C:/xampp/htdocs/FinalProject/views/blogs/update.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/FinalProject/landingpage.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/FinalProject/models/comment.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/FinalProject/views/javascript/deleteBlog.js</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/FinalProject/controllers/blog_controller.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/FinalProject/views/layout.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/FinalProject/views/javascript/addComment.js</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/FinalProject/controllers/comment_controller.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/FinalProject/views/blogs/read.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/FinalProject/models/user.php</file>
         </group>
     </open-files>
 </project-private>

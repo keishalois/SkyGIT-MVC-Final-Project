@@ -3,7 +3,7 @@
 <?php
 // I do think this php section should in theory be put somewhere else but will try later cos it works
     session_start();
-    include "C:/xampp/htdocs/FinalProject/models/user.php"; 
+    include "/Applications/XAMPP/xamppfiles/htdocs/FinalProject/models/user.php"; 
     if (!empty($_POST)){
         $usn= filter_var($_POST['username'], FILTER_SANITIZE_STRING);
         $psw= filter_var($_POST['password'], FILTER_SANITIZE_STRING);
@@ -34,8 +34,7 @@
         <input type="submit" class="btn btn-default btn-lg" href='#'value="Go Guest!"/>
         </form>
         </div>
-			</div>
-<!--	</div>-->
+	</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

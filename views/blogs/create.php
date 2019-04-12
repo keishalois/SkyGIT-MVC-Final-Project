@@ -1,5 +1,5 @@
 <div class="add-blog">
-<p>Fill in the following form to create a new product:</p>
+<p>Fill in the following form to create a new blogpost:</p>
 
 <form action="" method="POST" class="w3-container" id="addform" enctype="multipart/form-data">
 

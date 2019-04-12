@@ -6,7 +6,7 @@
    <a href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'><?php echo '<h3>' . $blogpost->title . '</h3></a>' . $blogpost->content;?> 
        <br>
        <p><i class="fas fa-comment"></i> <?php echo $blogpost->blogComments($blogpost->blogid);?></p>
-   <br><br>
+ 
    <?php
    $file = 'views/images/' . $blogpost->title . '.jpeg';
 

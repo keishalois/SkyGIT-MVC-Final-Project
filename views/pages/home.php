@@ -1,6 +1,6 @@
 <h3>Hello there <b><?php echo $username; ?></b>!</h3>
 <?php if(!($_SESSION["username"] == 'guest'))  {?>    
-<p>This is your user page - you can see your blogs and comments below! Oldest blogs first..</p>
+<p>This is your user page - you can see your blogs and comments below!</p>
 <p>or you can see all blogs/create a new blog above!</p>
   <p>
 <?php  foreach($blogposts as $blogpost) { ?>

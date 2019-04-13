@@ -3,7 +3,7 @@
 <?php  foreach($blogposts as $blogpost) { ?>
 <div class="blogs-page">
  <p>
-   <a class="blogTitle" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'>
+     <a class="blogtitle" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'>
        <h3><?php echo $blogpost->title;?> </h3></a> 
  <p><?php echo $blogpost->content;?> </p>
        <br>

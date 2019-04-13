@@ -134,3 +134,32 @@ textarea {
 .guestsign{
     text-decoration: underline;
 }
+
+/*css for displaying comments on blog page*/
+.cmtcomment {
+  border: 4px solid #ccc;
+  border-radius: 20px;
+  margin: 50px;
+  padding: 5px;
+  background-color: #b7b7b7;
+}
+
+.cmtdate {
+  color: #ef6300;
+  font-size: 1.2em;
+  margin: 2px;
+}
+.cmtcontent {
+  color: #ff5722;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  padding: 30px;
+  text-align: center;
+}
+
+.cmtname {
+  color: #ef6300;
+  font-weight: bold;
+  font-size: 1.2em;
+}

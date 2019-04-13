@@ -25,8 +25,8 @@
         <a href='landingpage.php'><i class="fas fa-sign-out-alt fa-3x"></i></a> 
     <?php } 
      else {?>     
-        <a href='views/pages/signup.php'><i class="fas fa-user-plus"></i>Sign Up</a>
-        <a href='views/pages/login.php'><i class="fas fa-portrait"></i></i>Log In</a> 
+        <a href='views/pages/signup.php'><i class="fas fa-user-plus fa-3x"></i>Sign Up</a>
+        <a href='views/pages/login.php'><i class="fas fa-portrait fa-3x"></i></i>Log In</a> 
     <?php } ?>
       </div>
 <div class="w3-container">

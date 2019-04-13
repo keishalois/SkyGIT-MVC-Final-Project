@@ -7,6 +7,27 @@
     public $content;
     public $username;
     public $date;
+    
+    
+    public function getBlogId() {
+        return $this->blogid;
+    }
+    
+    public function getTitle() {
+        return $this->title;
+    }
+    
+    public function getContent() {
+        return $this->content;
+    }
+    
+    public function getUsername() {
+        return $this->username;
+    }
+    
+    public function getDate() {
+        return $this->date;
+    }
 
     public function __construct($blogid, $title, $content, $username, $date) {
       $this->blogid    = $blogid;
@@ -58,7 +79,7 @@
       $db = Db::getInstance();
       $req = $db->prepare('SELECT blogposts.BlogID, blogposts.BlogTitle, blogposts.BlogContent, blogposts.DateAdded, users.Username
                         FROM blogposts
-                        INNER JOIN users ON blogposts.UserID = users.UserID WHERE users.Username = :username ORDER BY blogid desc;');
+                        INNER JOIN users ON blogposts.UserID = users.UserID WHERE users.Username = :username ORDER BY blogid asc;');
 
     $req->execute(array('username' =>  $_SESSION["username"]));
     $blogposts = $req->fetchAll();
@@ -144,7 +165,7 @@ public static function uploadFile(string $title) {
 	}
 
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/FinalProject/views/images/";
+        $path = "/Applications/xampp/htdocs/FinalProject/views/images/";
 	$destinationFile = $path . $title . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
@@ -160,26 +181,31 @@ public static function remove($blogid) {
       $db = Db::getInstance();
       //make sure $id is an integer
       $blog = intval($blogid);
+      BlogPost::removeAllBlogComments($blog);
       $req = $db->prepare('delete FROM blogposts WHERE BlogID = :blogid');
       // the query was prepared, now replace :id with the actual $id value
       $req->execute(array('blogid' => $blog));
   }
-  
 
-
+    public static function removeAllBlogComments($blogid) {
+        $db = Db::getInstance();
+        //make sure $id is an integer
+        $blogid = intval($blogid);
+        $req = $db->prepare('delete FROM comments WHERE comments.BlogID = :blogid');
+        // the query was prepared, now replace :id with the actual $id value
+        $req->execute(array('blogid' => $blogid));
+    }
 
 public static function userCanChange($username, $blogid) {
       $db = Db::getInstance();
       $req = $db->prepare('SELECT blogposts.BlogID, users.Username
                         FROM blogposts
-                        INNER JOIN users ON blogposts.UserID = users.UserID WHERE blogid = :blogid AND users.Username = :username;');
+                        INNER JOIN users ON blogposts.UserID = users.UserID WHERE BlogID = :blogid AND users.Username = :username;');
       //the query was prepared, now replace :id with the actual $id value
       $req->execute(array('username' => $_SESSION["username"], 'blogid' => $blogid));
       $returnuser = $req->fetch();
       return $returnuser;
   }
-  
-  
   
     public static function blogComments($blogid) {
         $db = Db::getInstance();

@@ -30,42 +30,24 @@ if(file_exists($file)){
 </div>
 <br><br>
 </div>
-        <?php if(!($_SESSION["username"] == 'guest'))  {?>    
+<hr>
+<hr>
+    <?php
+           if(!($_SESSION["username"] == 'guest'))  {?>    
 <div>
     <form action="" method="POST" class="w3-container" id="cmtform" enctype="multipart/form-data">
     <p>
        <label>Add Comment</label><br>
-            <textarea rows="10" cols="100" name="comment" form="cmtform"></textarea>
+            <textarea rows="6" cols="80" name="comment" form="cmtform"></textarea>
     </p>
     <p>
-        <input class="w3-btn" onclick="addComment(<?php echo $blogpost->blogid; ?>)" type="submit" value="Tell Us...">
+        <input class="w3-btn" onsubmit="addComment(<?php echo $_GET['blogid'] ?>)" type="submit" value="Comment">
     </p>
-<!--        <input type="reset" name="Reset" value="CANCEL" />-->
-        </form> <?php } ?>
+    </form> <?php } ?>
 </div>
-<hr>
-<hr>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" onclick="showComments(<?php echo $blogpost->blogid; ?>)">View comments</button>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" onclick="showComments(<?php echo $blogpost->blogid; ?>)">See the discussion here  <i class="far fa-hand-point-down"></i></button>
 <div id="demo" class="collapse">
-    <?php foreach($blogcomments as $comment) { ?>
-<div class="comments-page">
-    <h3 id = "result"> <?php echo $comment->comment;?></h3>
-    <p> Posted on <?php echo $comment->date;?></p>
-    <p> Posted by <?php echo $article->username;?></p>
-    <p>
- <?php echo $comment->comment;
-   ?> 
-     <br><br>
- </p>
- <p>
-  <?php // if(Comment::userCanChange($comment->username, $comment->commentid) || $_SESSION["username"] == 'admin') { ?>
-<!--    <a href='?controller=blog&action=delete&blogid=<?php // echo $comment->commentid; ?>'>Delete Comment</a>&nbsp; &nbsp;
-    <a href='?controller=blog&action=update&blogid=<?php // echo $comment->commentid; ?>'>Edit Comment</a> &nbsp;
-  </p> 
-  </div>
-<hr>-->
-<?php  } ?>
-</div> 
+    <div id="comment"></div>
 </div>
     </body>
 </html>

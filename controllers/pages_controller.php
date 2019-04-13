@@ -1,7 +1,6 @@
 <?php
 
 include __DIR__ . '/../models/blog.php';
-include __DIR__ . '/../models/comment.php';
 
 class PagesController {
    

@@ -1,5 +1,4 @@
   function deleteBlog(id) {
-
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("GET", "?controller=blog&action=delete&blogid=" + id, true);
         xmlhttp.send();

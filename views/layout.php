@@ -34,8 +34,8 @@
     <?php } //if user is a guest, they can only read blogs or sign up/login
      else {
          ?>     
-        <a href='views/pages/signup.php'><i class="fas fa-user-plus fa-3x"></i></a>
-        <a href='views/pages/login.php'><i class="fas fa-portrait fa-3x"></i></a> 
+        <a href='views/user/signup.php'><i class="fas fa-user-plus fa-3x"></i></a>
+        <a href='views/user/login.php'><i class="fas fa-portrait fa-3x"></i></a> 
     <?php } ?>
       </div>
 

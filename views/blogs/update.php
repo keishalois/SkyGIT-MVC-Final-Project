@@ -1,4 +1,4 @@
-<p>Fill in the following form to update an existing blog:</p>
+<p>Wanna change your blog post?</p>
 <form action="" method="POST" class="w3-container" enctype="multipart/form-data">
     <h2>Update Blog</h2>
         <div class ="add-form">

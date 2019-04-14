@@ -25,24 +25,38 @@
 <?php //check user is not a guest
 if(!($_SESSION["username"] == 'guest')) { 
     ?> 
-<p>This is your user page - you can see your blogs and comments below!</p>
-<p>or you can see all blogs/create a new blog above</p>
-
+        <br><br>
+<p>  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Show my blogs
+    </button></p>
+<div class="collapse" id="collapseExample">
+<div class="row">
 <?php  //display blogs associated to user 
     foreach($blogposts as $blogpost) { ?>
-            <div class="blogs-page">
-                <h5><?php echo $blogpost->title; ?> </h5> 
-                <p><?php echo $blogpost->content; ?> </p> 
+
+  <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo $blogpost->title; ?> </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">You own this blog</h6>
+                    <p class="card-text"><?php echo $blogpost->content; ?> </p> 
                 <br><br>
-            <a href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'>See Blog</a> &nbsp; &nbsp;
-            <a href='?controller=blog&action=delete&blogid=<?php echo $blogpost->blogid; ?>'>Delete Blog</a>&nbsp; &nbsp;
-            <a href='?controller=blog&action=update&blogid=<?php echo $blogpost->blogid; ?>'>Amend Blog</a> &nbsp;
+                <a class="btn btn-light" id="readbutton" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'><i class="fas fa-book-open"></i> Read</a> 
+                <br><button class="btn btn-danger" onclick="deleteBlog(<?php echo $blogpost->blogid; ?>)"> <i class="fas fa-trash-alt"></i> Delete</button>
+            <button class="btn btn-light" onclick="updateBlog(<?php echo $blogpost->blogid; ?>)"><i class="fas fa-edit"></i> Update</button> 
+            <br><br>
             </div>
+        </div>
+  </div>
             <hr>
-        <?php }
- } 
+        <?php } ?>
+</div>
+</div>
+<br><br>
+<?php } 
 // below displays the guest home page
+
 else { ?>
 <p>As a guest, you can only see posts... you are not allowed
     to comment or post until you make an account or sign in!</p>
-<?php }
+<?php } ?>

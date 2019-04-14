@@ -1,11 +1,3 @@
-<html>
-    <head>
-        <!-- include javascript sources - could go in layout? -->
-        <script src="/FinalProject/views/javascript/deleteBlog.js"></script>
-        <script src="/FinalProject/views/javascript/updateBlog.js"></script>
-        <script src="/FinalProject/views/javascript/comments.js"></script>
-    </head>
-    <body>
     <div class="blogs-page">
             <h3><?php echo $blogpost->title; ?></h3>
             <p>Added By: <?php echo $blogpost->username; ?></p>
@@ -24,8 +16,8 @@ if(file_exists($file)){
   <?php 
 //this method is checking if the blogpost belongs to the logged in user or user is admin
   if(BlogPost::userCanChange($blogpost->username, $blogpost->blogid) || $_SESSION["username"] == 'admin') { ?>
-        <button class="w3-gray" onclick="deleteBlog(<?php echo $blogpost->blogid; ?>)"> <i class="fas fa-trash-alt"></i> Delete Blog Post</button>
-        <button class="w3-gray" onclick="updateBlog(<?php echo $blogpost->blogid; ?>)">Update Blog Post</button> 
+     <button class="btn btn-danger" onclick="deleteBlog(<?php echo $blogpost->blogid; ?>)"><i class="fas fa-trash-alt"></i>Delete</button>
+     <button class="btn btn-light" onclick="updateBlog(<?php echo $blogpost->blogid; ?>)"><i class="fas fa-edit"></i>Update</button>
  <?php } 
         ?>  
 </div>
@@ -57,8 +49,5 @@ if(file_exists($file)){
              and it will load the readallcomments.php file from views/comments-->
             <div id="comment"></div>
         </div>
-    </body>
-</html>
-
 
 	

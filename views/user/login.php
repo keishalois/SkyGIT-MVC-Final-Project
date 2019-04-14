@@ -42,7 +42,7 @@
         <br> <br>
         </form>
         New around here? 
-        <br><a class="btn btn-default btn-lg" href='../pages/signup.php'>Sign up?</a>
+        <br><a class="btn btn-default btn-lg" href='signup.php'>Sign up?</a>
         </div>
 </div>
 

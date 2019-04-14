@@ -31,9 +31,9 @@
                 echo "Hello - please log in or sign up!" . '<br>';
                 } ?></p></div>
                                  <div class="land-nav">
-                                <a class="btn btn-default btn-lg" href='views/pages/login.php'>Login </a>
-                                <a class="btn btn-default btn-lg" href='views/pages/signup.php'>Sign up</a>
-                                <a class="btn btn-default btn-lg" href='views/pages/guestpage.php'>Guest?</a>
+                                <a class="btn btn-default btn-lg" href='views/user/login.php'>Login </a>
+                                <a class="btn btn-default btn-lg" href='views/user/signup.php'>Sign up</a>
+                                <a class="btn btn-default btn-lg" href='views/user/guestpage.php'>Guest?</a>
                                  </div>
                         </div>
 	</div>

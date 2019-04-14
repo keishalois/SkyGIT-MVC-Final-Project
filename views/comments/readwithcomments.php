@@ -1,6 +1,17 @@
     <!-- this all goes technically as its own view based on commentlayout.php into the comment div
     under the see all comments button on views/blogs/read.php -->
-    <?php foreach($viewblogcomments as $comment) { ?>
+    
+    <p class="emptycomment">
+    <?php if(empty($viewblogcomments)) {
+        $emptypic = 'views/images/empty/wow-much-empty.jpg';
+        if(file_exists($emptypic)){
+    $img = "<img src='$emptypic' width='150' />";
+    echo $img;
+} ?> </p>
+        
+  <?php  } else {
+    
+    foreach($viewblogcomments as $comment) { ?>
         <div class="cmtcomment">
             <div>
 <!-- this div displays the date and username associated with the comment -->
@@ -21,4 +32,4 @@
             </p>
             <?php } ?>
         </div>
-  <?php  } ?> 
+    <?php  } } ?> 

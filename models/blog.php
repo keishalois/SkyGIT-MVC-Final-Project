@@ -179,6 +179,7 @@ public static function uploadFile(string $title) {
 		unlink($tempFile); 
 	}
 }
+    
     //function to remove a blogpost
     public static function remove($blogid) {
         $db = Db::getInstance();
@@ -189,7 +190,20 @@ public static function uploadFile(string $title) {
         $req = $db->prepare('delete FROM blogposts WHERE BlogID = :blogid');
       // execute query, replacing :blogid with the actual $blogid value
       $req->execute(array('blogid' => $blog));
+//                $title = $this->title;
+//                BlogPost::deleteBlogImage($title, $blog);
     }
+    
+    //attempt to write method to delete blog image so image folder doesn't get clogged up
+//    public static function deleteBlogImage(string $title, $blogid) {
+//        if($blogid == ($_GET['blogid'])) {
+//    $path = "/Applications/xampp/htdocs/FinalProject/views/images/";
+//    $blogfile = $path . $title . '.jpeg';
+//    	if (file_exists($blogfile)) {
+//		unlink($blogfile); 
+//	}  
+//    } 
+//    }
     
     //function to remove all comments associated with a particular blogpost - to be used in remove method
     public static function removeAllBlogComments($blogid) {
@@ -199,6 +213,18 @@ public static function uploadFile(string $title) {
         $req = $db->prepare('delete FROM comments WHERE comments.BlogID = :blogid');
         // execute query, replacing :blogid with the actual $blogid value
         $req->execute(array('blogid' => $blogid));
+    }
+    
+    
+    //this is a function to count the number of comments on a blogpost
+    public static function blogComments($blogid) {
+        $db = Db::getInstance();
+        $blogid = intval($blogid);
+   //since this is taking a blogid parameter, we need to prepare the sql rather than query
+        $req = $db->prepare('SELECT count(BlogID) as countcomments FROM comments WHERE BlogID = :blogid');
+        $req->execute(array('blogid' => $blogid));
+        $num = $req->fetch();
+        echo $num['countcomments'];
     }
     
     //function to say whether the logged in user owns a particular blogpost and so is 
@@ -214,14 +240,4 @@ public static function uploadFile(string $title) {
       $returnuser = $req->fetch();
       return $returnuser;
   }
-    //this is a function to count the number of comments on a blogpost
-    public static function blogComments($blogid) {
-        $db = Db::getInstance();
-        $blogid = intval($blogid);
-   //since this is taking a blogid parameter, we need to prepare the sql rather than query
-        $req = $db->prepare('SELECT count(BlogID) as countcomments FROM comments WHERE BlogID = :blogid');
-        $req->execute(array('blogid' => $blogid));
-        $num = $req->fetch();
-        echo $num['countcomments'];
-    } 
   }

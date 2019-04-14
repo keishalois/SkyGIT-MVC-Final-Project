@@ -25,7 +25,6 @@
                                 <h4>For all those FML moments</h4>
                                 <p><i>FYI: A fork is a copy of a repository.</i>
 				<hr>
-
 <!-- the paragraph below only displays when the user is not logged in-->
                                  <p><?php if(empty($_SESSION)){
                 echo "Hello - please log in or sign up!" . '<br>';

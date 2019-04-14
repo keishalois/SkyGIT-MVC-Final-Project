@@ -1,4 +1,3 @@
-<html>
     <!-- this all goes technically as its own view based on commentlayout.php into the comment div
     under the see all comments button on views/blogs/read.php -->
     <?php foreach($viewblogcomments as $comment) { ?>
@@ -16,12 +15,10 @@
 <!-- this checks if the user owns the comment before letting them delete or edit -->
             <?php if(Comment::userCanChange($comment->getUsername(), $comment->getCommentID()) || $_SESSION["username"] == 'admin') { ?>
             <hr>
-            <p>   
-                <a href='?controller=comment&action=delete&commentid=<?php echo $comment->getCommentID(); ?>'>Delete Comment</a>&nbsp; &nbsp;
-                <a href='?controller=comment&action=update&commentid=<?php echo $comment->getCommentID(); ?>'>Edit Comment</a> &nbsp;
+            <p>
+                <button class="btn btn-danger" onclick="deleteComment(<?php echo $comment->getCommentID(); ?>)"> <i class="fas fa-trash-alt"></i> Delete</button>
+                <button class="btn btn-light" onclick="updateComment(<?php echo $comment->getCommentID(); ?>)"> <i class="fas fa-edit"></i> Edit</button>
             </p>
             <?php } ?>
         </div>
   <?php  } ?> 
-</body>
-</html>

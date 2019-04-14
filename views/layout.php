@@ -48,6 +48,7 @@
             <div class="w3-container"> 
                 <?php require_once('routes.php'); ?>
             </<div>
+                <br><br>
 <!-- this div displays the footer on each page -->
             <div class="w3-container w3-gray">
                 <footer>

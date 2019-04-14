@@ -1,4 +1,5 @@
-    <div class="blogs-page">
+<br><br>
+<div class="blogs-page">
             <h3><?php echo $blogpost->title; ?></h3>
             <p>Added By: <?php echo $blogpost->username; ?></p>
             <p>Date Added: <?php echo $blogpost->date; ?></p>
@@ -31,10 +32,12 @@ if(file_exists($file)){
         <form action="" method="POST" class="w3-container" id="cmtform" enctype="multipart/form-data">
             <p>
                 <label>Add Comment</label><br>
-                <textarea rows="6" cols="80" name="comment" form="cmtform"></textarea>
+                <textarea rows="6" cols="80" name="comment" form="cmtform" required></textarea>
             </p>
             <p>
-                <input class="w3-btn" onsubmit="addComment(<?php echo $_GET['blogid'] ?>)" type="submit" value="Comment">
+                <div id ="addcommentbutton">
+                    <input class="w3-btn" onsubmit="addComment(<?php echo $_GET['blogid'] ?>)" type="submit" value="Comment">
+                </div>
             </p>
         </form> 
    <?php } ?>
@@ -42,9 +45,13 @@ if(file_exists($file)){
 
 <!-- this button toggles the view all blog comments page 
 - which is a separate view controlled by comment controller -->
-    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapseExample" onclick="showComments(<?php echo $blogpost->blogid; ?>)">See the discussion here  <i class="far fa-hand-point-down"></i></button>
-<!-- this div is where the collapsed info will go once button is clicked -->        
-        <div id="collapseExample" class="collapse">
+<div id="seecommentsbutton">
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapseExample" onclick="showComments(<?php echo $blogpost->blogid; ?>)">See the discussion here  <i class="far fa-hand-point-down"></i></button> 
+</div>
+<br><br>
+    <!-- this div is where the collapsed info will go once button is clicked -->        
+        
+<div id="collapseExample" class="collapse">
             <!-- this div is where the ajax response from comments.js will be inserted
              and it will load the readallcomments.php file from views/comments-->
             <div id="comment"></div>

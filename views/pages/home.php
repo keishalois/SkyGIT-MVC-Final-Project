@@ -21,18 +21,31 @@
             smile();
             setInterval(smile, 4000);
         </script>
-        
-<?php //check user is not a guest
-if(!($_SESSION["username"] == 'guest')) { 
+            
+<?php //check user is not a guest and let them view user blogs
+        if(!($_SESSION["username"] == 'guest')) { 
     ?> 
         <br><br>
-<p>  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Show my blogs
-    </button></p>
-<div class="collapse" id="collapseExample">
-<div class="row">
-<?php  //display blogs associated to user 
-    foreach($blogposts as $blogpost) { ?>
+        <p id="seeuserblogs">  
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Show my blogs
+            </button>
+        </p>
+    <div class="collapse" id="collapseExample">
+        <div class="emptycomment">
+    <?php //check user actually has blogposts - if not display wow much empty
+        if(empty($blogposts)) {
+                $emptypic = 'views/images/empty/wow-much-empty.jpg';
+                if(file_exists($emptypic)){
+                    $img = "<img src='$emptypic' width='150' />";
+                echo $img;
+                } 
+                ?> <br><br> </div> 
+<?php        //this means they do have blogposts so display them below
+        } else { ?> 
+    <div class="row">
+   <?php    //display blogs associated to user 
+   foreach($blogposts as $blogpost) { ?>
 
   <div class="col-sm-4">
         <div class="card" style="width: 18rem;">
@@ -41,8 +54,9 @@ if(!($_SESSION["username"] == 'guest')) {
                     <h6 class="card-subtitle mb-2 text-muted">You own this blog</h6>
                     <p class="card-text"><?php echo $blogpost->content; ?> </p> 
                 <br><br>
-                <a class="btn btn-light" id="readbutton" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'><i class="fas fa-book-open"></i> Read</a> 
-                <br><button class="btn btn-danger" onclick="deleteBlog(<?php echo $blogpost->blogid; ?>)"> <i class="fas fa-trash-alt"></i> Delete</button>
+                <a class="btn btn-light" id="readbutton" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'><i class="fas fa-book-open"></i> Read</a>
+                <p><i class="fas fa-comment"></i> <?php echo $blogpost->blogComments($blogpost->blogid);?></p>
+                <br><button class="btn btn-danger" onclick="deleteBlogonUserPage(<?php echo $blogpost->blogid; ?>)"> <i class="fas fa-trash-alt"></i> Delete</button>
             <button class="btn btn-light" onclick="updateBlog(<?php echo $blogpost->blogid; ?>)"><i class="fas fa-edit"></i> Update</button> 
             <br><br>
             </div>
@@ -50,10 +64,10 @@ if(!($_SESSION["username"] == 'guest')) {
   </div>
             <hr>
         <?php } ?>
-</div>
+    </div>
 </div>
 <br><br>
-<?php } 
+<?php } }
 // below displays the guest home page
 
 else { ?>

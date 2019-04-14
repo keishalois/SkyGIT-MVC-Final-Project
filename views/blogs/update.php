@@ -22,9 +22,9 @@ if(file_exists($file)){
 
 ?>
   <br/>
-  <input type="file" name="myUploader" class="w3-btn" />
+  <input type="file" name="myUploader"/>
   <p>
-    <input class="w3-btn w3-gray" type="submit" value="Update Blog">
+    <input class="btn btn-light" type="submit" value="Update Blog">
     </p>
         </div>
 </form>

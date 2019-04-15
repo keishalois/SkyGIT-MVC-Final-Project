@@ -168,7 +168,7 @@ public static function uploadFile(string $title) {
 	}
         
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path =   __DIR__ .  "/../views/images/";
+        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images'));
 	$destinationFile = $path . $title . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {

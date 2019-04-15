@@ -6,7 +6,7 @@
     }
     function goBackToReadAll() {
         window.refresh;
-        window.location.href = "http://localhost/FinalProject/index.php?controller=blog&action=readAll";
+        window.location.href = "index.php?controller=blog&action=readAll";
 }
 
   function deleteBlogonUserPage(id) {
@@ -18,7 +18,7 @@
 
     function goBackToUserHome() {
         window.refresh;
-        window.location.href = "http://localhost/FinalProject/index.php?controller=pages&action=home";
+        window.location.href = "index.php?controller=pages&action=home";
 }
 
 

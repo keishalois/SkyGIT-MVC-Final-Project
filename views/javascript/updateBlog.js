@@ -6,5 +6,5 @@ function updateBlog(id) {
     }
     function goToUpdate(id) {
         window.refresh;
-        window.location.href = "http://localhost/FinalProject/index.php?controller=blog&action=update&blogid="+id;
+        window.location.href = "index.php?controller=blog&action=update&blogid="+id;
 }

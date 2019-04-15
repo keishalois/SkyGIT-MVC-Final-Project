@@ -1,14 +1,18 @@
+<br>
+<br>
+<div class="add-blog">
 <p>Wanna change your blog post?</p>
-<form action="" method="POST" class="w3-container" enctype="multipart/form-data">
+<form action="" method="POST" class="w3-container" id="addform" enctype="multipart/form-data">
     <h2>Update Blog</h2>
         <div class ="add-form">
     <p>
-        <input class="w3-input" type="text" name="title" value="<?= $blogpost->title; ?>">
         <label>Title</label>
+        <input class="w3-input" type="text" name="title" value="<?= $blogpost->title; ?>">
     </p>
     <p>
-        <input class="w3-input" type="text" name="content" value="<?= $blogpost->content; ?>" >
         <label>Content</label>
+        <textarea rows="10" cols="100" name="content" form="addform" required><?= $blogpost->content; ?></textarea>
+        <!--<input class="w3-input" type="text" name="content" value="<?= $blogpost->content; ?>" >-->
     </p>
             
   <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
@@ -21,10 +25,11 @@ if(file_exists($file)){
 
 
 ?>
-  <br/>
-  <input type="file" name="myUploader"/>
+  <input type="file" name="myUploader" class=""/>
+  <br><br>
   <p>
     <input class="btn btn-light" type="submit" value="Update Blog">
     </p>
-        </div>
+        </div>       
 </form>
+</div>

@@ -168,8 +168,8 @@ public static function uploadFile(string $title) {
 	}
         
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images'));
-	$destinationFile = $path . $title . '.jpeg';
+        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $title));
+	$destinationFile = $path . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
 		trigger_error("Handle Error");

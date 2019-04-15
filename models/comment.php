@@ -72,6 +72,29 @@ class Comment {
                 }
             return $list;    
         }
+        
+    //function to see all comments associated with a particular blog post
+    public static function allUserComments($username) {
+        //make an empty array called list to hold all comments
+            $list = [];
+            $db = Db::getInstance();
+        //since this is taking blogid as a parameter, we need to prepare the statement
+            //checks the comments belong to the blog and orders by newest first
+            $req = $db->prepare('SELECT comments.CommentID, comments.BlogID, comments.Comment, comments.DateAdded, users.Username FROM comments '
+               . 'INNER JOIN users ON comments.UserID = users.UserID '
+            . 'INNER JOIN blogposts ON comments.BlogID = blogposts.BlogID' 
+              . '  WHERE comments.UserID = :userid ORDER BY CommentID desc;'); 
+        //uses a get request for blogid - comes from the url
+            $req->execute(['userid'=> ($_SESSION['username'])]);
+            $viewblogcomments = $req->fetchAll();
+      // we create a list of comment objects from the database results
+            foreach($viewblogcomments as $comment) {
+                $list[] = new Comment($comment['CommentID'], $comment['BlogID'],$comment['Comment'],
+                $comment['Username'], $comment['DateAdded']);
+                }
+            return $list;    
+        }        
+        
     //this function lets a user delete a particular comment - used in views/comments/readwithcomments.php
     public static function deleteComment($commentid) {
             $db = Db::getInstance();

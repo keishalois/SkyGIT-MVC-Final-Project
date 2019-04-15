@@ -29,18 +29,18 @@
   </head>
   <body>
       <div class="nav-bar">
-        <a href='index.php'><i class="fas fa-home fa-3x"></i></a>
-        <a href='?controller=blog&action=readAll'><i class="fas fa-blog fa-3x"></i></a>
+        <a href='index.php' title='Home'><i class="fas fa-home fa-3x"></i></a>
+        <a href='?controller=blog&action=readAll' title='All Blogs'><i class="fas fa-blog fa-3x"></i></a>
         <?php  //check user is not a guest 
         if(!($_SESSION["username"] == 'guest'))  {
             ?>    
-        <a href='?controller=blog&action=create'><i class="fas fa-plus fa-3x"></i></a>
-        <a href='landingpage.php'><i class="fas fa-sign-out-alt fa-3x"></i></a> 
+        <a href='?controller=blog&action=create' title='New Blog'><i class="fas fa-plus fa-3x"></i></a>
+        <a href='landingpage.php' title='Sign Out'><i class="fas fa-sign-out-alt fa-3x"></i></a> 
     <?php } //if user is a guest, they can only read blogs or sign up/login
      else {
          ?>     
-        <a href='views/user/signup.php'><i class="fas fa-user-plus fa-3x"></i></a>
-        <a href='views/user/login.php'><i class="fas fa-portrait fa-3x"></i></a> 
+        <a href='views/user/signup.php' title='Sign Up'><i class="fas fa-user-plus fa-3x"></i></a>
+        <a href='views/user/login.php' title='Login'><i class="fas fa-portrait fa-3x"></i></a> 
     <?php } ?>
       </div>
 

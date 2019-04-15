@@ -5,7 +5,7 @@
             <p>Date Added: <?php echo $blogpost->date; ?></p>
             <p>Content: <?php echo $blogpost->content; ?></p>
 <?php  // this is checking if a uploaded file exists to display on the blog page
-$file = 'views/images/' . $blogpost->title . '.jpeg';
+$file = 'views/images/' . $blogpost->blogid . '.jpeg';
 if(file_exists($file)){
     $img = "<img src='$file' width='150' />";
     echo $img;

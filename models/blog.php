@@ -58,8 +58,9 @@
             $title = $filteredTitle;
             $content = $filteredContent;
             $req->execute();
-        //upload product image
-        BlogPost::uploadFile($title);
+            $blogid = $db->lastInsertId();
+        //upload blog image
+        BlogPost::uploadFile($blogid);
     }
     
     //function to bring up all blogposts with newest first
@@ -154,7 +155,7 @@ const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
 const InputKey = 'myUploader';
         //die() function calls replaced with trigger_error() calls
         //replace with structured exception handling
-public static function uploadFile(string $title) {
+public static function uploadFile($blogid) {
     //trigger errors
 	if (empty($_FILES[self::InputKey])) {
 		//die("File Missing!");
@@ -168,7 +169,7 @@ public static function uploadFile(string $title) {
 	}
         
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $title));
+        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
 	$destinationFile = $path . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
@@ -191,19 +192,19 @@ public static function uploadFile(string $title) {
       // execute query, replacing :blogid with the actual $blogid value
       $req->execute(array('blogid' => $blog));
 //                $title = $this->title;
-//                BlogPost::deleteBlogImage($title, $blog);
+                BlogPost::deleteBlogImage($blog);
     }
     
     //attempt to write method to delete blog image so image folder doesn't get clogged up
-//    public static function deleteBlogImage(string $title, $blogid) {
-//        if($blogid == ($_GET['blogid'])) {
-//    $path = "/Applications/xampp/htdocs/FinalProject/views/images/";
-//    $blogfile = $path . $title . '.jpeg';
-//    	if (file_exists($blogfile)) {
-//		unlink($blogfile); 
-//	}  
-//    } 
-//    }
+    public static function deleteBlogImage($blogid) {
+        if($blogid == ($_GET['blogid'])) {
+    $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
+    $blogfile = $path . '.jpeg';
+    	if (file_exists($blogfile)) {
+		unlink($blogfile); 
+	}  
+    } 
+    }
     
     //function to remove all comments associated with a particular blogpost - to be used in remove method
     public static function removeAllBlogComments($blogid) {

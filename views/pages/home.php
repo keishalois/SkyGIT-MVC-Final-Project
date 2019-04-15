@@ -67,7 +67,42 @@
     </div>
 </div>
 <br><br>
-<?php } }
+<?php } ?>
+
+        <p id="seeusercomments">  
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Show my comments
+            </button>
+        </p>
+    <div class="collapse" id="collapseExample">
+        <div class="emptycomment">
+    <?php //check user actually has blogposts - if not display wow much empty
+        if(empty($blogposts)) {
+                $emptypic = 'views/images/empty/wow-much-empty.jpg';
+                if(file_exists($emptypic)){
+                    $img = "<img src='$emptypic' width='150' />";
+                echo $img;
+                } 
+                ?> <br><br> </div> 
+<?php        //this means they do have blogposts so display them below
+        } else { ?> 
+    <div class="row">
+   <?php    //display blogs associated to user 
+   foreach($comments as $comment) { ?>
+
+                    <p class="card-text"><?php echo $comment->getContent(); ?> </p> 
+                <br><br>
+<!--                <a class="btn btn-light" id="readbutton" href='?controller=blog&action=read&blogid=<?php // echo $comment->blogid; ?>'><i class="fas fa-book-open"></i> Read</a>-->
+                <br><button class="btn btn-danger" onclick="deleteComment(<?php echo $comment->getCommentID;  ?>)"> <i class="fas fa-trash-alt"></i> Delete</button>
+            <button class="btn btn-light" onclick="updateComment(<?php echo $comment->getCommentID;  ?>)"><i class="fas fa-edit"></i> Update</button> 
+            <br><br>
+   <hr>
+        <?php } ?>
+    </div>
+</div>
+<br><br>
+<?php }
+   }
 // below displays the guest home page
 
 else { ?>

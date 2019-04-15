@@ -9,7 +9,7 @@
        <br>
        <p><i class="fas fa-comment"></i> <?php echo $blogpost->blogComments($blogpost->blogid);?></p>
    <?php
-   $file = 'views/images/' . $blogpost->title . '.jpeg';
+   $file = 'views/images/' . $blogpost->blogid . '.jpeg';
 
        if(file_exists($file)){
            $img = "<img src='$file' width='150' />";

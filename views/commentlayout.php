@@ -19,9 +19,9 @@
 <!-- link to fontawesome icons -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <!-- javascript links for blog page -->
-        <script src="/FinalProject/views/javascript/deleteBlog.js"></script>
-        <script src="/FinalProject/views/javascript/updateBlog.js"></script>
-        <script src="/FinalProject/views/javascript/comments.js"></script>
+        <script src="views/javascript/deleteBlog.js"></script>
+        <script src="views/javascript/updateBlog.js"></script>
+        <script src="views/javascript/comments.js"></script>
 <title>Fork My Life</title>
   </head>
   <body>

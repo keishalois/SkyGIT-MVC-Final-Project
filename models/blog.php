@@ -168,7 +168,7 @@ public static function uploadFile(string $title) {
 	}
         
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = "C:/xampp/htdocs/FinalProject/views/images/";
+        $path =   __DIR__ .  "/../views/images/";
 	$destinationFile = $path . $title . '.jpeg';
 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {

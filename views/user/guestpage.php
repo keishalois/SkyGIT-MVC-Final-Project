@@ -3,7 +3,7 @@
 <?php
 // I do think this php section should in theory be put somewhere else but will try later cos it works
     session_start();
-    include "C:/xampp/htdocs/FinalProject/models/user.php"; 
+    include __DIR__ .  "/../../models/user.php"; 
     if (!empty($_POST)){
         $usn= filter_var($_POST['username'], FILTER_SANITIZE_STRING);
         $psw= filter_var($_POST['password'], FILTER_SANITIZE_STRING);

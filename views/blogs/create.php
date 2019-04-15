@@ -6,7 +6,7 @@
 <form action="" method="POST" class="w3-container" id="addform" enctype="multipart/form-data">
 
    <h2>Add New Blog</h2>
-   <div class ="add-form">
+
    <p>
        <label>Title</label><br>
        <textarea rows="1" cols="100" name="title" form="addform" required></textarea>
@@ -21,9 +21,10 @@
         value="10000000"
         />
 
- <input type="file" name="myUploader" class="w3-btn" required/>
+ <input type="file" name="myUploader" class=""/>
+ <br><br>
  <p>
-   <input class="w3-btn" type="submit" value="Add Blog Post">
+   <input class="btn btn-light" type="submit" value="Add Blog Post">
  </p>
  </div>
 </form>

@@ -12,4 +12,4 @@ HTML/CSS
 
 --------------------------------------------------------------------
 
-To run please select the landingpage.php file as the starting page, hope you enjoy our blog :)
+To run please select the landingpage.php file as the starting page, hope you enjoy our blog! :)

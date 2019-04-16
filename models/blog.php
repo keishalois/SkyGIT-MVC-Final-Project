@@ -144,9 +144,9 @@
             $title = $filteredTitle;
             $content = $filteredContent;
             $req->execute();
-        //upload product image if it exists
-        if (!empty($_FILES[self::InputKey]['title'])) {
-            BlogPost::uploadFile($title);
+        //upload blog image if it exists
+        if (!empty($_FILES[self::InputKey]['blogid'])) {
+            BlogPost::uploadFile($blogid);
 	}
     }
 
@@ -171,14 +171,17 @@ public static function uploadFile($blogid) {
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
         $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
 	$destinationFile = $path . '.jpeg';
-
+        try {
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
-		trigger_error("Handle Error");
-        }	
-	//Clean up the temp file
-	if (file_exists($tempFile)) {
+		trigger_error("cannot upload");
+        } if (file_exists($tempFile)) {
 		unlink($tempFile); 
 	}
+        } catch (Exception $e) {
+    die ('File did not upload: ' . $e->getMessage());
+}
+	//Clean up the temp file
+	
 }
     
     //function to remove a blogpost

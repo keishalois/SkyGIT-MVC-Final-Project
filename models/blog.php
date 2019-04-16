@@ -170,7 +170,7 @@ public static function uploadFile($blogid) {
         
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
         $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images'));
-	$destinationFile = $path . "/" . $blogid . '.jpeg';
+	$destinationFile = $path . $blogid . '.jpeg';
         echo DIRECTORY_SEPARATOR;
         echo "destination file " . $destinationFile;
         echo "file path " . $path;

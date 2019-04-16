@@ -169,7 +169,7 @@ public static function uploadFile($blogid) {
 //	}
         
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $_FILES[self::InputKey][$blogid]));
+        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
 	$destinationFile = $path . '.jpeg';
             $error = $_FILES[self::InputKey]['error'];
             

@@ -171,6 +171,9 @@ public static function uploadFile($blogid) {
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
         $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
 	$destinationFile = $path . '.jpeg';
+        echo "destination file :" . $destinationFile;
+        echo "file path " . $path;
+        echo "temp file " . $tempFile;
         try {
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
 		trigger_error("cannot upload");

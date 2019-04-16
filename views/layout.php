@@ -26,6 +26,7 @@
         <script src="views/javascript/updateBlog.js"></script>
         <script src="views/javascript/comments.js"></script>
 <title>Fork My Life</title>
+<link rel="icon" type="image/png" href="../images/standard/header-fml.png">
   </head>
   <body>
       <div class="nav-bar">

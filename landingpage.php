@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Fork My Life</title>
+        <link rel="icon" type="image/png" href="views/images/standard/header-fml.png">
         <?php
         //this checks if any session is started and logs the user out
         session_start();

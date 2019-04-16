@@ -19,6 +19,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Sign Up - Fork My Life</title>
+        <link rel="icon" type="image/png" href="../images/standard/header-fml.png">
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">

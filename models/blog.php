@@ -157,38 +157,68 @@ const InputKey = 'myUploader';
         //replace with structured exception handling
 public static function uploadFile($blogid) {
     //trigger errors
-	if (empty($_FILES[self::InputKey])) {
-		//die("File Missing!");
-                trigger_error("File Missing!");
-	}
-	if ($_FILES[self::InputKey]['error'] > 0) {
-		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
-	}
-	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
-		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
-	}
+//	if (empty($_FILES[self::InputKey])) {
+//		//die("File Missing!");
+//                trigger_error("File Missing!");
+//	}
+//	if ($_FILES[self::InputKey]['error'] > 0) {
+//		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
+//	}
+//	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
+//		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
+//	}
         
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
         $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $_FILES[self::InputKey][$blogid]));
 	$destinationFile = $path . '.jpeg';
+            $error = $_FILES[self::InputKey]['error'];
+            
         echo DIRECTORY_SEPARATOR;
         echo "file path " . $path;
         echo "destination file " . $destinationFile;
         echo "temp file " . $tempFile;
-        try {
+        if($error === 0) {
+            
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
             $trace = $e->getTrace();
-    echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];
+            echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];
 		trigger_error("cannot upload");
                 
         } 
         if (file_exists($tempFile)) {
 		unlink($tempFile); 
 	}
-} catch(Exception $e) {
-                die ('File did not upload: ' . $e->getMessage());
-        }
+}     else {
+        $error = $_FILES['myfile']['error'];
+        checkError($error);   
+            }
 }
+
+        function checkError($error) {
+            switch ($error) {
+        //error throws 1 means uploaded file exceeds the upload_max_filesize directive in php.ini   
+            //UPLOAD_ERR_INI_SIZE
+        //error throws 2 means uploaded file exceeds the MAX_FILE_SIZE directive in HTML form
+            //UPLOAD_ERR_FORM_SIZE
+                case 1: case 2: $fileError = "Your file is too big."; break;
+        //error 3 means uploaded file was only partially uploaded
+            //UPLOAD_ERR_PARTIAL
+                case 3: $fileError = "File was only partially uploaded"; break;
+        //error 4 means no file uploaded
+            //UPLOAD_ERR_NO_FILE
+                case 4: $fileError = 'No file uploaded.'; break;
+        //error 6 means no temp directory specified
+            //UPLOAD_ERR_NO_TMP_DIR
+                case 6: $fileError = 'No temp directory specified.'; break;
+    // error 7 means failed to write file to disk
+            //UPLOAD_ERR_CANT_WRITE
+                case 7: $fileError = 'Cannot write to disk.'; break;
+        //error 8 means PHP extension stopped the file upload
+                case 8: $fileError = 'A PHP extension stopped the file upload'; break;
+                default : $fileError = 'Unknown error - try again';
+            }
+            return $fileError;
+        }
     
     //function to remove a blogpost
     public static function remove($blogid) {

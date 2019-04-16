@@ -176,7 +176,10 @@ public static function uploadFile($blogid) {
         echo "temp file " . $tempFile;
         try {
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
+            $trace = $e->getTrace();
+    echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];
 		trigger_error("cannot upload");
+                
         } if (file_exists($tempFile)) {
 		unlink($tempFile); 
 	}

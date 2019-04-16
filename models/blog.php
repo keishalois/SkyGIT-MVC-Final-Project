@@ -169,23 +169,22 @@ public static function uploadFile($blogid) {
 	}
         
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
-	$destinationFile = $path . '.jpeg';
-        echo "destination file :" . $destinationFile;
+        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images'));
+	$destinationFile = $path . "/" . $blogid . '.jpeg';
+        echo DIRECTORY_SEPARATOR;
+        echo "destination file " . $destinationFile;
         echo "file path " . $path;
         echo "temp file " . $tempFile;
-        try {
+        try { 
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
-            $trace = $e->getTrace();
-    echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];
 		trigger_error("cannot upload");
                 
         } if (file_exists($tempFile)) {
 		unlink($tempFile); 
 	}
-        } catch (Exception $e) {
-    die ('File did not upload: ' . $e->getMessage());
-}
+        } catch (Throwable $e) {
+            $trace = $e->getTrace();
+            echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];}
 	//Clean up the temp file
 	
 }

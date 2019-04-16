@@ -169,9 +169,8 @@ public static function uploadFile($blogid) {
 	}
         
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-//        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images'));
-                $path =   __DIR__ .  "\\..\\views\\images\\";
-	$destinationFile = $path . $blogid . '.jpeg';
+        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $_FILES[self::InputKey][$blogid]));
+	$destinationFile = $path . '.jpeg';
         echo DIRECTORY_SEPARATOR;
         echo "file path " . $path;
         echo "destination file " . $destinationFile;

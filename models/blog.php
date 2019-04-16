@@ -186,7 +186,7 @@ public static function uploadFile($blogid) {
         if (file_exists($tempFile)) {
 		unlink($tempFile); 
 	}
-} catch(Throwable $e) {
+} catch(Exception $e) {
                 die ('File did not upload: ' . $e->getMessage());
         }
 }

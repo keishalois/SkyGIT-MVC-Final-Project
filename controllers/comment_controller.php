@@ -6,7 +6,7 @@ class CommentController {
     // we store all the posts in a variable and get the blogid from the url to only display relevant comments
       $viewblogcomments = Comment::allComments($_GET['blogid']);
     //this brings up the html to display the list of comments
-      require_once('views/comments/readwithcomments.php');
+      require_once('views/comments/readallcomments.php');
     }
     
     //function to tell the page what to do when we want to create a new comment

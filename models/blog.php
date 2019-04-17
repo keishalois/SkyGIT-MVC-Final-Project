@@ -173,20 +173,17 @@ public static function uploadFile($blogid) {
 	$destinationFile = $path . '.jpeg';
             $error = $_FILES[self::InputKey]['error'];
             ini_set("upload_tmp_dir", "D:\home\site\wwwroot\models\views\images");
-        echo DIRECTORY_SEPARATOR;
-        echo "file path " . $path;
-        echo "destination file " . $destinationFile;
-        echo "temp file " . $tempFile;
+
         if($error === 0) {
             
-	if (!move_uploaded_file($tempFile, $destinationFile)) {
-            $trace = $e->getTrace();
-            echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];
-		trigger_error("cannot upload");
-                
-        } 
+//	if (!move_uploaded_file($tempFile, $destinationFile)) {
+//            $trace = $e->getTrace();
+//            echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];
+//		trigger_error("cannot upload");
+//                
+//        } 
         if (file_exists($tempFile)) {
-		unlink($tempFile); 
+		//unlink($tempFile); 
 	}
 }     else {
         $error = $_FILES['myfile']['error'];

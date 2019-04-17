@@ -157,16 +157,16 @@ const InputKey = 'myUploader';
         //replace with structured exception handling
 public static function uploadFile($blogid) {
     //trigger errors
-//	if (empty($_FILES[self::InputKey])) {
-//		//die("File Missing!");
-//                trigger_error("File Missing!");
-//	}
-//	if ($_FILES[self::InputKey]['error'] > 0) {
-//		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
-//	}
-//	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
-//		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
-//	}
+	if (empty($_FILES[self::InputKey])) {
+		//die("File Missing!");
+                trigger_error("File Missing!");
+	}
+	if ($_FILES[self::InputKey]['error'] > 0) {
+		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
+	}
+	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
+		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
+	}
         
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
         $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
@@ -185,9 +185,9 @@ public static function uploadFile($blogid) {
 		trigger_error("cannot upload");
                 
         } 
-        if (file_exists($tempFile)) {
-		unlink($tempFile); 
-	}
+//        if (file_exists($tempFile)) {
+//		unlink($tempFile); 
+//	}
 }     else {
         $error = $_FILES['myfile']['error'];
         checkError($error);   

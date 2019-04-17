@@ -169,7 +169,7 @@ public static function uploadFile($blogid) {
 	}
         
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
+        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'...','views','images', $blogid));
 	$destinationFile = $path . '.jpeg';
             $error = $_FILES[self::InputKey]['error'];
             
@@ -185,9 +185,9 @@ public static function uploadFile($blogid) {
 		trigger_error("cannot upload");
                 
         } 
-//        if (file_exists($tempFile)) {
-//		unlink($tempFile); 
-//	}
+        if (file_exists($tempFile)) {
+		unlink($tempFile); 
+	}
 }     else {
         $error = $_FILES['myfile']['error'];
         checkError($error);   

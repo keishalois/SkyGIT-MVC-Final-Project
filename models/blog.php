@@ -167,7 +167,7 @@ public static function uploadFile($blogid) {
 	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
 		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
 	}
-            ini_set("upload_tmp_dir", "D:\home\site\wwwroot\models\views\images");        
+        ini_set("upload_tmp_dir", "D:\home\site\wwwroot\models\views\images");        
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
         $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
 	$destinationFile = $path . '.jpeg';
@@ -175,12 +175,12 @@ public static function uploadFile($blogid) {
 
         if($error === 0) {
             
-//	if (!move_uploaded_file($tempFile, $destinationFile)) {
-//            $trace = $e->getTrace();
-//            echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];
-//		trigger_error("cannot upload");
-//                
-//        } 
+	if (!move_uploaded_file($tempFile, $destinationFile)) {
+            $trace = $e->getTrace();
+            echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];
+		trigger_error("cannot upload");
+                
+        } 
         if (file_exists($tempFile)) {
 		//unlink($tempFile); 
 	}

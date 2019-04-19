@@ -1,16 +1,18 @@
 <br><br>
-<div class="blogs-page">
-            <h3><?php echo $blogpost->title; ?></h3>
-            <p>Added By: <?php echo $blogpost->username;
+<div class="testing">
+<div class="userblog">
+            <h3><?php echo $blogpost->title ?></h3>
+
+            <?php 
            //adds photo to blogs/username
            $file2 = 'views/images/prophotos/' . $blogpost->username . '.jpeg';
                if(file_exists($file2)){
                $img2 = '<img class=' . '"navprofile"' . "src='$file2' width='30' />";
                echo $img2;
            }
-           ?>  </p>
-            <p>Date Added: <?php echo $blogpost->date; ?></p>
-            <p>Content: <?php echo $blogpost->content; ?></p>
+           echo $blogpost->username . " " . $blogpost->date;
+           ?>  
+            <p><?php echo $blogpost->content; ?></p>
 <?php  // this is checking if a uploaded file exists to display on the blog page
 $file = 'views/images/' . $blogpost->blogid . '.jpeg';
 if(file_exists($file)){
@@ -39,7 +41,7 @@ if(file_exists($file)){
         <form action="" method="POST" class="w3-container" id="cmtform" enctype="multipart/form-data">
             <p>
                 <label>Add Comment</label><br>
-                <textarea rows="6" cols="80" name="comment" form="cmtform" required></textarea>
+                <textarea class="form-control form-rounded" rows="6" cols="80" name="comment" form="cmtform" required></textarea>
             </p>
             <p>
                 <div id ="addcommentbutton">
@@ -53,7 +55,7 @@ if(file_exists($file)){
 <!-- this button toggles the view all blog comments page 
 - which is a separate view controlled by comment controller -->
 <div id="seecommentsbutton">
-    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#collapseExample" onclick="showComments(<?php echo $blogpost->blogid; ?>)">See the discussion here  <i class="far fa-hand-point-down"></i></button> 
+    <button type="button" class="btn commentsbutton" data-toggle="collapse" data-target="#collapseExample" onclick="showComments(<?php echo $blogpost->blogid; ?>)">See the discussion here  <i class="far fa-hand-point-down"></i></button> 
 </div>
 <br><br>
     <!-- this div is where the collapsed info will go once button is clicked -->        
@@ -63,5 +65,7 @@ if(file_exists($file)){
              and it will load the readallcomments.php file from views/comments-->
             <div id="comment"></div>
         </div>
+    
+</div>
 
 	

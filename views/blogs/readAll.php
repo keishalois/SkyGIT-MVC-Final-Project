@@ -1,5 +1,5 @@
 <p>Here is a list of all blogs:</p>
-
+<div class="testing">
 <?php  foreach($blogposts as $blogpost) { ?>
 <div class="blogs-page">
  <p>
@@ -20,4 +20,4 @@
   </p> 
   </div>
 <hr>
-<?php } ?>
+    <?php } ?> </div>

@@ -2,30 +2,17 @@ html, body, h1, h2, h3, h4, h5, h6 {
  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
 }
 
-body.landingpage{
-    background:url(https://hostpapa.blog/blog/wp-content/uploads/2013/01/Blog-Promotion.jpg);
-
-}
-
 body {
-	background-color: rgb(18,161,221);
-	background-size: cover;
+	background-color: #d8d8d8;
 	font-family: Arial, sans-serif;
         color: white;
 }
-.formLog{
-	position: absolute;
-        top:10%;
-        width: 100%;
-        text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-				 0px 8px 13px rgba(0,0,0,0.1),
-				 0px 18px 23px rgba(0,0,0,0.1);
-}
 
 .form-sign{
-	position: absolute;
-        top:10%;
-        width:100%;
+    position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
         text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 				 0px 8px 13px rgba(0,0,0,0.1),
 				 0px 18px 23px rgba(0,0,0,0.1);
@@ -38,42 +25,38 @@ body {
     font-family: 'Pacifico', cursive;
 }
 
-.land-nav {
-    position: absolute;
-    left: 2%;
-    top: 5%;
-            text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-				 0px 8px 13px rgba(0,0,0,0.1),
-				 0px 18px 23px rgba(0,0,0,0.1);
+.landingpagelogo {
+    width: 100%;
+    max-width: 500px;
 }
 
-.land-nav a:visited{
-    color: white; 
-            text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-				 0px 8px 13px rgba(0,0,0,0.1),
-				 0px 18px 23px rgba(0,0,0,0.1);
-}
-.land-nav a:hover{
-  color: orange;  
-          text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-				 0px 8px 13px rgba(0,0,0,0.1),
-				 0px 18px 23px rgba(0,0,0,0.1);
+
+.nav-bar{
+    position: relative;
+    left: 35%; 
+    padding-top: 1%;
 }
 
-.navprofile {
-    border-radius: 50px;
+.nav-bar a {
+    padding: 2%;
 }
 
 a:visited{
     color: white;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				 0px 8px 13px rgba(0,0,0,0.1),
+				 0px 18px 23px rgba(0,0,0,0.1);
 }
 
 a {
     color: white; 
+                text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+				 0px 8px 13px rgba(0,0,0,0.1),
+				 0px 18px 23px rgba(0,0,0,0.1);
 }
 
 a:hover{
-  color: orange;  
+  color: #f88379;  
           text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 				 0px 8px 13px rgba(0,0,0,0.1),
 				 0px 18px 23px rgba(0,0,0,0.1);
@@ -81,10 +64,12 @@ a:hover{
 
 
 .area{
-    position: absolute;
-    left: 70%;
-    top: 5%;
-            text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+    position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 				 0px 8px 13px rgba(0,0,0,0.1),
 				 0px 18px 23px rgba(0,0,0,0.1);
 }
@@ -97,7 +82,7 @@ a:hover{
 
 .blogs-page {
        position: relative;
-       background-color: coral;
+   background-color: #f88379;
        opacity: 0.9;
        filter: Alpha(opacity=50);
        text-align: center;
@@ -108,11 +93,26 @@ a:hover{
 }
 
 .add-blog{
-   position: static;
-   background-color: coral;
+    position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+   background-color: #f88379;
    opacity: 0.9;
    filter: Alpha(opacity=50);
    align-content: center;
+   border-radius: 10px;
+}
+
+.userblog{
+    position: relative;
+   background-color: #f88379;
+   opacity: 0.9;
+   filter: Alpha(opacity=50);
+   align-content: center;
+   border-radius: 10px;
+   margin: 50px;
+   text-align: center;
 }
 
 .reload{
@@ -124,16 +124,6 @@ textarea {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
-}
-
-.nav-bar{
-    position: relative;
-    left: 35%; 
-    padding-top: 1%;
-}
-
-.nav-bar a {
-    padding: 2%;
 }
 
 .guestsign{
@@ -150,12 +140,12 @@ textarea {
 }
 
 .cmtdate {
-  color: #ef6300;
+  color: #f88379;
   font-size: 1.2em;
   margin: 2px;
 }
 .cmtcontent {
-  color: #ff5722;
+  color: #f88379;
   margin: 10px;
   border-radius: 20px;
   background-color: #f0f0f0;
@@ -164,7 +154,7 @@ textarea {
 }
 
 .cmtname {
-  color: #ef6300;
+  color: #f88379;
   font-weight: bold;
   font-size: 1.2em;
 }
@@ -192,13 +182,44 @@ textarea {
     text-align: center;
 }
 
+.commentsbutton {
+    background-color: #3e3e3e;
+    border: black solid 3px;
+    border-radius: 10px;
+    color: white;
+}
+
+.commentsbutton:hover {
+    color: #f88379;
+}
+
 /*readbutton id is on the user home page as anchor css makes it unreadable*/
 #readbutton {
-    color: orangered;
+    color: #f88379;
 }
 #readbutton:hover{
-  color: orange;  
+  color: #f88379;  
           text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 				 0px 8px 13px rgba(0,0,0,0.1),
 				 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+/*profile pic in nav bar and blog and comments*/
+.navprofile {
+    border-radius: 50px;
+}
+
+.bloginput{
+    border-radius: 10px;
+}
+
+
+
+.testing {
+    
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+min-width: 300px;
+    
 }

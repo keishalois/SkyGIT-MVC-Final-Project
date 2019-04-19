@@ -6,12 +6,10 @@
     <h2>Update Blog</h2>
         <div class ="add-form">
     <p>
-        <label>Title</label>
         <input class="w3-input" type="text" name="title" value="<?= $blogpost->title; ?>">
     </p>
     <p>
-        <label>Content</label>
-        <textarea rows="10" cols="100" name="content" form="addform" required><?= $blogpost->content; ?></textarea>
+        <textarea class="form-control form-rounded"r rows="10" cols="100" name="content" form="addform" required><?= $blogpost->content; ?></textarea>
         <!--<input class="w3-input" type="text" name="content" value="<?//= $blogpost->content; ?>" >-->
     </p>
             

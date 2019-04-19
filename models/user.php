@@ -1,6 +1,6 @@
 <?php
 
-    require_once __DIR__ . "/../connection.php";
+require_once __DIR__ . "/../connection.php";
  function userExists($username) {
     $alertmsgexists = "$username already exists";
 '<script type="text/javascript">alert("$alertmsgexists")</script>';
@@ -41,7 +41,7 @@ class User {
         $isVerified = User::verifyUser();
         if ($isVerified) {
             $_SESSION["username"] = $this->username;
-            header("Location:../../index.php");
+            header("Location:../../index.php?controller=blog&action=readAll");
         } else {
             die("Login failed sorry ...");
         }

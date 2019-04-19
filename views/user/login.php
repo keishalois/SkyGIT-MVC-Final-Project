@@ -28,22 +28,22 @@
 		<div id="content">
                             
                     <div class="area">
+                                                       <img class="landingpagelogo" src ="../images/standard/logo.png">
+                               <br><br>
 				<h2>#FML: Fork My Life</h2>
                                 <h4>For all those FML moments</h4>
                                 <p><i>FYI: A fork is a copy of a repository.</i>
 				<hr>
-                    </div>
-        <div class="formLog">                   
-
+                    
 	<form action="" method="post" class="form">
-            <span class="input-group-addon"><i class="far fa-user"></i></span><input type="text" name="username" placeholder="Username" required/><br>
+            <span class="input-group-addon"><i class="far fa-user"></i></span><input type="text" name="username" placeholder="Username" required/> &nbsp; &nbsp; &nbsp; &nbsp;
             <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span><input type="password" name="password" placeholder="Password" required/>
         <br> <br>
         <input type="submit" class="btn btn-default btn-lg" href='#'value="Login"/>
         <br> <br>
         </form>
-        New around here? 
-        <br><a class="btn btn-default btn-lg" href='signup.php'>Sign up?</a>
+                                <h6>New around here?</h6><a class="btn btn-default btn-lg" href='signup.php'>Sign up!</a>
+        </div>
         </div>
 </div>
 

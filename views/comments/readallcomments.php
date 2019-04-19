@@ -16,15 +16,16 @@
             <div>
 <!-- this div displays the date and username associated with the comment -->
                 <div>
-                    <span class="cmtdate"> Posted on: <?php echo $comment->getDate();?> </span>
-                    <span class="cmtname"> : <?php echo $comment->getUsername();?></span>
-                    <span class="cmtname"> : <?php echo $comment->getUsername();
-                   //adds photo to comment/username
-                    $file2 = 'views/images/prophotos/' . $comment->getUsername() . '.jpeg';
+                    <!--                   //adds photo to comment/username-->
+                   <?php 
+                   $file2 = 'views/images/prophotos/' . $comment->getUsername() . '.jpeg';
                     if(file_exists($file2)){
-                    $img2 = "<img src='$file2' width='30' />";
+               $img2 = '<img class=' . '"navprofile"' . "src='$file2' width='30' />";
                    echo $img2;
-           }?></span>
+           }?>
+              <span class="cmtname"> <?php echo $comment->getUsername();?></span>
+                    <span class="cmtdate">    Posted on: <?php echo $comment->getDate();?> </span>
+
                 </div>
                 <div class="cmtcontent">
                         <?php echo $comment->getContent();?> 

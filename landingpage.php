@@ -16,25 +16,25 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
 </head>
-<body class="landingpage">
-<div class="container">
+<body>
+ 
+
+<div class="container center-block">
 	<div class="row justify-content-md-center">
 		<div class="col col-lg-12"></div>
 			<div id="content">
                            <div class="area">
+                               <img class="landingpagelogo" src ="views/images/standard/logo.png">
+                               <br><br>
 				<h2>#FML: Fork My Life</h2>
                                 <h4>For all those FML moments</h4>
                                 <p><i>FYI: A fork is a copy of a repository.</i>
 				<hr>
-<!-- the paragraph below only displays when the user is not logged in-->
-                                 <p><?php if(empty($_SESSION)){
-                echo "Hello - please log in or sign up!" . '<br>';
-                } ?></p></div>
-                                 <div class="land-nav">
+                          
                                 <a class="btn btn-default btn-lg" href='views/user/login.php'>Login </a>
                                 <a class="btn btn-default btn-lg" href='views/user/signup.php'>Sign up</a>
                                 <a class="btn btn-default btn-lg" href='views/user/guestpage.php'>Guest?</a>
-                                 </div>
+                           </div>
                         </div>
 	</div>
 </div>

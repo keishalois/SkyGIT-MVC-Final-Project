@@ -26,7 +26,7 @@
         <script src="views/javascript/updateBlog.js"></script>
         <script src="views/javascript/comments.js"></script>
 <title>Fork My Life</title>
-<link rel="icon" type="image/png" href="../images/standard/header-fml.png">
+<link rel="icon" type="image/png" href="images/standard/header-fml.png">
   </head>
   <body>
       <div class="nav-bar">
@@ -37,6 +37,7 @@
             ?>    
         <a href='?controller=blog&action=create' title='New Blog'><i class="fas fa-plus fa-3x"></i></a>
         <a href='landingpage.php' title='Sign Out'><i class="fas fa-sign-out-alt fa-3x"></i></a> 
+        <a href='views/chatbox.php' title='Live Chat'><i class="fas fa-sign-out-alt fa-3x"></i></a> 
     <?php } //if user is a guest, they can only read blogs or sign up/login
      else {
          ?>     

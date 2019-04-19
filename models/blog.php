@@ -169,7 +169,7 @@ public static function uploadFile($blogid) {
 	}
         ini_set("upload_tmp_dir", "D:\home\site\wwwroot\models\views\images");        
 	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path =   join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
+        $path = join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
 	$destinationFile = $path . '.jpeg';
             $error = $_FILES[self::InputKey]['error'];
 

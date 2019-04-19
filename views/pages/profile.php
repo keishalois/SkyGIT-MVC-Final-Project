@@ -21,8 +21,36 @@
             smile();
             setInterval(smile, 4000);
         </script>
-            
-<?php //check user is not a guest and let them view user blogs
+
+   <!-- upload profile photo form-->
+<form enctype="multipart/form-data" action="" method="POST">
+   <p>Upload your profile photo!</p>
+   <input type="file" name="fileToUpload"></input><br />
+   <input type="submit" value="Upload"></input>
+ </form>
+
+<?php
+//php code to upload photo
+if(!empty($_FILES['fileToUpload']))
+   {
+   $path =   __DIR__ .  "/../images/prophotos/";
+   $destinationFile = $path . $username . '.jpeg';
+   $tempyFile = $_FILES['fileToUpload']['tmp_name'];
+
+   if(move_uploaded_file($tempyFile, $destinationFile)) {
+     echo "The file ".  ( $_FILES['fileToUpload']['name']).
+     " has been uploaded as your profile photo!";
+   } else{
+       echo "There was an error uploading the file, please try again!";
+   }
+   } //php code to show photo
+       $file = 'views/images/prophotos/' . $username . '.jpeg';
+       if(file_exists($file)){
+       $img = "<div class='propic'><img src='$file' width='300' /></div>";
+       echo $img;
+   }
+ 
+             //check user is not a guest and let them view user blogs
         if(!($_SESSION["username"] == 'guest')) { 
     ?> 
         <br><br>

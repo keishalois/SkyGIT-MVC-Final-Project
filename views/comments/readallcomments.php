@@ -18,6 +18,13 @@
                 <div>
                     <span class="cmtdate"> Posted on: <?php echo $comment->getDate();?> </span>
                     <span class="cmtname"> : <?php echo $comment->getUsername();?></span>
+                    <span class="cmtname"> : <?php echo $comment->getUsername();
+                   //adds photo to comment/username
+                    $file2 = 'views/images/prophotos/' . $comment->getUsername() . '.jpeg';
+                    if(file_exists($file2)){
+                    $img2 = "<img src='$file2' width='30' />";
+                   echo $img2;
+           }?></span>
                 </div>
                 <div class="cmtcontent">
                         <?php echo $comment->getContent();?> 
@@ -28,7 +35,6 @@
             <hr>
             <p>
                 <button class="btn btn-danger" onclick="deleteComment(<?php echo $comment->getCommentID(); ?>)"> <i class="fas fa-trash-alt"></i> Delete</button>
-                <button class="btn btn-light" onclick="updateComment(<?php echo $comment->getCommentID(); ?>)"> <i class="fas fa-edit"></i> Edit</button>
             </p>
             <?php } ?>
         </div>

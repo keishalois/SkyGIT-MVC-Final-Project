@@ -18,7 +18,7 @@
 
     function goBackToUserHome() {
         window.refresh;
-        window.location.href = "index.php?controller=pages&action=home";
+        window.location.href = "index.php?controller=pages&action=profile";
 }
 
 

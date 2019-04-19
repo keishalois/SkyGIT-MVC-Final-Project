@@ -1,7 +1,14 @@
 <br><br>
 <div class="blogs-page">
             <h3><?php echo $blogpost->title; ?></h3>
-            <p>Added By: <?php echo $blogpost->username; ?></p>
+            <p>Added By: <?php echo $blogpost->username;
+           //adds photo to blogs/username
+           $file2 = 'views/images/prophotos/' . $blogpost->username . '.jpeg';
+               if(file_exists($file2)){
+               $img2 = '<img class=' . '"navprofile"' . "src='$file2' width='30' />";
+               echo $img2;
+           }
+           ?>  </p>
             <p>Date Added: <?php echo $blogpost->date; ?></p>
             <p>Content: <?php echo $blogpost->content; ?></p>
 <?php  // this is checking if a uploaded file exists to display on the blog page
@@ -36,7 +43,7 @@ if(file_exists($file)){
             </p>
             <p>
                 <div id ="addcommentbutton">
-                    <input class="w3-btn" onsubmit="addComment(<?php echo $_GET['blogid'] ?>)" type="submit" value="Comment">
+                    <input class="w3-btn" onsubmit="addComment(<?php echo $blogpost->blogid;  ?>)" type="submit" value="Comment">
                 </div>
             </p>
         </form> 

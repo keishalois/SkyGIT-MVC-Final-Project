@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Fork My Life</title>
+<!--        <link rel="icon" type="image/png" href="views/images/standard/header-fml.png">-->
     </head>
     <body>
         <?php
@@ -13,7 +14,7 @@
         $action     = $_GET['action'];
   } else {
         $controller = 'pages';
-        $action     = 'home';
+        $action     = 'profile';
   }
   //this is checking if the controller is comment with action readall as comment readall
   // is what gives us the data for the read all comments on a blogpost and we don't want a nav bar or fotter

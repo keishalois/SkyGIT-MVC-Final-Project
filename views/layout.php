@@ -26,18 +26,28 @@
         <script src="views/javascript/updateBlog.js"></script>
         <script src="views/javascript/comments.js"></script>
 <title>Fork My Life</title>
-<link rel="icon" type="image/png" href="images/standard/header-fml.png">
+<link rel="icon" type="image/png" href="views/images/standard/header-fml.png">
   </head>
   <body>
       <div class="nav-bar">
-        <a href='index.php' title='Home'><i class="fas fa-home fa-3x"></i></a>
         <a href='?controller=blog&action=readAll' title='All Blogs'><i class="fas fa-blog fa-3x"></i></a>
+       <a href='?controller=pages&action=profile' title='Profile'>
+                <?php
+       // if there is a proile photo uploaded it will show it in Nav, or it will show profile icon
+           $file = 'views/images/prophotos/' . $username . '.jpeg';
+               if(file_exists($file)){
+                   $img = '<img class=' . '"navprofile"' . "src='$file' width='50' />";
+                   echo $img;
+               } else {
+                   echo "<i class='far fa-user-circle fa-3x'></i>";
+               }
+       ?></a>
         <?php  //check user is not a guest 
         if(!($_SESSION["username"] == 'guest'))  {
             ?>    
         <a href='?controller=blog&action=create' title='New Blog'><i class="fas fa-plus fa-3x"></i></a>
+        <a href='views/chatbox/chat.php' title='Live Chat'><i class="fas fa-comment-dots fa-3x"></i></a> 
         <a href='landingpage.php' title='Sign Out'><i class="fas fa-sign-out-alt fa-3x"></i></a> 
-        <a href='views/chatbox.php' title='Live Chat'><i class="fas fa-sign-out-alt fa-3x"></i></a> 
     <?php } //if user is a guest, they can only read blogs or sign up/login
      else {
          ?>     

@@ -167,7 +167,7 @@ public static function uploadFile($blogid) {
     require_once 'vendor/autoload.php';
     $AccountKey = getenv('storageaccountkey');
     $connectionString = "DefaultEndpointsProtocol=https;AccountName=fmlblogimages;AccountKey=$AccountKey";
-    $fileToUpload = $_FILES['myUploader'];
+    $fileToUpload = $_FILES['myUploader']["tmp_name"];
      // Create blob client.
     $blobClient = BlobRestProxy::createBlobService($connectionString);
     
@@ -185,7 +185,7 @@ public static function uploadFile($blogid) {
             }
             else{
         // Getting local file so that we can upload it to Azure
-        $myfile = fopen('data:image/jpeg;' . $fileToUpload, "w") or die("Unable to open file!");
+        $myfile = fopen($_FILES["myUploader"]["tmp_name"], "w") or die("Unable to open file!");
         fclose($myfile);
 
         
@@ -195,7 +195,7 @@ public static function uploadFile($blogid) {
         echo "<br />";
 //        $content = fopen($fileToUpload, "r");
                 
-        $blobName = $blogid;
+        $blobName = "images/" . $blogid . ".jpeg";
         $blob = new BlobStorage;
         $blob->AddBlob('fmlimages', $blobName, $myfile);
          //Upload blob

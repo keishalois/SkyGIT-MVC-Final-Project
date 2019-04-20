@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" href="images/standard/header-fml.png">
   </head>
   <body>
-      <div class="nav-bar">
+      <div class="nav-bar" align="center">
         <a href='?controller=blog&action=readAll' title='All Blogs'><i class="fas fa-blog fa-3x"></i></a>
        <a href='?controller=pages&action=profile' title='Profile'>
                 <?php

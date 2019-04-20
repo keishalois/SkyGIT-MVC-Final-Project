@@ -4,11 +4,11 @@
 
 <form action="" method="POST" class="w3-container" id="addform" enctype="multipart/form-data">
     <br>
-   <h2 class="text-center">New Blog</h2>
-   <p ><br>
-       
-       <textarea class="form-control form-rounded"rows="1" cols="100" name="title" form="addform" placeholder="Title" required></textarea>
-   </p>
+    <h2 class="text-center">New Blog</h2>
+    <p>
+        <br>
+        <textarea class="form-control form-rounded" rows="1" cols="100" name="title" form="addform" placeholder="Title" required></textarea>
+    </p>
 
    <p><br>
    <textarea class="form-control form-rounded"rows="10" cols="100" name="content" form="addform" placeholder="Start writing your blog here..." required></textarea>

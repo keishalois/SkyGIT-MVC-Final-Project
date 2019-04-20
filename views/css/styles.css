@@ -33,7 +33,6 @@ body {
 
 .nav-bar{
     position: relative;
-    left: 35%; 
     padding-top: 1%;
 }
 
@@ -163,10 +162,23 @@ textarea {
 
 /*css for user home page*/
 .card-body {
-    color: black;
-    background-color: #c0e4f7;
+   background-color: #f88379;
+   opacity: 0.9;
+   filter: Alpha(opacity=50);
+   align-content: center;
+   border-radius: 10px;
+}
+.all-card-title:hover {
+   color: #d8d8d8;  
 }
 
+.card {
+   background-color: #f88379;
+   opacity: 0.9;
+   filter: Alpha(opacity=50);
+   align-content: center;
+   border-radius: 10px;
+}
 /*emptycomment is the css for the wow much empty image */
 .emptycomment {
     text-align: center;

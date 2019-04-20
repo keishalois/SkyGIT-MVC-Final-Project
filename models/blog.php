@@ -155,40 +155,69 @@ const AllowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
 const InputKey = 'myUploader';
         //die() function calls replaced with trigger_error() calls
         //replace with structured exception handling
-public static function uploadFile($blogid) {
-    //trigger errors
-	if (empty($_FILES[self::InputKey])) {
-		//die("File Missing!");
-                trigger_error("File Missing!");
-	}
-	if ($_FILES[self::InputKey]['error'] > 0) {
-		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
-	}
-	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
-		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
-	}
-        ini_set("upload_tmp_dir", "D:\home\site\wwwroot\models\views\images");        
-	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-        $path = join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
-	$destinationFile = $path . '.jpeg';
-            $error = $_FILES[self::InputKey]['error'];
 
-        if($error === 0) {
-            
-	if (!move_uploaded_file($tempFile, $destinationFile)) {
-            $trace = $e->getTrace();
-            echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];
-		trigger_error("cannot upload");
-                
-        } 
-        if (file_exists($tempFile)) {
-		//unlink($tempFile); 
-	}
-}     else {
-        $error = $_FILES['myfile']['error'];
-        checkError($error);   
+public static function uploadFile($blogid) {
+            $img_path = $_FILES[self::InputKey];
+            if (strcmp($img_path, "")==0){
+                 echo "Enter valid image path <br />";
+            }
+            else{
+                require_once 'vendor/autoload.php';
+                $connectionString = 'DefaultEndpointsProtocol=https;AccountName=fmlblogimages;AccountKey=oXgdXYkMR7j3QxLrLx+ih7TAlDdbDZIhP89UHOJx83RwTSZwUgMxE+OW6VIVnePiXgcICGCCcMlyQe8U0A37bw==;EndpointSuffix=core.windows.net';
+                // Create blob client.
+                $blobClient = BlobRestProxy::createBlobService($connectionString);
+
+                # Create the BlobService that represents the Blob service for the storage account
+
+                $containerName = "fmlimages_" . $blogid;
+                $fileToUpload = $blogid;
+
+                # Upload file as a block blob
+                echo "Uploading image: ".PHP_EOL;
+                echo $img_path;
+                echo "<br />";
+
+                $content = fopen($img_path, "r");
+
+                //Upload blob
+                $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+                echo "Image uploaded successfully! <br />";
             }
 }
+//public static function uploadFile($blogid) {
+//    //trigger errors
+//	if (empty($_FILES[self::InputKey])) {
+//		//die("File Missing!");
+//                trigger_error("File Missing!");
+//	}
+//	if ($_FILES[self::InputKey]['error'] > 0) {
+//		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
+//	}
+//	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
+//		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
+//	}
+//        ini_set("upload_tmp_dir", "D:\home\site\wwwroot\models\views\images");        
+//	$tempFile = $_FILES[self::InputKey]['tmp_name'];
+//        $path = join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
+//	$destinationFile = $path . '.jpeg';
+//            $error = $_FILES[self::InputKey]['error'];
+//
+//        if($error === 0) {
+//            
+//	if (!move_uploaded_file($tempFile, $destinationFile)) {
+//            $trace = $e->getTrace();
+//            echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];
+//		trigger_error("cannot upload");
+//                
+//        } 
+//        if (file_exists($tempFile)) {
+//		unlink($tempFile); 
+//	}
+//}     else {
+//        $error = $_FILES['myfile']['error'];
+//        checkError($error);   
+//            }
+//}
 
         function checkError($error) {
             switch ($error) {

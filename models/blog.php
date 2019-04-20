@@ -173,6 +173,10 @@ public static function uploadFile($blogid) {
     
     try {
         // Create container options object.
+//        $blob = New Blob($_SESSION['username']);
+//        $blobClient->createContainerIfNotExists();
+//        $blobClient->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+
         $createContainerOptions = new CreateContainerOptions();
         $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
                 # Create the BlobService that represents the Blob service for the storage account
@@ -185,16 +189,14 @@ public static function uploadFile($blogid) {
             }
             else{
         // Getting local file so that we can upload it to Azure
-        $myfile = fopen('data:image/jpeg;' . $fileToUpload, "w") or die("Unable to open file!");
+        $myfile = fopen($_FILES["myUploader"]["tmp_name"] . '', "w") or die("Unable to open file!");
         fclose($myfile);
 
-        
         # Upload file as a block blob
         echo "Uploading BlockBlob: ".PHP_EOL;
         echo $fileToUpload;
         echo "<br />";
 //        $content = fopen($fileToUpload, "r");
-                
         $blobName = "images/" . $blogid . ".jpeg";
         $blob = new BlobStorage;
         $blob->AddBlob('fmlimages', $blobName, $myfile);

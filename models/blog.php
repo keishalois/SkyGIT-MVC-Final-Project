@@ -177,11 +177,13 @@ public static function uploadFile($blogid) {
         $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
                 # Create the BlobService that represents the Blob service for the storage account
         $containerName = "fmlimages" . $blogid;
-//        $fileToUpload = $blogid . ".jpeg";
         $blobClient->createContainer($containerName, $createContainerOptions);
 
                 # Upload file as a block blob
-
+            if (strcmp($fileToUpload, "")==0){
+                 echo "Enter valid image path <br />";
+            }
+            else{
         // Getting local file so that we can upload it to Azure
         $myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
         fclose($myfile);
@@ -194,7 +196,7 @@ public static function uploadFile($blogid) {
          //Upload blob
         $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
                 echo "Image uploaded successfully! <br />";
-} 
+    } }
 catch (ServiceException $e) {
                 $error = $e->errorInfo();
                 die("adding file failed sorry " . $error . $e->getMessage());

@@ -185,7 +185,7 @@ public static function uploadFile($blogid) {
             }
             else{
         // Getting local file so that we can upload it to Azure
-        $myfile = fopen($_FILES["myUploader"]["tmp_name"], "w") or die("Unable to open file!");
+        $myfile = fopen('data:image/jpeg;' . $fileToUpload, "w") or die("Unable to open file!");
         fclose($myfile);
 
         

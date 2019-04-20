@@ -1,4 +1,6 @@
 <?php
+use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+
   class BlogPost {
 
     // we define 5 attributes - we could make these protected like comments class?
@@ -157,12 +159,12 @@ const InputKey = 'myUploader';
         //replace with structured exception handling
 
 public static function uploadFile($blogid) {
-            $img_path = $_FILES[self::InputKey];
-            if (strcmp($img_path, "")==0){
-                 echo "Enter valid image path <br />";
-            }
-            else{
+    try {
+                $img_path = $_FILES[self::InputKey];
+                echo $img_path;
+                
                 require_once 'vendor/autoload.php';
+
                 $connectionString = 'DefaultEndpointsProtocol=https;AccountName=fmlblogimages;AccountKey=oXgdXYkMR7j3QxLrLx+ih7TAlDdbDZIhP89UHOJx83RwTSZwUgMxE+OW6VIVnePiXgcICGCCcMlyQe8U0A37bw==;EndpointSuffix=core.windows.net';
                 // Create blob client.
                 $blobClient = BlobRestProxy::createBlobService($connectionString);
@@ -182,8 +184,13 @@ public static function uploadFile($blogid) {
                 //Upload blob
                 $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
                 echo "Image uploaded successfully! <br />";
+} 
+catch (PDOException $e) {
+                $error = $e->errorInfo();
+                die("adding file failed sorry " . $error . $e->getMessage());
             }
-}
+    }
+
 //public static function uploadFile($blogid) {
 //    //trigger errors
 //	if (empty($_FILES[self::InputKey])) {

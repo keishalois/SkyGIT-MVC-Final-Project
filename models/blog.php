@@ -1,6 +1,9 @@
 <?php
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
+use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
+use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
   class BlogPost {
 
@@ -160,30 +163,36 @@ const InputKey = 'myUploader';
         //replace with structured exception handling
 
 public static function uploadFile($blogid) {
+    
+    require_once 'vendor/autoload.php';
+    $AccountKey = getenv('storageaccountkey');
+    $connectionString = "DefaultEndpointsProtocol=https;AccountName=fmlblogimages;AccountKey=$AccountKey";
+    $fileToUpload = $_FILES['myUploader'];
+     // Create blob client.
+    $blobClient = BlobRestProxy::createBlobService($connectionString);
+    
     try {
-                $img_path = $_POST['myUploader'];
-                echo $img_path;
-                
-                require_once 'vendor/autoload.php';
-                $AccountKey = getenv('storageaccountkey');
-                $connectionString = "DefaultEndpointsProtocol=https;AccountName=fmlblogimages;AccountKey=$AccountKey";
-                // Create blob client.
-                $blobClient = BlobRestProxy::createBlobService($connectionString);
+        // Create container options object.
+        $createContainerOptions = new CreateContainerOptions();
+        $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
                 # Create the BlobService that represents the Blob service for the storage account
-
-                $containerName = "fmlimages_" . $blogid;
-                echo $containerName;
-                $fileToUpload = $blogid;
+        $containerName = "fmlimages" . $blogid;
+//        $fileToUpload = $blogid . ".jpeg";
+        $blobClient->createContainer($containerName, $createContainerOptions);
 
                 # Upload file as a block blob
-                echo "Uploading image: ".PHP_EOL;
-                echo $img_path;
 
-
-                $content = fopen($img_path, "r");
-
-                //Upload blob
-                $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+        // Getting local file so that we can upload it to Azure
+        $myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
+        fclose($myfile);
+        
+        # Upload file as a block blob
+        echo "Uploading BlockBlob: ".PHP_EOL;
+        echo $fileToUpload;
+        echo "<br />";
+        $content = fopen($fileToUpload, "r");
+         //Upload blob
+        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
                 echo "Image uploaded successfully! <br />";
 } 
 catch (ServiceException $e) {

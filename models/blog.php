@@ -167,7 +167,7 @@ public static function uploadFile($blogid) {
     require_once 'vendor/autoload.php';
     $AccountKey = getenv('storageaccountkey');
     $connectionString = "DefaultEndpointsProtocol=https;AccountName=fmlblogimages;AccountKey=$AccountKey";
-    $fileToUpload = $_FILES['myUploader'];
+    $fileToUpload = $_POST['myUploader'];
      // Create blob client.
     $blobClient = BlobRestProxy::createBlobService($connectionString);
     

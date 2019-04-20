@@ -160,7 +160,7 @@ const InputKey = 'myUploader';
 
 public static function uploadFile($blogid) {
     try {
-                $img_path = $_FILES[self::InputKey];
+                $img_path = self::InputKey;
                 echo $img_path;
                 
                 require_once 'vendor/autoload.php';

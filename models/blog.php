@@ -199,7 +199,8 @@ public static function uploadFile($blogid) {
 //        $content = fopen($fileToUpload, "r");
         $blobName = "images/" . $blogid . ".jpeg";
         // $blob = new BlobStorage;
-        $blob->AddBlob('fmlimages', $blobName, $myfile);
+        // $blob->AddBlob('fmlimages', $blobName, $myfile);
+        blobClient->createBlockBlob($containerName, $blobName, $fileToUpload);
          //Upload blob
 //        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 //                echo "Image uploaded successfully! <br />";
@@ -210,11 +211,11 @@ catch (ServiceException $e) {
             }
     }
     
-public function AddBlob($containerName, $fileName, $fileToUpload)
-{
-//Upload blob
-$this->blobClient->createBlockBlob($containerName, $fileName, $fileToUpload);
-}
+// public function AddBlob($containerName, $fileName, $fileToUpload)
+// {
+// //Upload blob
+// $this->blobClient->createBlockBlob($containerName, $fileName, $fileToUpload);
+// }
 //public static function uploadFile($blogid) {
 //    //trigger errors
 //	if (empty($_FILES[self::InputKey])) {

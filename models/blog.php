@@ -185,24 +185,34 @@ public static function uploadFile($blogid) {
             }
             else{
         // Getting local file so that we can upload it to Azure
-        $myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
+        $myfile = fopen('data:image/jpeg;' . $fileToUpload, "w") or die("Unable to open file!");
         fclose($myfile);
+
         
         # Upload file as a block blob
         echo "Uploading BlockBlob: ".PHP_EOL;
         echo $fileToUpload;
         echo "<br />";
-        $content = fopen($fileToUpload, "r");
+//        $content = fopen($fileToUpload, "r");
+                
+        $blobName = $blogid;
+        $blob = new BlobStorage;
+        $blob->AddBlob('fmlimages', $blobName, $myfile);
          //Upload blob
-        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-                echo "Image uploaded successfully! <br />";
+//        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+//                echo "Image uploaded successfully! <br />";
     } }
 catch (ServiceException $e) {
                 $error = $e->errorInfo();
                 die("adding file failed sorry " . $error . $e->getMessage());
             }
     }
-
+    
+public function AddBlob($containerName, $fileName, $fileToUpload)
+{
+//Upload blob
+$this->blobClient->createBlockBlob($containerName, $fileName, $fileToUpload);
+}
 //public static function uploadFile($blogid) {
 //    //trigger errors
 //	if (empty($_FILES[self::InputKey])) {

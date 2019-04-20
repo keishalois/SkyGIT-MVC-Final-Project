@@ -200,7 +200,7 @@ public static function uploadFile($blogid) {
         $blobName = "images/" . $blogid . ".jpeg";
         // $blob = new BlobStorage;
         // $blob->AddBlob('fmlimages', $blobName, $myfile);
-        blobClient->createBlockBlob($containerName, $blobName, $fileToUpload);
+        $blobClient->createBlockBlob($containerName, $blobName, $fileToUpload);
          //Upload blob
 //        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 //                echo "Image uploaded successfully! <br />";

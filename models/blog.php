@@ -1,5 +1,6 @@
 <?php
 use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+use MicrosoftAzure\Storage\Common\ServiceException;
 
   class BlogPost {
 
@@ -185,7 +186,7 @@ public static function uploadFile($blogid) {
                 $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
                 echo "Image uploaded successfully! <br />";
 } 
-catch (PDOException $e) {
+catch (ServiceException $e) {
                 $error = $e->errorInfo();
                 die("adding file failed sorry " . $error . $e->getMessage());
             }

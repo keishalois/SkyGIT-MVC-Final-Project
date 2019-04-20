@@ -22,33 +22,32 @@
         <link rel="icon" type="image/png" href="../images/standard/header-fml.png">
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
 </head>
-<body class="container landingpage"> 
+<body> 
+        <br><br><br>
 <div class="container">
 <!--	<div class="row justify-content-md-center">-->
 		<div class="col col-lg-12"></div>
-		<div id="content">
-                            
+		<div id="content">         
                     <div class="area">
-                                                       <img class="landingpagelogo" src ="../images/standard/logo.png">
+                    <img class="landingpagelogo" src ="../images/standard/logo.png">
                                <br><br>
 				<h2>#FML: Fork My Life</h2>
                                 <h4>For all those FML moments</h4>
                                 <p><i>FYI: A fork is a copy of a repository.</i>
-				<hr>
-                                 
-        <form action="" method="post" class="form">
-             <span class="input-group-addon"><i class="far fa-envelope"></i></span> <input type="text" name="email" placeholder="Email address" required/>&nbsp;
-             <span class="input-group-addon"><i class="far fa-user"></i></span> <input type="text" name="username" placeholder="Username" />&nbsp;
-            <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span> <input type="password" name="password" placeholder="Password" required/>
-            <br> <br>
-        <input type="submit" class="btn btn-default btn-lg" href='../index.php?controller=blog&action=readAll'value="Register"/>
-        <br> <br>
-        </form>
-                                <h6>Already signed up?</h6><a class="btn btn-default btn-lg" href='login.php'>Log in!</a>
-        </div>
-</div>
+				<hr>                            
+                        <form action="" method="post" class="form">
+                            <span class="input-group-addon"><i class="far fa-envelope"></i></span> <input type="text" name="email" placeholder="Email address" required/>&nbsp;
+                            <span class="input-group-addon"><i class="far fa-user"></i></span> <input type="text" name="username" placeholder="Username" />&nbsp;
+                            <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span> <input type="password" name="password" placeholder="Password" required/>
+                <br> <br>
+                            <input type="submit" class="btn btn-default btn-lg" href='../index.php?controller=blog&action=readAll'value="Register"/>
+                <br> <br>
+                        </form>
+                        <h6>Already signed up?</h6><a class="btn btn-default btn-lg" href='login.php'>Log in!</a>
+                    </div>
+            </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

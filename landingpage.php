@@ -17,10 +17,10 @@
 	<link rel="stylesheet" type="text/css" href="views/css/styles.css">
 </head>
 <body>
- 
+    <br><br><br>
 
 <div class="container center-block">
-	<div class="row justify-content-md-center">
+<!--	<div class="row justify-content-md-center">-->
 		<div class="col col-lg-12"></div>
 			<div id="content">
                            <div class="area">
@@ -30,7 +30,6 @@
                                 <h4>For all those FML moments</h4>
                                 <p><i>FYI: A fork is a copy of a repository.</i>
 				<hr>
-                          
                                 <a class="btn btn-default btn-lg" href='views/user/login.php'>Login </a>
                                 <a class="btn btn-default btn-lg" href='views/user/signup.php'>Sign up</a>
                                 <a class="btn btn-default btn-lg" href='views/user/guestpage.php'>Guest?</a>

@@ -9,7 +9,7 @@ body {
 }
 
 .form-sign{
-    position: fixed;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -64,11 +64,10 @@ a:hover{
 
 
 .area{
-    position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+margin-left: auto;
+margin-right: auto;
+width: 75%;
+text-align: center;
 text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 				 0px 8px 13px rgba(0,0,0,0.1),
 				 0px 18px 23px rgba(0,0,0,0.1);
@@ -93,10 +92,13 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 }
 
 .add-blog{
-    position: fixed;
+/*    position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);*/
+margin-left: auto;
+margin-right: auto;
+width: 50%;
    background-color: #f88379;
    opacity: 0.9;
    filter: Alpha(opacity=50);
@@ -207,6 +209,7 @@ textarea {
 /*profile pic in nav bar and blog and comments*/
 .navprofile {
     border-radius: 50px;
+    margin-bottom: 10px;
 }
 
 .bloginput{

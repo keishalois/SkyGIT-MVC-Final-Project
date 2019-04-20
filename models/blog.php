@@ -161,24 +161,25 @@ const InputKey = 'myUploader';
 
 public static function uploadFile($blogid) {
     try {
-                $img_path = self::InputKey;
-                echo $img_path;
+                $img_path = $_POST['myUploader'];
+                echo $img_path . "/n";
                 
                 require_once 'vendor/autoload.php';
 
                 $connectionString = 'DefaultEndpointsProtocol=https;AccountName=fmlblogimages;AccountKey=oXgdXYkMR7j3QxLrLx+ih7TAlDdbDZIhP89UHOJx83RwTSZwUgMxE+OW6VIVnePiXgcICGCCcMlyQe8U0A37bw==;EndpointSuffix=core.windows.net';
                 // Create blob client.
                 $blobClient = BlobRestProxy::createBlobService($connectionString);
-
+                echo $blobClient . "/n";
                 # Create the BlobService that represents the Blob service for the storage account
 
                 $containerName = "fmlimages_" . $blogid;
+                echo $containerName . "/n";
                 $fileToUpload = $blogid;
 
                 # Upload file as a block blob
                 echo "Uploading image: ".PHP_EOL;
-                echo $img_path;
-                echo "<br />";
+                echo $img_path . "/n";
+
 
                 $content = fopen($img_path, "r");
 

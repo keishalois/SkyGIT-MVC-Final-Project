@@ -142,7 +142,7 @@ textarea {
 }
 
 .cmtdate {
-  color: #f88379;
+  color: white;
   font-size: 1.2em;
   margin: 2px;
 }
@@ -156,7 +156,7 @@ textarea {
 }
 
 .cmtname {
-  color: #f88379;
+  color: white;
   font-weight: bold;
   font-size: 1.2em;
 }

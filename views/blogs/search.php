@@ -1,22 +1,5 @@
 <br><br>
-<div class="row">
-    <div class="col-sm-2">
-  <select class="form-control" name="order" id="order" onchange="orderBlogs(this)">
-    <option value="Select">Sort By</option>
-    <option value="Newest">Newest Post</option>
-    <option value="Oldest">Oldest Post</option>
-    <option value="NewComm">Newest Comment</option>
-    <option value="BlogTitle">Name</option>
-  </select>
-    </div>
-    <div class="col-sm-1"></div>
-    <div align="right" class="col-sm-5">
-    <form action="index.php?controller=blog&action=search" method="post">
-      <input class="form-control" type="text" placeholder="Search.." name="search">
-    </form>
-    </div>
-    <br>
-</div>
+<h4>Search Results:</h4>
 <br>
 <div class="row">
 <?php    //display blogs associated to user 

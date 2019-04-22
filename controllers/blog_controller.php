@@ -92,5 +92,11 @@ class BlogController {
       $blogposts = BlogPost::all();
       require_once('views/blogs/readAll.php');
   }
-    }
+
  
+public function search() {
+      // we expect a url of form ?controller=products&action=create
+$blogposts = BlogPost::search($_POST['search']);
+      require_once('views/blogs/search.php');
+}
+}

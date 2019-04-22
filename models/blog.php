@@ -349,4 +349,21 @@ catch (ServiceException $e) {
       $returnuser = $req->fetch();
       return $returnuser;
   }
+  public static function search($search) {
+        //first make an empty list array to hold blogs returned from sql query
+      $list = [];
+      $search="%$search%";
+        //connect to database
+      $db = Db::getInstance();
+        //since this is taking a username parameter, we need to prepare the sql rather than query
+      $req = $db->prepare("SELECT * FROM `blogposts` WHERE BlogTitle like :search or BlogContent like :search;");
+        //execute sql statement specifying what the username parameter value is
+    $req->execute(array('search' =>  $search));
+    $blogposts = $req->fetchAll();
+      // we create a list of blogpost objects from the database results
+      foreach($blogposts as $blogpost) {
+        $list[] = new BlogPost($blogpost['BlogID'], $blogpost['BlogTitle'], $blogpost['BlogContent'], $blogpost['UserID'], $blogpost['DateAdded']);
+      }
+      return $list;
+    }
   }

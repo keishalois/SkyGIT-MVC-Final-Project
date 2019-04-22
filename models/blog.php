@@ -69,13 +69,18 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
         BlogPost::uploadFile($blogid);
     }
     
-    //function to bring up all blogposts with newest first
-    public static function all() {
+    //function to bring up all blogposts in specified order
+    public static function all($order, $direction) {
+    $orders=array("BlogID", "BlogTitle");
+    $key=array_search($order,$orders);
+    $order=$orders[$key];
+
         //first make an empty list array to hold blogs returned from sql query
       $list = [];
         //connect to database
       $db = Db::getInstance();
-      $req = $db->query('SELECT * FROM blogposts ORDER BY blogid desc;');
+      $req = $db->prepare("SELECT * FROM blogposts ORDER BY $order $direction;");
+      $req->execute();
       //get a list of BlogPost objects from the database results
       foreach($req->fetchAll() as $blogpost) {
         $list[] = new BlogPost($blogpost['BlogID'], $blogpost['BlogTitle'], $blogpost['BlogContent'], $blogpost['UserID'], $blogpost['DateAdded']);

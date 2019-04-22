@@ -5,8 +5,24 @@ include_once __DIR__ . '/../models/comment.php';
 
 class BlogController {
     public function readAll() {
+        if(empty($_GET['order'])){
+            $order = 'BlogID';
+            $direction = 'desc';
+        }
+        elseif($_GET['order'] == 'Newest'){
+            $order = 'BlogID';
+            $direction = 'desc';
+        }
+        elseif($_GET['order'] == 'Oldest'){
+            $order = 'BlogID';
+            $direction = 'asc';
+        }
+        elseif($_GET['order'] == 'BlogTitle'){
+            $order = 'BlogTitle';
+            $direction = 'asc';
+        }
       // we store all the posts in a variable
-      $blogposts = BlogPost::all();
+      $blogposts = BlogPost::all($order, $direction);
       require_once('views/blogs/readAll.php');
     }
 

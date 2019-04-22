@@ -1,5 +1,15 @@
 <br><br>
 <div class="row">
+  <select class="form-control col-sm-2" name="order" id="order" onchange="orderBlogs(this)">
+    <option value="Select">Sort By</option>
+    <option value="Newest">Newest Post</option>
+    <option value="Oldest">Oldest Post</option>
+    <option value="BlogTitle">Name</option>
+  </select>
+    <br>
+</div>
+<br>
+<div class="row">
 <?php    //display blogs associated to user 
    foreach($blogposts as $blogpost) { ?>
 
@@ -22,6 +32,7 @@
             <br><br>
             </div>
         </div>
+      <br>
   </div>
             <hr>
         <?php } ?>

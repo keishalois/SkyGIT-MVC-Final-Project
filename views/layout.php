@@ -25,6 +25,7 @@
         <script src="views/javascript/deleteBlog.js"></script>
         <script src="views/javascript/updateBlog.js"></script>
         <script src="views/javascript/comments.js"></script>
+        <script src="views/javascript/orderBlogs.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         
 <title>Fork My Life</title>

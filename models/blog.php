@@ -71,7 +71,7 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
     
     //function to bring up all blogposts in specified order
     public static function all($order, $direction) {
-    $orders=array("BlogID", "BlogTitle");
+    $orders=array("BlogID", "BlogTitle", "CommentID");
     $key=array_search($order,$orders);
     $order=$orders[$key];
 
@@ -79,7 +79,14 @@ use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
       $list = [];
         //connect to database
       $db = Db::getInstance();
-      $req = $db->prepare("SELECT * FROM blogposts ORDER BY $order $direction;");
+      $req = $db->prepare("SELECT * from blogposts AS a
+                           LEFT JOIN     (
+                                SELECT    MAX(comments.CommentID) as CommentID, comments.BlogID as CBlogID
+                                FROM      comments
+                                GROUP BY  BlogID
+                            ) as b
+                        ON a.BlogID=b.CBlogID 
+                        ORDER BY $order $direction;");
       $req->execute();
       //get a list of BlogPost objects from the database results
       foreach($req->fetchAll() as $blogpost) {

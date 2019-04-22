@@ -4,6 +4,7 @@
     <option value="Select">Sort By</option>
     <option value="Newest">Newest Post</option>
     <option value="Oldest">Oldest Post</option>
+    <option value="NewComm">Newest Comment</option>
     <option value="BlogTitle">Name</option>
   </select>
     <br>

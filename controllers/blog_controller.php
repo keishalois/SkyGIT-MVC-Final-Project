@@ -21,6 +21,10 @@ class BlogController {
             $order = 'BlogTitle';
             $direction = 'asc';
         }
+        elseif($_GET['order'] == 'NewComm'){
+            $order = 'CommentID';
+            $direction = 'desc';
+        }
       // we store all the posts in a variable
       $blogposts = BlogPost::all($order, $direction);
       require_once('views/blogs/readAll.php');

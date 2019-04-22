@@ -1,6 +1,6 @@
 <br><br>
 <div class="row">
-  <select class="form-control col-sm-2" name="order" id="order" onchange="orderBlogs(this)">
+  <select class="form-control col-sm-2" style="margin-left: 15px;" name="order" id="order" onchange="orderBlogs(this)">
     <option value="Select">Sort By</option>
     <option value="Newest">Newest Post</option>
     <option value="Oldest">Oldest Post</option>
@@ -30,7 +30,7 @@
                         echo $img;
                     }
                 ?>
-            <br><br>
+            <br>
             </div>
         </div>
       <br>

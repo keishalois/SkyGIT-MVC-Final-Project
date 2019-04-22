@@ -1,6 +1,6 @@
 <head>
         <link type="text/css" rel="stylesheet" href="views/css/jquery-te-1.4.0.css"> 
-        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="views/javascript/jquery.min.js" charset="utf-8"></script>
         <script type="text/javascript" src="views/javascript/jquery-te-1.4.0.min.js" charset="utf-8"></script>
         
 </head>
@@ -16,9 +16,7 @@
         <textarea class="form-control form-rounded" rows="1" cols="100" name="title" form="addform" placeholder="Title" required></textarea>
     </p>
 
-   
-<!--       <textarea name="textarea" class="jqte-test"></textarea>-->
-   <textarea class="jqte-test" class="form-control form-rounded" rows="10" cols="100" name="content" form="addform" placeholder="Start writing your blog here..." required></textarea>
+    <textarea class="jqte-test" class="form-control form-rounded" rows="10" cols="100" name="content" form="addform" placeholder="Start writing your blog here..." required></textarea>
    
  
       <input type="hidden"
@@ -31,7 +29,7 @@
     <label class="custom-file-label" for="customFile">Choose file</label>
   </div>
       
-         <script>
+        <script>
 	$('.jqte-test').jqte();
 	
 	// settings of status
@@ -41,7 +39,7 @@
 		jqteStatus = jqteStatus ? false : true;
 		$('.jqte-test').jqte({"status" : jqteStatus});
 	});
-</script>
+        </script>
 <!--
  <input type="file" name="myUploader" class="" required/>-->
   <br><br>

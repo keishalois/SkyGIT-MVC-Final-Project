@@ -179,6 +179,12 @@ textarea {
    filter: Alpha(opacity=50);
    align-content: center;
    border-radius: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100ch;
+
+
 }
 /*emptycomment is the css for the wow much empty image */
 .emptycomment {

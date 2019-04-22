@@ -1,3 +1,9 @@
+<head>
+        <link type="text/css" rel="stylesheet" href="views/css/jquery-te-1.4.0.css"> 
+        <script type="text/javascript" src="views/javascript/jquery.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="views/javascript/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+        
+</head>
 <br>
 <br>
 <div class="add-blog">
@@ -11,8 +17,8 @@
         <input class="form-control form-rounded" type="text" name="title" value="<?= $blogpost->title; ?>">
     </p>
     <p><br>
-        <textarea class="form-control form-rounded"r rows="10" cols="100" name="content" form="addform" required><?= $blogpost->content; ?></textarea>
-        <!--<input class="w3-input" type="text" name="content" value="<?//= $blogpost->content; ?>" >-->
+        <textarea class="jqte-test" class="form-control form-rounded"r rows="10" cols="100" name="content" form="addform" required><?= $blogpost->content; ?></textarea>
+
     </p>
             
   <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
@@ -40,3 +46,15 @@ if(file_exists($file)){
         </div>       
 </form>
 </div> 
+
+        <script>
+	$('.jqte-test').jqte();
+	
+	// settings of status
+	var jqteStatus = true;
+	$(".status").click(function()
+	{
+		jqteStatus = jqteStatus ? false : true;
+		$('.jqte-test').jqte({"status" : jqteStatus});
+	});
+        </script>

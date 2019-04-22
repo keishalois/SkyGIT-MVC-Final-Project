@@ -22,7 +22,7 @@
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 <body> 
-    <br><br><br>
+<!--    <br><br><br> commented these out to push it up, so you don't have to scroll down to log in-->
 <div class="container">
 <!--	<div class="row justify-content-md-center">-->
 		<div class="col col-lg-12"></div>

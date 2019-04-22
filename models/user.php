@@ -29,6 +29,11 @@ class User {
     public function getUsername() {
         return $this->username;
     }
+    
+    public function getAdmin(){
+            return $this->usertype;
+        }
+        
     public function verifyUser() {
         $db = Db::getInstance();
         $sql = "SELECT Password FROM users WHERE Username= :username";
@@ -93,6 +98,57 @@ class User {
             }
             unset($req);
         }   else {
+            return userExists($username);
+        }
+       
+        }
+        
+        //allows admin log in using recently added admin account
+                public function loginAdmin() {
+        $db = Db::getInstance();  
+        $row = null; 
+        $sql = "SELECT Username, Password, UserType FROM users WHERE Username= :username AND Password= :psw AND UserType= :usertype";
+        try {
+            $stmt = $db->prepare($sql);
+            $stmt->execute(['username'=> $this->username, 'psw'=> $this->password, 'usertype'=>$this->usertype]);
+            if($row["usertype"] =='admin'){
+                    echo $row["usertype"];
+                    header("Location:?controller=pages&action=addadmin");
+                }
+        } catch (PDOException $e) {
+            $error = $e->errorInfo();
+            die("Login failed sorry ..." . $error . $e->getMessage());
+        }
+        unset($stmt);
+    }
+        //allows admin to add other admins
+     public function addAdmin() {
+        $db = Db::getInstance();
+        $num_rows = User::getAdmin();
+        echo $num_rows;
+        if ($num_rows == 0) {         
+        $req = $db->prepare( "INSERT INTO users (Email, Username, Password, UserType) VALUES (:email, :username, :password, 'admin')");
+            $req->bindParam(':username', $username);
+            $req->bindParam(':password', $password);
+            $req->bindParam(':email', $email);
+        try {
+    if(isset($_POST['username'])&& $_POST['username']!=""){
+       $username = $filteredUser = filter_input(INPUT_POST,'username', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    if(isset($_POST['password'])&& $_POST['password']!=""){
+        $password = $filteredContent = filter_input(INPUT_POST,'password', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+    if(isset($_POST['email'])&& $_POST['email']!=""){
+       $email = $filteredEmail = filter_input(INPUT_POST,'email', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
+        $req->execute(); 
+//        return getAdmin($usertype);
+    }
+        catch (PDOException $e) {
+            $error = $e->errorInfo();
+            die("Sign up failed sorry ..." . $error . $e->getMessage()); }
+        unset($req);
+    }     else {
             return userExists($username);
         }
        

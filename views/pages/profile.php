@@ -1,3 +1,4 @@
+<div class="profile-page">
 <h3>Hello there <b><?php echo $username; ?></b>!</h3>
 <h5>how are you today??? </h5>
 
@@ -24,6 +25,7 @@
     <?php        //check user is not a guest and let them view user blogs
         if(!($_SESSION["username"] == 'guest')) { ?>
    <!-- upload profile photo form-->
+      <div class="profile-upload">
 <form enctype="multipart/form-data" action="" method="POST">
    <p>Upload your profile photo!</p>
    <input type="file" name="fileToUpload"></input><br />
@@ -47,12 +49,11 @@ if(!empty($_FILES['fileToUpload']))
    } //php code to show photo
        $file = 'views/images/prophotos/' . $username . '.jpeg';
        if(file_exists($file)){
-       $img = "<div class='propic'><img src='$file' width='300' /></div>";
+       $img = "<div class='propic'>Your current profile photo:<br><img src='$file' width='200' /></div>";
        echo $img;
    }
- 
-
     ?> 
+      </div>
         <br><br>
         <p id="seeuserblogs">  
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -137,3 +138,5 @@ else { ?>
 <p>As a guest, you can only see posts... you are not allowed
     to comment or post until you make an account or sign in!</p>
 <?php } ?>
+
+</div>

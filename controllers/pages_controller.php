@@ -30,4 +30,8 @@ class PagesController {
       require_once('views/pages/error.php');
     }
     
+        public function addadmin() {
+      require_once('views/pages/addadmin.php');
+    }
+    
 }

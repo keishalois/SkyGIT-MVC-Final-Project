@@ -9,7 +9,6 @@ body {
         background-image: url("../images/standard/bgimg.png");
 }
 
-
 .form-sign{
   position: fixed;
   top: 50%;
@@ -239,4 +238,20 @@ margin-right: auto;
 width: 50%;
 min-width: 300px;
     
+}
+
+.profile-page{
+    color: #f88379; 
+}
+
+.profile-upload{
+    position: relative;
+    left:50%;
+    padding-top: -10%;
+}
+
+.propic{
+    position: absolute;
+    left:20%;
+    top:-120%;
 }

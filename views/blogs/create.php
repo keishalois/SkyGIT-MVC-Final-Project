@@ -16,11 +16,10 @@
         <textarea class="form-control form-rounded" rows="1" cols="100" name="title" form="addform" placeholder="Title" required></textarea>
     </p>
 
-   <p><br>
-   <textarea  class="jqte-test" class="form-control form-rounded"rows="10" cols="100" name="content" form="addform" placeholder="Start writing your blog here..." required></textarea>
-   </p>
    
- 
+<!--       <textarea name="textarea" class="jqte-test"></textarea>-->
+   <textarea class="jqte-test" class="form-control form-rounded" rows="10" cols="100" name="content" form="addform" placeholder="Start writing your blog here..." required></textarea>
+   
  
       <input type="hidden"
        name="MAX_FILE_SIZE"
@@ -32,7 +31,17 @@
     <label class="custom-file-label" for="customFile">Choose file</label>
   </div>
       
-      
+         <script>
+	$('.jqte-test').jqte();
+	
+	// settings of status
+	var jqteStatus = true;
+	$(".status").click(function()
+	{
+		jqteStatus = jqteStatus ? false : true;
+		$('.jqte-test').jqte({"status" : jqteStatus});
+	});
+</script>
 <!--
  <input type="file" name="myUploader" class="" required/>-->
   <br><br>

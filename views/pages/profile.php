@@ -80,7 +80,7 @@ if(!empty($_FILES['fileToUpload']))
             <div class="card-body">
                 <h5 class="card-title"><?php echo $blogpost->title; ?> </h5>
                     <h6 class="card-subtitle mb-2 text-muted">You own this blog</h6>
-                    <p class="card-text"><?php echo $blogpost->content; ?> </p> 
+                    <p class="card-text"><?php echo html_entity_decode($blogpost->content); ?> </p> 
                 <br><br>
                 <a class="btn btn-light" id="readbutton" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'><i class="fas fa-book-open"></i> Read</a>
                 <p><i class="fas fa-comment"></i> <?php echo $blogpost->blogComments($blogpost->blogid);?></p>

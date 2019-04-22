@@ -12,7 +12,7 @@
            }
            echo $blogpost->username . " " . $blogpost->date;
            ?>  
-            <p><?php echo $blogpost->content; ?></p>
+            <p><?php echo html_entity_decode($blogpost->content); ?></p>
 <?php  // this is checking if a uploaded file exists to display on the blog page
 $file = 'views/images/' . $blogpost->blogid . '.jpeg';
 if(file_exists($file)){

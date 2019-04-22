@@ -1,3 +1,9 @@
+<head>
+        <link type="text/css" rel="stylesheet" href="views/css/jquery-te-1.4.0.css"> 
+        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="views/javascript/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+        
+</head>
 <br>
 <br>
 <div class="add-blog">
@@ -11,7 +17,7 @@
     </p>
 
    <p><br>
-   <textarea class="form-control form-rounded"rows="10" cols="100" name="content" form="addform" placeholder="Start writing your blog here..." required></textarea>
+   <textarea  class="jqte-test" class="form-control form-rounded"rows="10" cols="100" name="content" form="addform" placeholder="Start writing your blog here..." required></textarea>
    </p>
    
  

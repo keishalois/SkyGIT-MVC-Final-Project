@@ -6,7 +6,9 @@ body {
 	background-color: #d8d8d8;
 	font-family: Arial, sans-serif;
         color: white;
+        background-image: url("../images/standard/bgimg.png");
 }
+
 
 .form-sign{
   position: fixed;

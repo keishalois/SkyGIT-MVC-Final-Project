@@ -1,8 +1,13 @@
+
+
 body {
     font:12px arial;
     color: #222;
     text-align:center;
-    padding:35px; }
+    padding:35px; 
+    background-color: #d8d8d8;
+    background-image: url("../images/standard/bgimg.png"); 
+}
   
 form, p, span {
     margin:0;
@@ -19,9 +24,11 @@ a {
 #wrapper, #loginform {
     margin:0 auto;
     padding-bottom:25px;
-    background:#EBF4FB;
+    background:#f88379;
     width:504px;
-    border:1px solid #ACD8F0; }
+    border:1px solid #ACD8F0;
+    border-radius:10px;
+}
   
 #loginform { padding-top:18px; }
   
@@ -36,7 +43,9 @@ a {
     height:270px;
     width:430px;
     border:1px solid #ACD8F0;
-    overflow:auto; }
+    overflow:auto; 
+
+}
   
 #usermsg {
     width:395px;
@@ -48,7 +57,9 @@ a {
   
 #menu { padding:12.5px 25px 12.5px 25px; }
   
-.welcome { float:left; }
+.welcome { float:left; 
+color:white;
+}
   
 .logout { float:right; }
   

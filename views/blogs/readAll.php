@@ -43,6 +43,6 @@
         </div>
       <br>
   </div>
-            <hr>
+            
         <?php } ?>
 </div>

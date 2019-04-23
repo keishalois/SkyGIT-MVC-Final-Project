@@ -38,7 +38,7 @@
                     }
                 ?>
                 <br><Br>
-                <p align="center"><i class="fas fa-comment"></i> <?php echo $blogpost->blogComments($blogpost->blogid);?></p>
+                <a class="commButt" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'<p align="center"><i class="fas fa-comment"></i> <?php echo $blogpost->blogComments($blogpost->blogid);?></p></a>
             </div>
         </div>
       <br>

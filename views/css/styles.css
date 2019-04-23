@@ -253,3 +253,8 @@ min-width: 300px;
     left:20%;
     top:-120%;
 }
+
+.commButt:hover{
+    color: #ccc;
+    text-decoration: none;
+}

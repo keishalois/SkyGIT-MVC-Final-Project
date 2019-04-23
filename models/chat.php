@@ -46,7 +46,7 @@ private $timestamp;
             $req->execute();
     }
 
-    public function addChatMessage() {
+    public function addChatMessage($message) {
             $db = Db::getInstance();
             $req = $db->prepare("Insert into Chatbox(UserID, Message, Timestamp) values ((SELECT UserID from users WHERE Username = :username), :message, CURRENT_TIMESTAMP)");
                 $req->bindParam(':username', $username);
@@ -55,8 +55,8 @@ private $timestamp;
         if(!empty($_SESSION)){
             $username = $_SESSION["username"];
             }
-        if(isset($_POST['usermsg'])&& $_POST['usermsg']!=""){
-            $filteredMessage = filter_input(INPUT_POST,'usermsg', FILTER_SANITIZE_SPECIAL_CHARS);
+        if(isset($_POST['text'])&& $_POST['text']!=""){
+            $filteredMessage = filter_input(INPUT_POST,'text', FILTER_SANITIZE_SPECIAL_CHARS);
         }
             $message = $filteredMessage;
             $req->execute();

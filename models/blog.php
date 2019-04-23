@@ -174,94 +174,94 @@ const InputKey = 'myUploader';
         //die() function calls replaced with trigger_error() calls
         //replace with structured exception handling
 
-public static function uploadFile($blogid) {
-    
-    require_once 'vendor/autoload.php';
-    $AccountKey = getenv('storageaccountkey');
-    $connectionString = "DefaultEndpointsProtocol=https;AccountName=fmlblogimages;AccountKey=$AccountKey";
-    $fileToUpload = $_FILES['myUploader']["tmp_name"];
-     // Create blob client.
-    $blobClient = BlobRestProxy::createBlobService($connectionString);
-    
-    try {
-        // Create container options object.
-//        $blob = New Blob($_SESSION['username']);
-//        $blobClient->createContainerIfNotExists();
-//        $blobClient->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
-
-        $createContainerOptions = new CreateContainerOptions();
-        $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
-                # Create the BlobService that represents the Blob service for the storage account
-        $containerName = "fmlimages" . $blogid;
-        $blobClient->createContainer($containerName, $createContainerOptions);
-
-                # Upload file as a block blob
-            if (strcmp($fileToUpload, "")==0){
-                 echo "Enter valid image path <br />";
-            }
-            else{
-        // Getting local file so that we can upload it to Azure
-        $myfile = fopen($_FILES["myUploader"]["tmp_name"] . '', "w") or die("Unable to open file!");
-        fclose($myfile);
-
-        # Upload file as a block blob
-        echo "Uploading BlockBlob: ".PHP_EOL;
-        echo $fileToUpload;
-        echo "<br />";
-//        $content = fopen($fileToUpload, "r");
-        $blobName = "images/" . $blogid . ".jpeg";
-        // $blob = new BlobStorage;
-        // $blob->AddBlob('fmlimages', $blobName, $myfile);
-        $blobClient->createBlockBlob($containerName, $blobName, $fileToUpload);
-         //Upload blob
-//        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-//                echo "Image uploaded successfully! <br />";
-    } }
-catch (ServiceException $e) {
-                $error = $e->errorInfo();
-                die("adding file failed sorry " . $error . $e->getMessage());
-            }
-    }
-    
+//public static function uploadFile($blogid) {
+//    
+//    require_once 'vendor/autoload.php';
+//    $AccountKey = getenv('storageaccountkey');
+//    $connectionString = "DefaultEndpointsProtocol=https;AccountName=fmlblogimages;AccountKey=$AccountKey";
+//    $fileToUpload = $_FILES['myUploader']["tmp_name"];
+//     // Create blob client.
+//    $blobClient = BlobRestProxy::createBlobService($connectionString);
+//    
+//    try {
+//        // Create container options object.
+////        $blob = New Blob($_SESSION['username']);
+////        $blobClient->createContainerIfNotExists();
+////        $blobClient->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+//
+//        $createContainerOptions = new CreateContainerOptions();
+//        $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+//                # Create the BlobService that represents the Blob service for the storage account
+//        $containerName = "fmlimages" . $blogid;
+//        $blobClient->createContainer($containerName, $createContainerOptions);
+//
+//                # Upload file as a block blob
+//            if (strcmp($fileToUpload, "")==0){
+//                 echo "Enter valid image path <br />";
+//            }
+//            else{
+//        // Getting local file so that we can upload it to Azure
+//        $myfile = fopen($_FILES["myUploader"]["tmp_name"] . '', "w") or die("Unable to open file!");
+//        fclose($myfile);
+//
+//        # Upload file as a block blob
+//        echo "Uploading BlockBlob: ".PHP_EOL;
+//        echo $fileToUpload;
+//        echo "<br />";
+////        $content = fopen($fileToUpload, "r");
+//        $blobName = "images/" . $blogid . ".jpeg";
+//        // $blob = new BlobStorage;
+//        // $blob->AddBlob('fmlimages', $blobName, $myfile);
+//        $blobClient->createBlockBlob($containerName, $blobName, $fileToUpload);
+//         //Upload blob
+////        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+////                echo "Image uploaded successfully! <br />";
+//    } }
+//catch (ServiceException $e) {
+//                $error = $e->errorInfo();
+//                die("adding file failed sorry " . $error . $e->getMessage());
+//            }
+//    }
+//    
 // public function AddBlob($containerName, $fileName, $fileToUpload)
 // {
 // //Upload blob
 // $this->blobClient->createBlockBlob($containerName, $fileName, $fileToUpload);
 // }
-//public static function uploadFile($blogid) {
-//    //trigger errors
-//	if (empty($_FILES[self::InputKey])) {
-//		//die("File Missing!");
-//                trigger_error("File Missing!");
-//	}
-//	if ($_FILES[self::InputKey]['error'] > 0) {
-//		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
-//	}
-//	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
-//		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
-//	}
-//        ini_set("upload_tmp_dir", "D:\home\site\wwwroot\models\views\images");        
-//	$tempFile = $_FILES[self::InputKey]['tmp_name'];
-//        $path = join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
-//	$destinationFile = $path . '.jpeg';
-//            $error = $_FILES[self::InputKey]['error'];
-//
-//        if($error === 0) {
-//            
-//	if (!move_uploaded_file($tempFile, $destinationFile)) {
+public static function uploadFile($blogid) {
+    //trigger errors
+	if (empty($_FILES[self::InputKey])) {
+		//die("File Missing!");
+                trigger_error("File Missing!");
+	}
+	if ($_FILES[self::InputKey]['error'] > 0) {
+		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
+	}
+	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
+		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
+	}
+        ini_set("upload_tmp_dir", "D:\home\site\wwwroot\models\views\images");        
+	$tempFile = $_FILES[self::InputKey]['tmp_name'];
+        $path = join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
+	$destinationFile = $path . '.jpeg';
+            $error = $_FILES[self::InputKey]['error'];
+
+        if($error === 0) {
+            
+	if (!move_uploaded_file($tempFile, $destinationFile)) {
 //            $trace = $e->getTrace();
 //            echo $e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().' called from '.$trace[0]['file'].' on line '.$trace[0]['line'];
-//		trigger_error("cannot upload");
-//                
-//        } 
-//        if (file_exists($tempFile)) {
-//		unlink($tempFile); 
-//	}
-//}     else {
-//        $error = $_FILES['myfile']['error'];
-//        checkError($error);   
-//            }
-//}
+		trigger_error("cannot upload");
+                
+        } 
+        if (file_exists($tempFile)) {
+		unlink($tempFile); 
+	}
+}     else {
+        $error = $_FILES['myfile']['error'];
+        checkError($error);   
+            }
+}
 
         function checkError($error) {
             switch ($error) {

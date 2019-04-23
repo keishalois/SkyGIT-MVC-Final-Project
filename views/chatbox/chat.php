@@ -32,5 +32,9 @@
         <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
     </form>
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 </div> 
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.0.js"
+  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>

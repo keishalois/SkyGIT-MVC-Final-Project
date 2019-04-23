@@ -38,10 +38,10 @@
                                 <h4>For all those FML moments</h4>
                                 <p><i>FYI: A fork is a copy of a repository.</i>
 				<hr>                            
-                        <form action="" method="post" class="form">
-                            <span class="input-group-addon"><i class="far fa-envelope"></i></span> <input type="text" name="email" placeholder="Email address" required/>&nbsp;
-                            <span class="input-group-addon"><i class="far fa-user"></i></span> <input type="text" name="username" placeholder="Username" />&nbsp;
-                            <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span> <input type="password" name="password" placeholder="Password" required/>
+                                <form id="signUpForm" action="" method="post" class="form">
+                            <span class="input-group-addon"><i class="far fa-envelope"></i></span> <input type="text" id="emailInput" name="email" placeholder="Email address" required/>&nbsp;
+                            <span class="input-group-addon"><i class="far fa-user"></i></span> <input type="text" id="usernameInput" name="username" placeholder="Username" />&nbsp;
+                            <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span> <input type="password" id="passwordInput" name="password" placeholder="Password" required/>
                 <br> <br>
                 <input class="btn btn-default btn-lg"  onclick="checkUserExists()" value="Register"/>
                 <br> <br>

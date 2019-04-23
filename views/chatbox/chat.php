@@ -3,7 +3,10 @@
 <link type="text/css" rel="stylesheet" href="/views/chatbox/chat.css" />
         <script src="/views/javascript/chatbox.js"></script>
 <!--    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>-->
-
+    <script
+  src="https://code.jquery.com/jquery-3.4.0.js"
+  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
 </head>
  
 <div id="wrapper">
@@ -34,9 +37,4 @@
         <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
     </form>
    </div> 
-
-    <script
-  src="https://code.jquery.com/jquery-3.4.0.js"
-  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
-  crossorigin="anonymous"></script>
 

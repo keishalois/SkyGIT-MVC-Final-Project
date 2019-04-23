@@ -42,7 +42,7 @@
                             <span class="input-group-addon"><i class="far fa-user"></i></span> <input type="text" name="username" placeholder="Username" />&nbsp;
                             <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span> <input type="password" name="password" placeholder="Password" required/>
                 <br> <br>
-                            <input type="submit" class="btn btn-default btn-lg" href='../index.php?controller=blog&action=readAll'value="Register"/>
+                <input class="btn btn-default btn-lg"  onclick="checkUserExists()" value="Register"/>
                 <br> <br>
                         </form>
                         <h6>Already signed up?</h6><a class="btn btn-default btn-lg" href='login.php'>Log in!</a>

@@ -56,13 +56,33 @@ class User {
         $db = Db::getInstance();
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $checkAccount = $db->query("SELECT * from users WHERE Email = ':email' OR Username = ':username'");
-                    $checkAccount->bindParam(':username', $username);
-                    $checkAccount->bindParam(':email', $email);
+        $checkAccount = $db->prepare("SELECT * from users WHERE Email = :email OR Username = :username");
+        $checkAccount->bindParam(':username', $username);
+        $checkAccount->bindParam(':email', $email);
+        $checkAccount->execute();
+
         $rows = $checkAccount->fetchAll();
         $num_rows = count($rows);
         return $num_rows;
     }
+
+    static public function checkUsernameExists($username, $email) {
+        $db = Db::getInstance();
+        $checkAccount = $db->prepare("SELECT * from users WHERE Email = :email OR Username = :username");
+        $checkAccount->bindParam(':username', $username);
+        $checkAccount->bindParam(':email', $email);
+
+        $checkAccount->execute();
+
+        $rows = $checkAccount->fetchAll();
+        $num_rows = count($rows);
+        if ($num_rows == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     
     public function hashPassword($password) {
         $psw = $hashed_password = password_hash($password, PASSWORD_DEFAULT);

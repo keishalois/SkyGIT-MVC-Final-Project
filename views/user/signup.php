@@ -23,6 +23,7 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+        <script src="../javascript/checkUserExists.js"></script>
 </head>
 <body> 
 <!--    <br><br><br> commented these out to push it up, so you don't have to scroll down to log in-->

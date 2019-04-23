@@ -62,7 +62,7 @@ class BlogController {
       }
       else { 
           BlogPost::add();
-            $blogposts = BlogPost::all(); //$blogposts is used within the view
+            $blogposts = BlogPost::all('BlogID', 'desc'); //$blogposts is used within the view
             require_once('views/blogs/readAll.php');
       }
     }
@@ -80,7 +80,7 @@ class BlogController {
 //gets the blogid and updates the post and redirects to readall blogposts after
             $blogid = $_GET['blogid'];
             BlogPost::update($blogid);       
-            $blogposts = BlogPost::all();
+            $blogposts = BlogPost::all('BlogID', 'desc');
             require_once('views/blogs/readAll.php');
       }
     }
@@ -89,7 +89,7 @@ class BlogController {
     public function delete() {
 //deletes the blogpost and redirects to all blogposts after
       BlogPost::remove($_GET['blogid']);
-      $blogposts = BlogPost::all();
+      $blogposts = BlogPost::all('BlogID', 'desc');
       require_once('views/blogs/readAll.php');
   }
 

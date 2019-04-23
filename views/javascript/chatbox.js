@@ -5,17 +5,16 @@ $(document).ready(function(){
 		if(exit===true){
             $.get("?controller=chat&action=exitChat");				
             window.location.href = 'index.php?controller=blog&action=readAll';}		
-	}); });
-
+	});  }); 
+    
 $(document).ready(function() {
-    var chatInterval = 250; //refresh interval in ms
+   var chatInterval = 250; //refresh interval in ms
     var $chatOutput = $("#chatbox");
     var $chatInput = $("#usermsg");
     var $chatSend = $("#submitmsg");
-
+    
     function sendMessage() {
         var chatInputString = $chatInput.val();
-
         $.get("?controller=chat&action=addMessage", {
             text: chatInputString
         });
@@ -56,6 +55,7 @@ $(document).ready(function() {
 		});
 	}
  setInterval (loadLog, 2500); });
+ 
 
 
 //$(document).ready(function() {

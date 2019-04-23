@@ -67,8 +67,14 @@
             $req->execute();
             $blogid = $db->lastInsertId();
         //upload blog image
-        BlogPost::uploadFile($blogid);
+        if (!empty($_FILES[self::InputKey]['blogid'])) {
+            BlogPost::uploadFile($blogid);
+	} else { 
+            BlogPost::uploadFile($blogid);
+        }
+        
     }
+    
     
     //function to bring up all blogposts in specified order
     public static function all($order, $direction) {
@@ -177,33 +183,33 @@ const InputKey = 'myUploader';
 
 public static function uploadFile($blogid) {
     //trigger errors
-	if (empty($_FILES[self::InputKey])) {
-		//die("File Missing!");
-                trigger_error("File Missing!");
-	}
-	if ($_FILES[self::InputKey]['error'] > 0) {
-		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
-	}
-	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
-		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
-	}
+//	if (empty($_FILES[self::InputKey])) {
+//		//die("File Missing!");
+//                trigger_error("File Missing!");
+//	}
+//	if ($_FILES[self::InputKey]['error'] > 0) {
+//		trigger_error("Handle the error! " . $_FILES[InputKey]['error']);
+//	}
+//	if (!in_array($_FILES[self::InputKey]['type'], self::AllowedTypes)) {
+//		trigger_error("Handle File Type Not Allowed: " . $_FILES[self::InputKey]['type']);
+//	}
 	   $tempFile = $_FILES[self::InputKey]['tmp_name'];
         $path = join(DIRECTORY_SEPARATOR, array(__DIR__,'..','views','images', $blogid));
 	       $destinationFile = $path . '.jpeg';
             $error = $_FILES[self::InputKey]['error'];
 
-        if($error === 0) {
+//        if($error === 0) {
             
 	if (!move_uploaded_file($tempFile, $destinationFile)) {
-		trigger_error("cannot upload");            
+		echo "";            
         } 
         if (file_exists($tempFile)) {
 		unlink($tempFile); 
 	}
-}     else {
-        $error = $_FILES['myfile']['error'];
-        checkError($error);   
-            }
+//}     else {
+//        $error = $_FILES['myfile']['error'];
+//        checkError($error);   
+//            }
 }
 
         function checkError($error) {
@@ -310,6 +316,10 @@ public static function uploadFile($blogid) {
       return $list;
     }
   }
+  
+  //shows ever error except stupid notices
+  error_reporting(E_ALL & ~E_NOTICE);
+  
   // upload function for microsoft azure blob containers
 //public static function uploadFile($blogid) {
 //    

@@ -29,16 +29,16 @@
                     <h3><?php echo $blogpost->title;?> </h3>
                 </a> 
                 <p class="card-text"><?php echo html_entity_decode($blogpost->content); ?> </p> 
-                <br><br>
-                <p><i class="fas fa-comment"></i> <?php echo $blogpost->blogComments($blogpost->blogid);?></p>
+                
                 <?php
                     $file = 'views/images/' . $blogpost->blogid . '.jpeg';
                     if(file_exists($file)){
-                        $img = "<img src='$file' width='150' />";
+                        $img = "<img src='$file' width='200' />";
                         echo $img;
                     }
                 ?>
-            <br>
+                <br><Br>
+                <p align="center"><i class="fas fa-comment"></i> <?php echo $blogpost->blogComments($blogpost->blogid);?></p>
             </div>
         </div>
       <br>

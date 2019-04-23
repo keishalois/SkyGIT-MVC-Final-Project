@@ -16,7 +16,7 @@
         <textarea class="form-control form-rounded" rows="1" cols="100" name="title" form="addform" placeholder="Title" required></textarea>
     </p>
 
-    <textarea class="jqte-test" class="form-control form-rounded" rows="10" cols="100" name="content" form="addform" placeholder="Start writing your blog here..." required></textarea>
+    <textarea class="jqte-test" class="form-control form-rounded" rows="10" cols="100" name="content" form="addform" placeholder="Start writing your blog here..."></textarea>
    
  
       <input type="hidden"
@@ -25,7 +25,7 @@
         />
  
          <div class="custom-file mb-3">
-    <input type="file" class="custom-file-input" name="myUploader" id="customFile" required>
+    <input type="file" class="custom-file-input" name="myUploader" id="customFile">
     <label class="custom-file-label" for="customFile">Choose file</label>
   </div>
       

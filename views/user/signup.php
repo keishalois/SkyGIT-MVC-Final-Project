@@ -43,6 +43,7 @@
                             <span class="input-group-addon"><i class="far fa-user"></i></span> <input type="text" id="usernameInput" name="username" placeholder="Username" />&nbsp;
                             <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span> <input type="password" id="passwordInput" name="password" placeholder="Password" required/>
                 <br> <br>
+                <!--                Added onclick check to run js function before submitting form-->
                 <input class="btn btn-default btn-lg"  onclick="checkUserExists()" value="Register"/>
                 <br> <br>
                         </form>

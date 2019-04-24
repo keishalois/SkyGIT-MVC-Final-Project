@@ -34,7 +34,6 @@ if(file_exists($file)){
 <br><br>
 </div>
 <hr>
-<hr>
     <?php // this is checking that the user is not a guest as guests cannot comment
            if(!($_SESSION["username"] == 'guest'))  {?>    
     <div>

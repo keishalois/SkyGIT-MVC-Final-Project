@@ -23,7 +23,7 @@
    foreach($blogposts as $blogpost) { ?>
 
   <div class="col-sm-4">
-        <div class="card" style="width: 18rem;">
+        <div class="card">
             <div class="card-body">
                 <a class="all-card-title" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'>
                     <h3><?php echo $blogpost->title;?> </h3>
@@ -38,7 +38,7 @@
                     }
                 ?>
                 <br><Br>
-                <a class="commButt" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'<p align="center"><i class="fas fa-comment"></i> <?php echo $blogpost->blogComments($blogpost->blogid);?></p></a>
+                <a class="commButt" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'<p><i class="fas fa-comment"></i> <?php echo $blogpost->blogComments($blogpost->blogid);?></p></a>
             </div>
         </div>
       <br>

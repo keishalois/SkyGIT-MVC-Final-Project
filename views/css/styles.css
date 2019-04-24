@@ -173,7 +173,7 @@ textarea {
    filter: Alpha(opacity=50);
    align-content: center;
    border-radius: 10px;
-
+   width: 18rem;
 }
 
 /*emptycomment is the css for the wow much empty image */
@@ -238,7 +238,7 @@ min-width: 300px;
 
 .profile-upload{
     position: relative;
-    left:50%;
+    left:40%;
     padding-top: -10%;
 }
 
@@ -246,6 +246,11 @@ min-width: 300px;
     position: absolute;
     left:20%;
     top:-120%;
+    padding-left:10%;
+}
+
+.picsize{
+        width: 40%;
 }
 
 .commButt:hover{
@@ -271,4 +276,40 @@ min-width: 300px;
     width:60%;
     height:100%;
 
+}
+
+
+/*responsive*/
+@media only screen and (max-width: 600px) {
+.profile-upload{
+    position: relative;
+    left:20%;
+    padding-top: 10%;
+}
+.propic{
+    position: relative;
+    left:20%;
+    top:-120%;
+    padding-left:10%;
+}
+.card{
+    width:100%;
+    text-align:center;
+}
+
+.add-blog{
+    width:100%;
+}
+
+.foot{
+    postition: relative;
+    width:50%;
+    left:25%;
+}
+
+.userblog{
+    width:100%;
+    margin-right:auto;
+    margin-left: auto;
+}
 }

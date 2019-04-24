@@ -236,21 +236,6 @@ min-width: 300px;
     
 }
 
-/*.profile-upload{
-    position: relative;
-}
-
-.propic{
-    position: absolute;
-    left:20%;
-    top:-120%;
-    padding-left:10%;
-}*/
-
-/*.picsize{
-        width: 40%;
-}*/
-
 .commButt:hover{
     color: #ccc;
     text-decoration: none;

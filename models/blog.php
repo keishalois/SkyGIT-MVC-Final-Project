@@ -112,7 +112,7 @@
         //since this is taking a username parameter, we need to prepare the sql rather than query
       $req = $db->prepare('SELECT blogposts.BlogID, blogposts.BlogTitle, blogposts.BlogContent, blogposts.DateAdded, users.Username
                         FROM blogposts
-                        INNER JOIN users ON blogposts.UserID = users.UserID WHERE users.Username = :username ORDER BY blogid asc;');
+                        INNER JOIN users ON blogposts.UserID = users.UserID WHERE users.Username = :username ORDER BY blogid desc;');
         //execute sql statement specifying what the username parameter value is
     $req->execute(array('username' =>  $_SESSION["username"]));
     $blogposts = $req->fetchAll();

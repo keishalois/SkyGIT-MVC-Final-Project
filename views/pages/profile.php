@@ -67,7 +67,7 @@
    foreach($blogposts as $blogpost) { ?>
 
   <div class="col-sm-4">
-        <div class="card" style="width: 18rem;">
+        <div class="card"">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $blogpost->title; ?> </h5>
                     <h6 class="card-subtitle mb-2 text-muted">You own this blog</h6>

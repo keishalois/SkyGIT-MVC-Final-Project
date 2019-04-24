@@ -19,7 +19,7 @@ a {
   
     a:hover { text-decoration:underline; }
   
-#wrapper, #loginform {
+#wrapper{
     margin:0 auto;
     padding-bottom:25px;
     background:#f88379;
@@ -27,10 +27,6 @@ a {
     border:1px solid #ACD8F0;
     border-radius:10px;
 }
-  
-#loginform { padding-top:18px; }
-  
-    #loginform p { margin: 5px; }
   
 #chatbox {
     text-align:left;

@@ -24,11 +24,12 @@
    }
     ?> 
    <br>
-    <p align="center">Upload your profile photo:</p>
+    
     <div custom-file mb-3>
         <?php        //check user is not a guest and let them view user blogs
         if(!($_SESSION["username"] == 'guest')) { ?>
         <!-- upload profile photo form-->
+            <p align='center'>Upload your profile photo:</p>   
             <div align="center" class="profile-upload">
                 
           <form class="col-sm-5"enctype="multipart/form-data" action="" method="POST">

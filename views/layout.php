@@ -63,13 +63,14 @@
             <div class="w3-container"> 
                 <?php require_once('routes.php'); ?>
             </<div>
-                <br><br>
+                <br>
 <!-- this div displays the footer on each page -->
-<!--            <div class="w3-container w3-gray">
-                <footer>
-                    Copyright &COPY; <?//= date('Y'); ?>
-                </footer>
-            </div>-->
+            <div class="foot">
+                
+                    <a href='?controller=pages&action=aboutus' title='About us'>About us</a> -- 
+                    Copyright - FML:Fork My Life &COPY; 
+               
+            </div>
 <!-- scripts required for bootstrap -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

@@ -34,4 +34,8 @@ class PagesController {
       require_once('views/pages/addadmin.php');
     }
     
+      public function aboutus() {
+      require_once('views/pages/aboutus.php');
+    }
+    
 }

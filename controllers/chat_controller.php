@@ -8,11 +8,6 @@
 
 class ChatController {
     
-public function login() {
-        Chatbox::loginChat($_SESSION["username"]);
-        ChatController::readAll();
-        require_once('views/chatbox/chat.php');
-}
 
 public function readAll() {
     // we store all the posts in a variable and get the blogid from the url to only display relevant comments

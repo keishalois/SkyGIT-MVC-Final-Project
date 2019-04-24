@@ -1,5 +1,5 @@
 <br><br>
-<div class="row">
+<div class="row"    >
     <div class="col-sm-2">
   <select class="form-control" name="order" id="order" onchange="orderBlogs(this)">
     <option value="Select">Sort By</option>
@@ -22,7 +22,7 @@
 <?php    //display blogs associated to user 
    foreach($blogposts as $blogpost) { ?>
 
-  <div class="col-sm-4">
+  <div class="col-sm-4" align="center">
         <div class="card">
             <div class="card-body">
                 <a class="all-card-title" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'>

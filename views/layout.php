@@ -67,7 +67,7 @@
 <!-- this div displays the footer on each page -->
             <div class="foot">
                 
-                    <a href='?controller=pages&action=aboutus' title='About us'>About us</a> -- 
+                    <a class="foot-text" href='?controller=pages&action=aboutus' title='About us'>About us</a> -- 
                     Copyright - FML:Fork My Life &COPY; 
                
             </div>

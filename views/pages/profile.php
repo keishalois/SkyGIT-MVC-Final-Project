@@ -1,62 +1,51 @@
-<div class="profile-page">
-<h3>Hello there <b><?php echo $username; ?></b>!</h3>
-<h5>how are you today??? </h5>
-
-<!-- this div put the silly smiley face in - we can delete this is people don't like -->
-<div id="div1" class="fa fa-4x"></div>
-        <script>// this is just a silly smiley we can get rid of if people don't like it
-                function smile() {
-                        var a;
-                        a = document.getElementById("div1");
-                        a.innerHTML = "&#xf118;";
-                        setTimeout(function () {
-                            a.innerHTML = "&#xf11a;";
-                            }, 1000);
-                        setTimeout(function () {
-                            a.innerHTML = "&#xf119;";
-                            }, 2000);
-                        setTimeout(function () {
-                            a.innerHTML = "&#xf11a;";
-                            }, 3000);
-                        }
-            smile();
-            setInterval(smile, 4000);
-        </script>
-    <?php        //check user is not a guest and let them view user blogs
-        if(!($_SESSION["username"] == 'guest')) { ?>
-   <!-- upload profile photo form-->
-      <div class="profile-upload">
-<form enctype="multipart/form-data" action="" method="POST">
-   <p>Upload your profile photo!</p>
-   <input type="file" name="fileToUpload"></input><br />
-   <input type="submit" value="Upload"></input>
- </form>
-
-<?php
-//php code to upload photo
-if(!empty($_FILES['fileToUpload']))
-   {
-   $path =   __DIR__ .  "/../images/prophotos/";
-   $destinationFile = $path . $username . '.jpeg';
-   $tempyFile = $_FILES['fileToUpload']['tmp_name'];
-
-   if(move_uploaded_file($tempyFile, $destinationFile)) {
-     echo "The file ".  ( $_FILES['fileToUpload']['name']).
-     " has been uploaded as your profile photo!";
-   } else{
-       echo "There was an error uploading the file, please try again!";
-   }
-   } //php code to show photo
+<div class="add-blog">
+    <br>
+    <h2 class="text-center">Hello there <b><?php echo $username; ?></b>!</h2>
+    <br>
+    <?php
+                //php code to upload photo
+                if(!empty($_FILES['fileToUpload']))
+                    {
+                    $path =   __DIR__ .  "/../images/prophotos/";
+                    $destinationFile = $path . $username . '.jpeg';
+                    $tempyFile = $_FILES['fileToUpload']['tmp_name'];
+                    if(move_uploaded_file($tempyFile, $destinationFile)) {
+                        echo "The file ".  ( $_FILES['fileToUpload']['name']).
+                        " has been uploaded as your profile photo!";
+                    } else{
+                        echo "There was an error uploading the file, please try again!";
+                    }
+                } //php code to show photo
        $file = 'views/images/prophotos/' . $username . '.jpeg';
        if(file_exists($file)){
-       $img = "<div class='propic'>Your current profile photo:<br><img src='$file' width='200' /></div>";
+       $img = "<div class='text-center'><img src='$file' width='200' /></div>";
        echo $img;
    }
     ?> 
+   <br>
+    <p align="center">Upload your profile photo:</p>
+    <div custom-file mb-3>
+        <?php        //check user is not a guest and let them view user blogs
+        if(!($_SESSION["username"] == 'guest')) { ?>
+        <!-- upload profile photo form-->
+            <div align="center" class="profile-upload">
+                
+          <form class="col-sm-5"enctype="multipart/form-data" action="" method="POST">
+   <input type="file" class="custom-file-input" name="fileToUpload" id="customFile">
+   <label align="left" class="custom-file-label" for="customFile">Choose file</label>
+   <br>
+  <p align="center">
+      <br>
+    <input class="btn btn-light" type="submit" value="Upload">
+  </p>
+ </form>
+                <br>
+          </div>
+    </div>
       </div>
         <br><br>
         <p id="seeuserblogs">  
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn commentsbutton" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Show my blogs
             </button>
         </p>
@@ -90,8 +79,9 @@ if(!empty($_FILES['fileToUpload']))
             <br><br>
             </div>
         </div>
+      <br>
   </div>
-            <hr>
+            <br>
         <?php } ?>
     </div>
 </div>
@@ -106,4 +96,3 @@ else { ?>
     to comment or post until you make an account or sign in!</p>
 <?php } ?>
 
-</div>

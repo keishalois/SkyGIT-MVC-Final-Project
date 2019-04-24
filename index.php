@@ -18,7 +18,7 @@
   }
   //this is checking if the controller is comment with action readall as comment readall
   // is what gives us the data for the read all comments on a blogpost and we don't want a nav bar or fotter
-    if (!($controller === 'comment' && $action === 'readAll') || !($controller === 'chat' && $action === 'readAll')) {
+    if (!($controller === 'comment' && $action === 'readAll') || ($controller === 'chat' && $action === 'readAll')) {
         //if it is anything but comment-readall, then use layout.php as a template html layout
             require_once('views/layout.php'); }
     else {

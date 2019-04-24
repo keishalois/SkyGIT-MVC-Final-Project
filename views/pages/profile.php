@@ -1,3 +1,4 @@
+<br><br>
 <div class="add-blog">
     <br>
     <h2 class="text-center">Hello there <b><?php echo $username; ?></b>!</h2>

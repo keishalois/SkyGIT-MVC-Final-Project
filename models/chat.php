@@ -33,6 +33,7 @@ private $timestamp;
             $username = $_SESSION["username"];
             }
             $req->execute();
+       $_SESSION["chatbox"] = true;
     }
 
     public function exitChat($username) {
@@ -44,6 +45,7 @@ private $timestamp;
             $username = $_SESSION["username"];
             }
             $req->execute();
+                   $_SESSION["chatbox"] = false;
     }
 
     public function addChatMessage($message) {
@@ -63,6 +65,7 @@ private $timestamp;
     }
 
     public function viewChatLog() {
+      if(empty($_SESSION["chatbox"])) {Chatbox::loginChat($_SESSION["username"]);}  
     //first make an empty list array to hold chats returned from sql query
       $list = [];
         //connect to database
@@ -74,7 +77,7 @@ private $timestamp;
         $list[] = new Chatbox($chatmessage['Username'], $chatmessage['Message'], $chatmessage['Timestamp']);
       }
       return $list;
-    }
+    } 
     
 
 }

@@ -27,7 +27,7 @@
 $controllers = array('pages' => ['profile', 'error'],
                     'blog' => ['readAll','read','create','update','delete', 'search'],
                     'comment' => ['readAll','create','delete'],
-                    'chat' => ['login', 'readAll','addMessage','exitChat'],
+                    'chat' => ['readAll','addMessage','exitChat'],
                     );
 
   // check that the requested controller and action are both allowed

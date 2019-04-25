@@ -48,7 +48,7 @@ class User {
             $_SESSION["username"] = $this->username;
             header("Location:../../index.php?controller=blog&action=readAll");
         } else {
-            die("Login failed sorry ...");
+            die("Uh oh, your username isn't right. Try again?");
         }
     }
 
@@ -114,7 +114,7 @@ class User {
 //        return userAdded($username);
             } catch (PDOException $e) {
                 $error = $e->errorInfo();
-                die("Sign up failed sorry ..." . $error . $e->getMessage());
+                die("Eek, sorry, we couldn't sign you up. Try again?" . $error . $e->getMessage());
             }
             unset($req);
         }   else {
@@ -137,7 +137,7 @@ class User {
                 }
         } catch (PDOException $e) {
             $error = $e->errorInfo();
-            die("Login failed sorry ..." . $error . $e->getMessage());
+            die("Uh oh, something's not right. Try again?" . $error . $e->getMessage());
         }
         unset($stmt);
     }
@@ -166,7 +166,7 @@ class User {
     }
         catch (PDOException $e) {
             $error = $e->errorInfo();
-            die("Sign up failed sorry ..." . $error . $e->getMessage()); }
+            die("Eek, sorry, we couldn't sign you up. Try again?" . $error . $e->getMessage()); }
         unset($req);
     }     else {
             return userExists($username);

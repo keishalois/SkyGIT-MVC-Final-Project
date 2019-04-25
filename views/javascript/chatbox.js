@@ -1,7 +1,7 @@
 $(document).ready(function(){
     
     	$("#exit").click(function(){
-		var exit = confirm("Are you sure you want to end the session?");
+		var exit = confirm("Sure you want to leave this session?");
 		if(exit===true){
             $.get("?controller=chat&action=exitChat");				
             window.location.href = 'index.php?controller=blog&action=readAll';}		

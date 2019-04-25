@@ -18,7 +18,7 @@ public function readAll() {
 
 public function addMessage() {
 	Chatbox::addChatMessage($_POST['text']);
-        require('models/chat.php');
+        require_once('models/chat.php');
 }
 
 public function exitChat() {

@@ -8,7 +8,7 @@ $(document).ready(function(){
 	});  }); 
     
 $(document).ready(function() {
-   var chatInterval = 250; //refresh interval in ms
+   var chatInterval = 150; //refresh interval in ms
     var $chatOutput = $("#chatbox");
     var $chatInput = $("#usermsg");
     var $chatSend = $("#submitmsg");
@@ -69,7 +69,7 @@ function loadLog() {
     xhttp.open("GET", "?controller=chat&action=readLog", true); 
     xhttp.send();
             }
- setInterval (loadLog, 5000); });
+ setInterval (loadLog, 1500); });
 
 
 //$(document).ready(function() {

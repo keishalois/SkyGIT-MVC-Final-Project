@@ -22,8 +22,8 @@ function checkUserExists() {
     if (username == "" || email == "") {
         alert("Please enter an email and username.")
     } else {
-        ajaxRequest.open("GET", "checkUsernameExists.php?username=" + username + "&email=" + email, true);
-        ajaxRequest.send();
+        xmlhttp.open("GET", "checkUsernameExists.php?username=" + username + "&email=" + email, true);
+        xmlhttp.send();
     }
 }
 

@@ -30,7 +30,7 @@
                                 <h4>For all those FML moments</h4>
                                 <p><i>FYI: A fork is a copy of a repository.</i>
 				<hr>
-                                <a class="btn btn-default btn-lg" href='views/user/login.php'>Login </a>
+                                <a class="btn btn-default btn-lg" href='views/user/login.php'>Sign in </a>
                                 <a class="btn btn-default btn-lg" href='views/user/signup.php'>Sign up</a>
                                 <a class="btn btn-default btn-lg" href='views/user/guestpage.php'>Guest?</a>
                            </div>

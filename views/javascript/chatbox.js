@@ -15,7 +15,7 @@ $(document).ready(function() {
     
     function sendMessage() {
         var chatInputString = $chatInput.val();
-        $.get("?controller=chat&action=addMessage", {
+        $.post("?controller=chat&action=addMessage", {
             text: chatInputString
         });
         retrieveMessages();
@@ -30,13 +30,15 @@ $(document).ready(function() {
         sendMessage();
     });
 
-	$("#submitmsg").click(function(){	
-		var clientmsg = $("#usermsg").val();
-		$.post("?controller=chat&action=addMessage", {text: clientmsg});				
-		$("#usermsg").attr("value", "");
-                loadLog;
-		return false;
-	});
+// 	$("#submitmsg").click(function(){	
+// // 		var clientmsg = $("#usermsg").val();
+// // 		$.post("?controller=chat&action=addMessage", {text: clientmsg});				
+// // 		$("#usermsg").attr("value", "");
+		
+// 		sendMessage();
+//                 loadLog;
+// // 		return false;
+// 	});
 
 //    function loadLog(){
 //     var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request

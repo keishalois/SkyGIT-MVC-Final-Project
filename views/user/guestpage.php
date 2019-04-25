@@ -31,7 +31,7 @@
         <input type="hidden" name="password" value="guest" required/>
         Are you sure you don't want to <a href='signup.php' class="guestsign">sign up</a>?! 
         <br> <br>
-        <input type="submit" class="btn btn-default btn-lg" href='#'value="Go Guest!"/>
+        <input type="submit" class="btn btn-default btn-lg" href='#'value="Go guest!"/>
         </form>
         </div>
 	</div>

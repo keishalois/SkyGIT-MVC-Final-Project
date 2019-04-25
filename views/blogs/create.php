@@ -10,7 +10,7 @@
 
 <form action="" method="POST" class="w3-container" id="addform" enctype="multipart/form-data">
     <br>
-    <h2 class="text-center">New Blog</h2>
+    <h2 class="text-center">New blog</h2>
     <p>
         <br>
         <textarea class="form-control form-rounded" rows="1" cols="100" name="title" form="addform" placeholder="Title" required></textarea>
@@ -44,7 +44,7 @@
  <input type="file" name="myUploader" class="" required/>-->
   <br><br>
  <p align="center">
-   <input class="btn btn-light text-center" type="submit" value="Add Blog Post">
+   <input class="btn btn-light text-center" type="submit" value="Add blog post">
  </p>
  </div>
 </form>

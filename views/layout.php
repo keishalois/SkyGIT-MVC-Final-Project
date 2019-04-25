@@ -33,8 +33,8 @@
   </head>
   <body>
       <div class="nav-bar" align="center">
-        <a href='?controller=blog&action=readAll' title='All Blogs'><i class="fas fa-blog fa-3x"></i></a>
-       <a href='?controller=pages&action=profile' title='Profile'>
+        <a href='?controller=blog&action=readAll' title='All blogs'><i class="fas fa-blog fa-3x"></i></a>
+       <a href='?controller=pages&action=profile' title='My profile'>
                 <?php
        // if there is a proile photo uploaded it will show it in Nav, or it will show profile icon
            $file = 'views/images/prophotos/' . $username . '.jpeg';
@@ -48,14 +48,14 @@
         <?php  //check user is not a guest 
         if(!($_SESSION["username"] == 'guest'))  {
             ?>    
-        <a href='?controller=blog&action=create' title='New Blog'><i class="fas fa-plus fa-3x"></i></a>
-        <a href='?controller=chat&action=readAll' title='Live Chat'><i class="fas fa-comment-dots fa-3x"></i></a> 
+        <a href='?controller=blog&action=create' title='Add new blog'><i class="fas fa-plus fa-3x"></i></a>
+        <a href='?controller=chat&action=readAll' title='ChatBox'><i class="fas fa-comment-dots fa-3x"></i></a> 
         <a href='landingpage.php' title='Sign Out'><i class="fas fa-sign-out-alt fa-3x"></i></a> 
     <?php } //if user is a guest, they can only read blogs or sign up/login
      else {
          ?>     
-        <a href='views/user/signup.php' title='Sign Up'><i class="fas fa-user-plus fa-3x"></i></a>
-        <a href='views/user/login.php' title='Login'><i class="fas fa-portrait fa-3x"></i></a> 
+        <a href='views/user/signup.php' title='Sign up'><i class="fas fa-user-plus fa-3x"></i></a>
+        <a href='views/user/login.php' title='Sign in'><i class="fas fa-portrait fa-3x"></i></a> 
     <?php } ?>
       </div>
 

@@ -12,7 +12,7 @@
     <div class="col-sm-1"></div>
     <div align="right" class="col-sm-5">
     <form action="index.php?controller=blog&action=search" method="post">
-      <input class="form-control" type="text" placeholder="Search.." name="search">
+      <input class="form-control" type="text" placeholder="Search..." name="search">
     </form>
     </div>
     <br>

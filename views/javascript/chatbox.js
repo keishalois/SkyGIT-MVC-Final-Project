@@ -67,7 +67,7 @@ function loadLog() {
     xhttp.open("GET", "?controller=chat&action=readLog", true); 
     xhttp.send();
             }
- setInterval (loadLog, 1500); });
+ setInterval (loadLog, 5000); });
 
 
 //$(document).ready(function() {

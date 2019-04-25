@@ -1,5 +1,5 @@
 <br><br>
-<h4>Search Results:</h4>
+<h4>Search results:</h4>
 <br>
 <div class="row">
 <?php    //display blogs associated to user 

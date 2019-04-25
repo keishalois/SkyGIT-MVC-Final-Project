@@ -18,9 +18,11 @@
   }
   //this is checking if the controller is comment with action readall as comment readall
   // is what gives us the data for the read all comments on a blogpost and we don't want a nav bar or fotter
-    if (!($controller === 'comment' && $action === 'readAll') && !($controller === 'chat' && $action === 'readAll')) {
+    if (!($controller === 'comment' && $action === 'readAll') && !($controller === 'chat' && $action === 'readAll') && !($controller === 'chat' && $action === 'readLog')) {
         //if it is anything but comment-readall, then use layout.php as a template html layout
             require_once('views/layout.php'); }
+    else if (($controller === 'chat' && $action === 'readAll') || ($controller === 'chat' && $action === 'readLog')) {
+                 require_once('views/chatlayout.php'); }
     else {
         //commentlayout.php is only used in comment_controller readall in the view/blogs/read.php
         //file when you click on the button to see the blog comments and it loads commentlayout.php

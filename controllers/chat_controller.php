@@ -26,4 +26,11 @@ public function exitChat() {
 	Chatbox::exitChat($_SESSION["username"]);
 }
 
+public function readLog() {
+    // we store all the posts in a variable and get the blogid from the url to only display relevant comments
+      $chatmessages = Chatbox::viewChatLog();
+    //this brings up the html to display the list of comments
+      require_once('views/chatbox/chatlog.php');
+    }
+
 }

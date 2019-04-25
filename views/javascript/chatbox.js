@@ -22,7 +22,7 @@ $(document).ready(function() {
     }
 
     function retrieveMessages() {
-        $.get("?controller=chat&action=readAll", function() {
+        $.get("?controller=chat&action=readLog", function() {
             $chatOutput.html(); //Paste content into chat output
         });
     }
@@ -38,24 +38,36 @@ $(document).ready(function() {
 		return false;
 	});
 
-    function loadLog(){
-     var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request
-		$.ajax({
-			url: "?controller=chat&action=readAll",
-			cache: false,
-			success: function(){		
-				$("#chatbox").html(); //Insert chat log into the #chatbox div	
-				
-				//Auto-scroll			
-				var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request
-				if(newscrollHeight > oldscrollHeight){
-				$("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
-				}					
-		  	}
-		});
-	}
- setInterval (loadLog, 2500); });
- 
+//    function loadLog(){
+//     var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request
+//		$.ajax({
+//			url: "?controller=chat&action=readLog",
+//			cache: false,
+//			success: function(){		
+//				$("#chatbox").html(); //Insert chat log into the #chatbox div	
+//				
+//				//Auto-scroll			
+////				var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request
+////				if(newscrollHeight > oldscrollHeight){
+////				$("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
+////				}					
+//		  	}
+//		});
+//	}
+function loadLog() {
+    xhttp= new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+ // When readyState is 4 and status is 200, the response is ready
+            if(this.readyState===4 && this.status ===200){
+//this says we want to send back the result of this function to the element with the ID=comment
+                document.getElementById("chatbox").innerHTML = this.responseText;
+            }
+        };
+//this opens the readall comments PHP file in views and sends the blogid to get comments associated with blog
+    xhttp.open("GET", "?controller=chat&action=readLog", true); 
+    xhttp.send();
+            }
+ setInterval (loadLog, 1500); });
 
 
 //$(document).ready(function() {

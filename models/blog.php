@@ -218,22 +218,22 @@ public static function uploadFile($blogid) {
             //UPLOAD_ERR_INI_SIZE
         //error throws 2 means uploaded file exceeds the MAX_FILE_SIZE directive in HTML form
             //UPLOAD_ERR_FORM_SIZE
-                case 1: case 2: $fileError = "Your file is too big."; break;
+                case 1: case 2: $fileError = "Sorry, your file's too big."; break;
         //error 3 means uploaded file was only partially uploaded
             //UPLOAD_ERR_PARTIAL
-                case 3: $fileError = "File was only partially uploaded"; break;
+                case 3: $fileError = "Uh oh, only part of your file was uploaded."; break;
         //error 4 means no file uploaded
             //UPLOAD_ERR_NO_FILE
-                case 4: $fileError = 'No file uploaded.'; break;
+                case 4: $fileError = 'Eek, no file uploaded :('; break;
         //error 6 means no temp directory specified
             //UPLOAD_ERR_NO_TMP_DIR
-                case 6: $fileError = 'No temp directory specified.'; break;
+                case 6: $fileError = 'Er, no temp directory provided.'; break;
     // error 7 means failed to write file to disk
             //UPLOAD_ERR_CANT_WRITE
                 case 7: $fileError = 'Cannot write to disk.'; break;
         //error 8 means PHP extension stopped the file upload
-                case 8: $fileError = 'A PHP extension stopped the file upload'; break;
-                default : $fileError = 'Unknown error - try again';
+                case 8: $fileError = 'Eek, a PHP extension stopped the file upload'; break;
+                default : $fileError = 'Sorry, something went wrong.Try again?';
             }
             return $fileError;
         }

@@ -1,7 +1,7 @@
 <head>
 <title>FML ChatBox</title>
 <link type="text/css" rel="stylesheet" href="views/chatbox/chat.css" />
-        <script src="views/javascript/chatbox.js"></script>
+        <script src="/views/javascript/chatbox.js"></script>
 <!--    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>-->
     <script
   src="https://code.jquery.com/jquery-3.4.0.js"

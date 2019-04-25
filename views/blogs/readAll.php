@@ -2,11 +2,11 @@
 <div class="row"    >
     <div class="col-sm-2">
   <select class="form-control" name="order" id="order" onchange="orderBlogs(this)">
-    <option value="Select">Sort By</option>
-    <option value="Newest">Newest Post</option>
-    <option value="Oldest">Oldest Post</option>
-    <option value="NewComm">Newest Comment</option>
-    <option value="BlogTitle">Name</option>
+    <option value="Select">Sort by:</option>
+    <option value="Newest">Newest post</option>
+    <option value="Oldest">Oldest post</option>
+    <option value="NewComm">Newest comment</option>
+    <option value="BlogTitle">Blog title</option>
   </select>
     </div>
     <div class="col-sm-1"></div>

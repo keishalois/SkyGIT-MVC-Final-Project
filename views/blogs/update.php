@@ -10,7 +10,7 @@
 
 <form action="" method="POST" class="w3-container" id="addform" enctype="multipart/form-data">
     <br>
-    <h2 class="text-center">Update Blog</h2>
+    <h2 class="text-center">Update blog</h2>
     <div class ="add-form">
     <p>
         <br>
@@ -38,7 +38,7 @@ if(file_exists($file)){
   </div>
   <br><br>
   <p align="center">
-    <input class="btn btn-light" type="submit" value="Update Blog">
+    <input class="btn btn-light" type="submit" value="Update blog">
     </p>
     
 

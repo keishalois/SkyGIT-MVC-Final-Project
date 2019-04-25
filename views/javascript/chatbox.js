@@ -8,7 +8,7 @@ $(document).ready(function(){
 	});  }); 
     
 $(document).ready(function() {
-   var chatInterval = 150; //refresh interval in ms
+//    var chatInterval = 150; //refresh interval in ms
 //     var $chatOutput = $("#chatbox");
     var $chatInput = $("#usermsg");
     var $chatSend = $("#submitmsg");

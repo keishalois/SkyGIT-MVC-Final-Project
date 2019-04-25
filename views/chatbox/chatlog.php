@@ -12,7 +12,7 @@
 <!-- this div displays the date and username associated with the comment -->
 <div> <p>
               <span class="chatdate"> <?php echo $chatmessage->getTimestamp();?> </span>
-              <span class="chatname"> <?php echo $chatmessage->getUser();?></span>
+              <span class="chatname"> <?php echo $chatmessage->getUser();?>:</span>
               <span class="chatmessage"><?php echo $chatmessage->getMessage();?> </span>
     </p>
                 </div>

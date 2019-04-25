@@ -50,7 +50,7 @@
             ?>    
         <a href='?controller=blog&action=create' title='Add new blog'><i class="fas fa-plus fa-3x"></i></a>
         <a href='?controller=chat&action=readAll' title='ChatBox'><i class="fas fa-comment-dots fa-3x"></i></a> 
-        <a href='landingpage.php' title='Sign Out'><i class="fas fa-sign-out-alt fa-3x"></i></a> 
+        <a href='landingpage.php' title='Sign out'><i class="fas fa-sign-out-alt fa-3x"></i></a> 
     <?php } //if user is a guest, they can only read blogs or sign up/login
      else {
          ?>     

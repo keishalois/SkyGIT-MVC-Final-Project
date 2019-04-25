@@ -12,7 +12,7 @@ function checkUserExists() {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             if (JSON.parse(xmlhttp.response)['userExists']) {
-                alert("User exists, sorry!");
+                alert("Sorry, that username's taken! Try another?");
             } else {
                 $('#signUpForm').submit()
             }
@@ -20,7 +20,7 @@ function checkUserExists() {
     };
     // Validation to check fields aren't blank. If not, run the php, appending the user's username and email within the URL.
     if (username == "" || email == "") {
-        alert("Please enter an email and username.")
+        alert("Uh oh, please enter an email address and a username.")
     } else {
         xmlhttp.open("GET", "checkUsernameExists.php?username=" + username + "&email=" + email, true);
         xmlhttp.send();

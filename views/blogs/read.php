@@ -54,7 +54,7 @@ if(file_exists($file)){
 <!-- this button toggles the view all blog comments page 
 - which is a separate view controlled by comment controller -->
 <div id="seecommentsbutton">
-    <button type="button" class="btn commentsbutton" data-toggle="collapse" data-target="#collapseExample" onclick="showComments(<?php echo $blogpost->blogid; ?>)">See the discussion here  <i class="far fa-hand-point-down"></i></button> 
+    <button type="button" class="btn commentsbutton" data-toggle="collapse" data-target="#collapseExample" onclick="showComments(<?php echo $blogpost->blogid; ?>)">Read more comments  <i class="far fa-hand-point-down"></i></button> 
 </div>
 <br><br>
     <!-- this div is where the collapsed info will go once button is clicked -->        

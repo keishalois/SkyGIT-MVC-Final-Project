@@ -18,7 +18,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Sign Up - Fork My Life</title>
+	<title>Sign up – Fork My Life</title>
         <link rel="icon" type="image/png" href="../images/standard/header-fml.png">
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
@@ -44,10 +44,10 @@
                             <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span> <input type="password" id="passwordInput" name="password" placeholder="Password" required/>
                 <br> <br>
                 <!--                Added onclick check to run js function before submitting form-->
-                <input class="btn btn-default btn-lg"  onclick="checkUserExists()" value="Register"/>
+                <input class="btn btn-default btn-lg"  onclick="checkUserExists()" value="Sign up"/>
                 <br> <br>
                         </form>
-                        <h6>Already signed up?</h6><a class="btn btn-default btn-lg" href='login.php'>Log in!</a>
+                        <h6>Already signed up?</h6><a class="btn btn-default btn-lg" href='login.php'>Sign in!</a>
                     </div>
             </div>
 </div>

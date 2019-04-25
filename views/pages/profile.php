@@ -94,7 +94,6 @@
 // below displays the guest home page
 
 else { ?>
-<p>As a guest, you can only see posts... you are not allowed
-    to comment or post until you make an account or sign in!</p>
+<p>As a guest, you can only read posts... you can't add comments or create a post until you sign up or sign in!</p>
 <?php } ?>
 

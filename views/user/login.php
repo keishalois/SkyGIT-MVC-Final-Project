@@ -16,7 +16,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Log In - Fork My Life</title>
+	<title>Sign in – Fork My Life</title>
         <link rel="icon" type="image/png" href="../images/standard/header-fml.png">
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
@@ -39,10 +39,10 @@
                             <span class="input-group-addon"><i class="far fa-user"></i></span><input type="text" name="username" placeholder="Username" required/> &nbsp; &nbsp; &nbsp; &nbsp;
                             <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span><input type="password" name="password" placeholder="Password" required/>
                         <br> <br>
-                            <input type="submit" class="btn btn-default btn-lg" href='#'value="Login"/>
+                            <input type="submit" class="btn btn-default btn-lg" href='#'value="Sign in"/>
                         <br> <br>
                         </form>
-                        <h6>New around here?</h6><a class="btn btn-default btn-lg" href='signup.php'>Sign up!</a>
+                        <h6>New here?</h6><a class="btn btn-default btn-lg" href='signup.php'>Sign up!</a>
                 </div>
         </div>
 </div>

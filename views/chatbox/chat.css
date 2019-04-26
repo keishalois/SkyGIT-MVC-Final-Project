@@ -38,17 +38,15 @@ a {
     width:80%;
     border:1px solid #ACD8F0;
     overflow:auto; 
-
 }
   
 #usermsg {
     width:70%;
-    border:1px solid #ACD8F0; }
+    border:1px solid #ACD8F0; 
+}
   
 #submit { width: 60px; }
-  
-.error { color: #ff0000; }
-  
+    
 #menu { padding:12.5px 25px 12.5px 25px; }
   
 .welcome { float:left; 
@@ -57,8 +55,6 @@ color:white;
   
 .logout { float:right; }
   
-.msgln { margin:0 0 2px 0; }
-
 @media only screen and (max-width: 600px) {
 #wrapper{
  width:100%;

@@ -86,7 +86,7 @@
             <br>
         <?php } ?>
     </div>
-</div>
+
 <br><br>
 <?php } ?>
 
@@ -96,4 +96,5 @@
 else { ?>
 <p>As a guest, you can only read posts... you can't add comments or create a post until you sign up or sign in!</p>
 <?php } ?>
-
+<br><br><br><br>
+</div>

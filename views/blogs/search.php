@@ -8,7 +8,7 @@
   <div class="col-sm-4">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <a class="card-title" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'>
+                <a class="all-card-title" href='?controller=blog&action=read&blogid=<?php echo $blogpost->blogid; ?>'>
                     <h3><?php echo $blogpost->title;?> </h3>
                 </a> 
                 <p class="card-text"><?php echo html_entity_decode($blogpost->content); ?> </p> 
